@@ -4,9 +4,8 @@ name: Tests
 
 on:
   push:
-    branches: [ "main", "develop" ]
   pull_request:
-    branches: [ "main", "develop" ]
+    types: [opened]
 
 jobs:
   build:
@@ -14,8 +13,14 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
+    - name: Cancel previous jobs
+      uses: styfle/cancel-workflow-action@0.11.0
+      
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+        
+    - name: Build project
       run: swift build -v
+      
     - name: Run tests
       run: swift test -v
