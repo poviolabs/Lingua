@@ -27,8 +27,9 @@ final class APIRequestExecutorTests: XCTestCase {
       let _: TestDecodable = try await sut.send(testRequest)
       XCTFail("Expected error to be thrown")
     } catch {
-      XCTAssertEqual((error as NSError).domain, expectedError.domain)
-      XCTAssertEqual((error as NSError).code, expectedError.code)
+      let error = error as NSError
+      XCTAssertEqual(error.domain, expectedError.domain)
+      XCTAssertEqual(error.code, expectedError.code)
     }
   }
   
