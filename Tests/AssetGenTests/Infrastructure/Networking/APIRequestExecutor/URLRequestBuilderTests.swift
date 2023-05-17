@@ -5,26 +5,27 @@ final class URLRequestBuilderTests: XCTestCase {
   private let sut = URLRequestBuilder(baseURLString: "https://example.com")
   
   func test_build_whenValidRequest_returnsURLRequest() throws {
-    let request = MockRequest()
+    let httpMethod = HTTPMethod.get
+    let request = MockRequest(method: httpMethod)
     
     let urlRequest = try sut.build(from: request)
     
-    XCTAssertEqual(urlRequest.httpMethod, "GET")
+    XCTAssertEqual(urlRequest.httpMethod, httpMethod.rawValue)
     XCTAssertEqual(urlRequest.url?.absoluteString, "https://example.com/mock-path?key=value")
   }
   
   func test_build_allHTTPHeaderFields_returnsURLRequest() throws {
-    let request = MockRequestWithHeaders()
+    let headers = ["key": "value"]
+    let request = MockRequestWithHeaders(path: "/mock-path", allHTTPHeaderFields: headers)
     
     let urlRequest = try sut.build(from: request)
     
-    XCTAssertEqual(urlRequest.value(forHTTPHeaderField: "key"), "value")
+    XCTAssertEqual(urlRequest.value(forHTTPHeaderField: "key"), headers["key"])
   }
   
   func test_buildURL_throwsInvalidRequest() throws {
     let urlString = "https://example.com"
-    let url = URL(string: urlString)!
-    XCTAssertNotNil(url)
+    let url = try XCTUnwrap(URL(string: urlString))
     
     do {
       let _ = try sut.buildURL(url: url, queryItems: [], componentsProvider: { _ in FailingURLComponents() })
@@ -40,18 +41,27 @@ private extension URLRequestBuilderTests {
   struct MockRequest: Request {
     typealias Response = String
     
-    var method: HTTPMethod { return .get }
+    var method: HTTPMethod
     var path: String { return "/mock-path" }
     var body: Data? { return "{\"key\":\"value\"}".data(using: .utf8) }
-    var contentType: String? { return "application/json" }
     var queryItems: [URLQueryItem]? { [.init(name: "key", value: "value")] }
+    
+    init(method: HTTPMethod = .get) {
+      self.method = method
+    }
   }
   
   struct MockRequestWithHeaders: Request {
     typealias Response = String
     
-    var method: HTTPMethod { return .get }
-    var path: String { return "/mock-path" }
-    var allHTTPHeaderFields: [String : String]? { ["key": "value"] }
+    var method: HTTPMethod
+    var path: String
+    var allHTTPHeaderFields: [String : String]?
+    
+    init(method: HTTPMethod = .get, path: String, allHTTPHeaderFields: [String : String]? = nil) {
+      self.method = method
+      self.path = path
+      self.allHTTPHeaderFields = allHTTPHeaderFields
+    }
   }
 }

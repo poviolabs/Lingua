@@ -18,9 +18,7 @@ struct URLRequestBuilder {
     urlRequest.httpMethod = request.method.rawValue
     urlRequest.httpBody = request.body
     
-    if let contentType = request.contentType {
-      urlRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
-    }
+    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     request.allHTTPHeaderFields?.forEach {
       urlRequest.setValue($1, forHTTPHeaderField: $0)

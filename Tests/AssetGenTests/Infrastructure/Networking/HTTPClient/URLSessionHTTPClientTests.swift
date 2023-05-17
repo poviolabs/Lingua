@@ -5,14 +5,15 @@ final class URLSessionHTTPClientTests: XCTestCase {
   func test_fetchData_whenRequestSucceeds_returnsDataAndResponse() async throws {
     let (sut, url) = makeSUT()
     let expectedData: Data = .anyData()
+    let successStatusCode = 200
     
     MockURLProtocol.mockData = expectedData
     MockURLProtocol.mockError = nil
-    MockURLProtocol.mockResponse = HTTPURLResponse.anyURLResponse()
+    MockURLProtocol.mockResponse = HTTPURLResponse.anyURLResponse(statusCode: successStatusCode)
     
     let (receivedData, receivedResponse) = try await sut.fetchData(from: url)
     XCTAssertEqual(receivedData, expectedData)
-    XCTAssertEqual(receivedResponse.statusCode, 200)
+    XCTAssertEqual(receivedResponse.statusCode, successStatusCode)
   }
   
   func test_fetchData_whenRequestFails_throwsError() async {
@@ -27,8 +28,9 @@ final class URLSessionHTTPClientTests: XCTestCase {
       _ = try await sut.fetchData(from: url)
       XCTFail("Expected error to be thrown")
     } catch {
-      XCTAssertEqual((error as NSError).domain, expectedError.domain)
-      XCTAssertEqual((error as NSError).code, expectedError.code)
+      let error = error as NSError
+      XCTAssertEqual(error.domain, expectedError.domain)
+      XCTAssertEqual(error.code, expectedError.code)
     }
   }
   
