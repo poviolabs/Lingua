@@ -26,7 +26,7 @@ extension APIRequestExecutor: RequestExecutor {
     return try await execute(with: urlRequest)
   }
   
-  func execute<T: Decodable>(with request: URLRequest) async throws -> T {
+  private func execute<T: Decodable>(with request: URLRequest) async throws -> T {
     let (data, httpResponse) = try await httpClient.fetchData(with: request)
     
     guard validStatusCodes.contains(httpResponse.statusCode) else {
