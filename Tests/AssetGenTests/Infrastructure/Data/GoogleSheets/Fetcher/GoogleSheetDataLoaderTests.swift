@@ -8,8 +8,8 @@ final class GoogleSheetDataLoaderTests: XCTestCase {
       SheetMetadata.Sheet(properties: SheetMetadata.Sheet.SheetProperties(title: "Sheet2"))
     ])
     let sheetDataResponse = SheetDataResponse(values: [
-      ["Section", "Key", "Is Plural", "Unused", "Translation"],
-      ["test_section", "test_key", "yes", "", "test_translation"]
+      ["Section", "Key", "Unused", "Translation"],
+      ["test_section", "test_key", "", "test_translation"]
     ])
     let fetcher = MockGoogleSheetsFetcher(sheetMetadata: sheetMetadata, sheetData: sheetDataResponse)
     let sut = makeSUT(fetcher: fetcher)
@@ -21,8 +21,7 @@ final class GoogleSheetDataLoaderTests: XCTestCase {
     XCTAssertEqual(result[0].entries.count, 1)
     XCTAssertEqual(result[0].entries[0].section, "test_section")
     XCTAssertEqual(result[0].entries[0].key, "test_key")
-    XCTAssertTrue(result[0].entries[0].plural)
-    XCTAssertEqual(result[0].entries[0].translations, ["one": "test_translation", "zero": ""])
+    XCTAssertEqual(result[0].entries[0].translations, ["one": "test_translation"])
   }
   
   func test_loadSheets_withEmptyData_returnsEmptyArray() async throws {

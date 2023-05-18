@@ -6,27 +6,29 @@ protocol SheetDataDecoder {
 
 struct LocalizationSheetDataDecoder: SheetDataDecoder {
   typealias Sheet = (name: String, entries: [LocalizationEntry])
+  private let translationBuilder: TranslationBuilder
+  private let sectionIndex = 0
+  private let keyIndex = 1
+  private let metadataNumberOfColumns = 2
+  
+  init(translationBuilder: TranslationBuilder = SheetTranslationBuilder()) {
+    self.translationBuilder = translationBuilder
+  }
   
   func decode(sheetData: SheetDataResponse, sheetName: String) -> LocalizationSheet {
-    let entries = sheetData.values.dropFirst().compactMap(createEntry)
-    return LocalizationSheet(language: sheetName, entries: entries)
+    let entriesWithoutSheetHeaders = sheetData.values.dropFirst().compactMap(createEntry)
+    return LocalizationSheet(language: sheetName, entries: entriesWithoutSheetHeaders)
   }
 }
 
 private extension LocalizationSheetDataDecoder {
   func createEntry(from row: [String]) -> LocalizationEntry? {
-    guard row.count >= 4 else { return nil }
+    guard row.count > metadataNumberOfColumns else { return nil }
     
-    let section = row[0]
-    let key = row[1]
-    let isPlural = row[2].lowercased() == "yes"
-    let translations = createTranslations(from: row, isPlural: isPlural)
+    let section = row[sectionIndex]
+    let key = row[keyIndex]
+    let translations = translationBuilder.buildTranslations(from: row)
     
-    return LocalizationEntry(section: section, key: key, plural: isPlural, translations: translations)
-  }
-  
-  func createTranslations(from row: [String], isPlural: Bool) -> [String: String] {
-    let translationBuilder = TranslationBuilderFactory.makeTranslationBuilder(isPlural: isPlural)
-    return translationBuilder.buildTranslations(from: row)
+    return LocalizationEntry(section: section, key: key, translations: translations)
   }
 }

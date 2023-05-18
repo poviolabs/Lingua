@@ -4,12 +4,12 @@ import XCTest
 final class LocalizationSheetDataDecoderTests: XCTestCase {
   func test_decode_withValidData_returnsCorrectSheet() {
     let sheetData = SheetDataResponse(values: [
-      ["Section", "Key", "Is Plural", "Unused", "Translation"],
-      ["TestSection", "TestKey", "No", "Unused", "TestTranslation"]
+      ["Section", "Key", "one", "two", "three"],
+      ["TestSection", "TestKey", "", "TestTranslation"]
     ])
     let language = "en"
     let expectedSheet = LocalizationSheet(language: language, entries: [
-      LocalizationEntry(section: "TestSection", key: "TestKey", plural: false, translations: ["one": "TestTranslation"])
+      LocalizationEntry(section: "TestSection", key: "TestKey", translations: ["one": "TestTranslation"])
     ])
     
     let sut = LocalizationSheetDataDecoder()
@@ -20,8 +20,8 @@ final class LocalizationSheetDataDecoderTests: XCTestCase {
   
   func test_decode_withInsufficientData_returnsEmptySheet() {
     let sheetData = SheetDataResponse(values: [
-      ["Section", "Key", "Is Plural"],
-      ["TestSection", "TestKey", "No"]
+      ["Section", "Key"],
+      ["TestSection", "TestKey"]
     ])
     let language = "en"
     let expectedSheet = LocalizationSheet(language: language, entries: [])
