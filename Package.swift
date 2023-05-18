@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "AssetGen",
   platforms: [
-    .macOS(.v10_15),
+    .macOS(.v12),
   ],
   targets: [
     .executableTarget(
