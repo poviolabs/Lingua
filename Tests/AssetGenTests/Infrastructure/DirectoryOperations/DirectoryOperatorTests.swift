@@ -1,7 +1,7 @@
 import XCTest
 @testable import AssetGen
 
-final class DirectoryOperationsTests: XCTestCase {
+final class DirectoryOperatorTests: XCTestCase {
   func test_createDirectory_createsDirectorySuccessfully() throws {
     let sut = makeSUT()
     let outputDirectory = NSTemporaryDirectory()
@@ -11,7 +11,7 @@ final class DirectoryOperationsTests: XCTestCase {
     XCTAssertTrue(FileManager.default.fileExists(atPath: createdDirectoryURL.path))
   }
   
-  func test_createDirectory_throwsError() {
+  func test_createDirectory_throwsError_onFailure() {
     let errorFileManager = MockFileManager()
     errorFileManager.shouldThrowErrorOnCreateDirectory = true
     let sut = makeSUT(fileManager: errorFileManager)
@@ -72,9 +72,9 @@ final class DirectoryOperationsTests: XCTestCase {
   }
 }
 
-internal extension DirectoryOperationsTests {
-  func makeSUT(fileManager: FileManager = FileManager.default) -> DefaultDirectoryOperations {
-    let mockFileManagerProvider = DefaultFileManager(fileManager: fileManager)
-    return DefaultDirectoryOperations.makeDefault(fileManagerProvider: mockFileManagerProvider)
+internal extension DirectoryOperatorTests {
+  func makeSUT(fileManager: FileManager = FileManager.default) -> DirectoryOperator {
+    let mockFileManagerProvider = DefaultFileManager(manager: fileManager)
+    return DirectoryOperator.makeDefault(fileManagerProvider: mockFileManagerProvider)
   }
 }

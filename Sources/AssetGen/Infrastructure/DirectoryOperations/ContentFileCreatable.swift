@@ -1,18 +1,18 @@
 import Foundation
 
-protocol ContentFilesCreator {
+protocol ContentFileCreatable {
   func createFiles(with content: String, fileName: String, outputFolder: URL) throws
   func createFilesInCurrentDirectory(with content: String, fileName: String) throws
 }
 
-class DefaultContentFilesCreator: ContentFilesCreator {
-  private let contentWriter: ContentWriter
-  private let fileManager: FileManagerProvider
+class ContentFileCreator: ContentFileCreatable {
+  private let contentWriter: ContentWritable
+  private let fileManagerProvider: FileManagerProvider
   
-  init(contentWriter: ContentWriter = DefaultContentWriter(),
-       fileManager: FileManagerProvider = DefaultFileManager()) {
+  init(contentWriter: ContentWritable = FileContentWriter(),
+       fileManagerProvider: FileManagerProvider = DefaultFileManager()) {
     self.contentWriter = contentWriter
-    self.fileManager = fileManager
+    self.fileManagerProvider = fileManagerProvider
   }
   
   func createFiles(with content: String, fileName: String, outputFolder: URL) throws {
@@ -20,7 +20,7 @@ class DefaultContentFilesCreator: ContentFilesCreator {
   }
   
   func createFilesInCurrentDirectory(with content: String, fileName: String) throws {
-    let currentDirectoryURL = URL(fileURLWithPath: fileManager.fileManager.currentDirectoryPath)
+    let currentDirectoryURL = URL(fileURLWithPath: fileManagerProvider.manager.currentDirectoryPath)
     try createFiles(with: content, fileName: fileName, outputFolder: currentDirectoryURL)
   }
 }

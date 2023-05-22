@@ -1,13 +1,13 @@
 import Foundation
 
 protocol FileManagerProvider {
-  var fileManager: FileManager { get }
+  var manager: FileManager { get }
 }
 
 final class DefaultFileManager: FileManagerProvider {
-  var fileManager: FileManager
+  var manager: FileManager
   
-  init(fileManager: FileManager = .default) {
-    self.fileManager = fileManager
+  init(manager: FileManager = .default) {
+    self.manager = manager
   }
 }

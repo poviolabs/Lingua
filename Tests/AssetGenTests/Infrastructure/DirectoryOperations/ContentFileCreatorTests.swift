@@ -1,7 +1,7 @@
 import XCTest
 @testable import AssetGen
 
-final class DefaultContentFilesCreatorTests: XCTestCase {
+final class ContentFileCreatorTests: XCTestCase {
   func test_createFiles_writesContentToFile() {
     let (sut, contentWriter) = makeSUT()
     let testContent = "Test content"
@@ -30,13 +30,12 @@ final class DefaultContentFilesCreatorTests: XCTestCase {
     let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
     XCTAssertEqual(writtenContent?.destinationURL.deletingLastPathComponent(), currentDirectoryURL)
   }
-  
 }
 
-private extension DefaultContentFilesCreatorTests {
-  func makeSUT() -> (sut: DefaultContentFilesCreator, contentWriter: MockContentWriter) {
+private extension ContentFileCreatorTests {
+  func makeSUT() -> (sut: ContentFileCreator, contentWriter: MockContentWriter) {
     let contentWriter = MockContentWriter()
-    let sut = DefaultContentFilesCreator(contentWriter: contentWriter)
+    let sut = ContentFileCreator(contentWriter: contentWriter)
     return (sut, contentWriter)
   }
 }

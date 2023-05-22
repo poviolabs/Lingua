@@ -1,7 +1,7 @@
 import XCTest
 @testable import AssetGen
 
-final class DefaultContentWriterTests: XCTestCase {
+final class FileContentWriterTests: XCTestCase {
   private var testFileURL: URL?
   
   override func setUpWithError() throws {
@@ -37,8 +37,8 @@ final class DefaultContentWriterTests: XCTestCase {
   }
 }
   
-private extension DefaultContentWriterTests {
-  func makeSUT() -> ContentWriter {
-    DefaultContentWriter()
+private extension FileContentWriterTests {
+  func makeSUT() -> ContentWritable {
+    FileContentWriter()
   }
 }

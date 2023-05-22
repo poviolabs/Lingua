@@ -1,11 +1,11 @@
 import Foundation
 
-protocol DirectoryOperations {
+protocol DirectoryOperable {
   func createDirectory(named: String, in outputDirectory: String) throws -> URL
   func clearFolder(at path: String) throws
 }
 
-final class DefaultDirectoryOperations: DirectoryOperations {
+final class DirectoryOperator: DirectoryOperable {
   let fileManagerProvider: FileManagerProvider
   
   init(fileManagerProvider: FileManagerProvider) {
@@ -16,7 +16,7 @@ final class DefaultDirectoryOperations: DirectoryOperations {
     let mainFolder = URL(fileURLWithPath: outputDirectory)
     let outputFolder = mainFolder.appendingPathComponent(directoryName)
     do {
-      try fileManagerProvider.fileManager.createDirectory(at: outputFolder, withIntermediateDirectories: true, attributes: nil)
+      try fileManagerProvider.manager.createDirectory(at: outputFolder, withIntermediateDirectories: true, attributes: nil)
     } catch {
       throw DirectoryOperationError.folderCreationFailed
     }
@@ -25,18 +25,18 @@ final class DefaultDirectoryOperations: DirectoryOperations {
   
   func clearFolder(at path: String) throws {
     let mainFolder = URL(fileURLWithPath: path)
-    guard fileManagerProvider.fileManager.fileExists(atPath: mainFolder.path) else { return }
+    guard fileManagerProvider.manager.fileExists(atPath: mainFolder.path) else { return }
     
     do {
-      try fileManagerProvider.fileManager.removeItem(at: mainFolder)
+      try fileManagerProvider.manager.removeItem(at: mainFolder)
     } catch {
       throw DirectoryOperationError.clearFolderFailed
     }
   }
 }
 
-extension DefaultDirectoryOperations {
-  static func makeDefault(fileManagerProvider: DefaultFileManager = .init()) -> DefaultDirectoryOperations {
-    return DefaultDirectoryOperations(fileManagerProvider: fileManagerProvider)
+extension DirectoryOperator {
+  static func makeDefault(fileManagerProvider: DefaultFileManager = .init()) -> DirectoryOperator {
+    return DirectoryOperator(fileManagerProvider: fileManagerProvider)
   }
 }
