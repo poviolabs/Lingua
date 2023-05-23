@@ -1,7 +1,7 @@
 import XCTest
 @testable import AssetGen
 
-final class DefaultLocalizationContentGeneratorTests: XCTestCase {
+final class LocalizedContentGeneratorTests: XCTestCase {
   func test_createContent_returnsPluralAndNonPluralDictContent() {
     let nonPluralEntry = createEntriesWithTranslations(plural: false)
     let pluralEntry = createEntriesWithTranslations(plural: true)
@@ -49,17 +49,17 @@ final class DefaultLocalizationContentGeneratorTests: XCTestCase {
   }
 }
   
-private extension DefaultLocalizationContentGeneratorTests {
-  func makeSUT() -> DefaultLocalizationContentGenerator {
-    let stringsOutputGenerator = MockLocalizationOutputGenerator(outputClosure: { entries in
+private extension LocalizedContentGeneratorTests {
+  func makeSUT() -> LocalizedContentGenerator {
+    let stringsOutputGenerator = MockLocalizedOutputGenerator(outputClosure: { entries in
       return entries.filter { !$0.plural }.isEmpty ? "" : "nonPluralContent"
     })
     
-    let stringsDictOutputGenerator = MockLocalizationOutputGenerator(outputClosure: { entries in
+    let stringsDictOutputGenerator = MockLocalizedOutputGenerator(outputClosure: { entries in
       return entries.filter { $0.plural }.isEmpty ? "" : "pluralContent"
     })
     
-    return DefaultLocalizationContentGenerator(nonPluralOutputGenerator: stringsOutputGenerator,
+    return LocalizedContentGenerator(nonPluralOutputGenerator: stringsOutputGenerator,
                                                pluralOutputGenerator: stringsDictOutputGenerator)
   }
   

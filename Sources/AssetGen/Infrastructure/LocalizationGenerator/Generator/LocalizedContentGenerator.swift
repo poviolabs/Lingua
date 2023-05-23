@@ -1,10 +1,10 @@
 import Foundation
 
-final class DefaultLocalizationContentGenerator: LocalizationContentGenerator {
-  private let nonPluralOutputGenerator: LocalizationOutputGenerator
-  private let pluralOutputGenerator: LocalizationOutputGenerator
+final class LocalizedContentGenerator: LocalizedContentGenerating {
+  private let nonPluralOutputGenerator: LocalizedOutputGenerating
+  private let pluralOutputGenerator: LocalizedOutputGenerating
   
-  init(nonPluralOutputGenerator: LocalizationOutputGenerator, pluralOutputGenerator: LocalizationOutputGenerator) {
+  init(nonPluralOutputGenerator: LocalizedOutputGenerating, pluralOutputGenerator: LocalizedOutputGenerating) {
     self.nonPluralOutputGenerator = nonPluralOutputGenerator
     self.pluralOutputGenerator = pluralOutputGenerator
   }

@@ -1,7 +1,7 @@
 import Foundation
 @testable import AssetGen
 
-class MockLocalizationOutputGenerator: LocalizationOutputGenerator {
+class MockLocalizedOutputGenerator: LocalizedOutputGenerating {
   private let outputClosure: ([LocalizationEntry]) -> String
   
   init(outputClosure: @escaping ([LocalizationEntry]) -> String) {
