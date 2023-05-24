@@ -2,7 +2,7 @@ import Foundation
 
 extension String {
   func formatSheetSection() -> String {
-    return self
+    self
       .components(separatedBy: CharacterSet(charactersIn: " _"))
       .enumerated()
       .reduce(into: "") { result, indexAndWord in

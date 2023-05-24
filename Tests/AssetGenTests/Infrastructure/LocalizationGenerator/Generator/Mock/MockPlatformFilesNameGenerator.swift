@@ -8,7 +8,9 @@ final class MockPlatformFilesNameGenerator: PlatformFilesNameGenerating {
     self.fileExtension = fileExtension
   }
   
-  func createContent(for entries: [LocalizationEntry], sectionName: String, contentGenerator: AssetGen.LocalizedContentGenerating) -> [(String, String)] {
+  func createContent(for entries: [LocalizationEntry],
+                     sectionName: String,
+                     contentGenerator: LocalizedContentGenerating) -> [(String, String)] {
     let (stringsContent, stringsDictContent) = contentGenerator.createContent(for: entries)
     return [
       (stringsContent, "\(sectionName).\(fileExtension)"),

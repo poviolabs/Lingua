@@ -31,7 +31,9 @@ final class LocalizedPlatformFilesGeneratorTests: XCTestCase {
     }
   }
   
-  func makeContentGeneratorAndCreator(shouldFilesCreatorThrowError: Bool = false) -> (contentGenerator: MockLocalizedContentGenerator, filesCreator: MockContentFilesCreator) {
+  func makeContentGeneratorAndCreator(
+    shouldFilesCreatorThrowError: Bool = false
+  ) -> (contentGenerator: MockLocalizedContentGenerator, filesCreator: MockContentFilesCreator) {
     let contentGenerator = MockLocalizedContentGenerator()
     contentGenerator.content = ("stringsContent", "stringsDictContent")
     let filesCreator = MockContentFilesCreator()
