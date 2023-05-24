@@ -23,7 +23,10 @@ final class LocalizedPlatformFilesGeneratorTests: XCTestCase {
     let entries: [LocalizationEntry] = [.create(plural: true)]
     let outputFolder = URL(fileURLWithPath: NSTemporaryDirectory())
     
-    XCTAssertThrowsError(try sut.createPlatformFiles(for: entries, sectionName: "SectionName", outputFolder: outputFolder, language: "en")) { error in
+    XCTAssertThrowsError(try sut.createPlatformFiles(for: entries,
+                                                     sectionName: "SectionName",
+                                                     outputFolder: outputFolder,
+                                                     language: "en")) { error in
       XCTAssertEqual(error as? DirectoryOperationError, DirectoryOperationError.folderCreationFailed)
     }
   }
