@@ -1,7 +1,7 @@
 import XCTest
 @testable import AssetGen
 
-final class LocalizedilesGeneratorTests: XCTestCase {
+final class LocalizedFilesGeneratorTests: XCTestCase {
   func test_generate_callsExpectedMethods() throws {
     let directoryOperator = MockDirectoryOperator()
     let filesGenerator = MockPlatformFilesGenerator()

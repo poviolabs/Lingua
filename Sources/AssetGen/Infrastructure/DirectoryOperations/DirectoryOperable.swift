@@ -37,6 +37,6 @@ final class DirectoryOperator: DirectoryOperable {
 
 extension DirectoryOperator {
   static func makeDefault(fileManagerProvider: DefaultFileManager = .init()) -> DirectoryOperator {
-    return DirectoryOperator(fileManagerProvider: fileManagerProvider)
+    DirectoryOperator(fileManagerProvider: fileManagerProvider)
   }
 }
