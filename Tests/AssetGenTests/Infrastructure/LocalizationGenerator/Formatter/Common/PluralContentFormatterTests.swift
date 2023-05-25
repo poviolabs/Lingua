@@ -95,7 +95,7 @@ private extension PluralContentFormatterTests {
       \t\t\t<string>translation2</string>
       \t\t</dict>
       \t</dict>
-      </dict>
+      \n</dict>
       </plist>
       """
   }
