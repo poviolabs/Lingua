@@ -1,7 +1,7 @@
 import XCTest
 @testable import AssetGen
 
-final class PluralContentFormatterTests: XCTestCase {
+final class LocalizedOutputGeneratorTests: XCTestCase {
   func test_generateOutputContent_returnsValidTranslations() {
     let entries = createEntriesWithTranslations()
     let expected = expectedOutputWithTranslations()
@@ -24,7 +24,7 @@ final class PluralContentFormatterTests: XCTestCase {
   }
 }
 
-private extension PluralContentFormatterTests {
+private extension LocalizedOutputGeneratorTests {
   func assertGenerateOutputContent(entries: [LocalizationEntry],
                                    expected: String,
                                    file: StaticString = #file,
@@ -34,8 +34,8 @@ private extension PluralContentFormatterTests {
     XCTAssertEqual(result, expected, file: file, line: line)
   }
   
-  func makeSUT() -> PluralContentFormatter {
-    PluralContentFormatter(formatter: IOSPluralFormatter())
+  func makeSUT() -> LocalizedOutputGenerator {
+    LocalizedOutputGenerator(placeholderMapper: IOSPlaceholderMapper(), formatter: IOSPluralFormatter())
   }
   
   func createEntriesWithTranslations() -> [LocalizationEntry] {
@@ -95,7 +95,7 @@ private extension PluralContentFormatterTests {
       \t\t\t<string>translation2</string>
       \t\t</dict>
       \t</dict>
-      \n</dict>
+      </dict>
       </plist>
       """
   }

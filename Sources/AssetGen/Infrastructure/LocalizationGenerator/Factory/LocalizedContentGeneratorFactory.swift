@@ -4,8 +4,12 @@ struct LocalizedContentGeneratorFactory {
   static func make(platform: LocalizationPlatform) -> LocalizedContentGenerating {
     switch platform {
     case .ios:
-      return LocalizedContentGenerator(nonPluralOutputGenerator: NonPluralContentFormatter(formatter: IOSNonPluralFormatter()),
-                                       pluralOutputGenerator: PluralContentFormatter(formatter: IOSPluralFormatter()))
+      let nonPluralOutputGenerator = LocalizedOutputGenerator(placeholderMapper: IOSPlaceholderMapper(),
+                                                              formatter: IOSNonPluralFormatter())
+      let pluralOutputGenerator = LocalizedOutputGenerator(placeholderMapper: IOSPlaceholderMapper(),
+                                                           formatter: IOSPluralFormatter())
+      return LocalizedContentGenerator(nonPluralOutputGenerator: nonPluralOutputGenerator,
+                                       pluralOutputGenerator: pluralOutputGenerator)
     }
   }
 }

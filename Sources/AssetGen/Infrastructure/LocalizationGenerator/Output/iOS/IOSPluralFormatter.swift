@@ -1,19 +1,7 @@
 import Foundation
 
-struct IOSPluralFormatter: PluralFormatting {
-  func wrapIn(content: String) -> String {
-     """
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-    \(content)
-    </dict>
-    </plist>
-    """
-  }
-  
-  func composeContent(for entry: LocalizationEntry) -> (key: String, content: String) {
+struct IOSPluralFormatter: LocalizedContentFormatting {
+  func formatContent(for entry: LocalizationEntry) -> String {
     var dictContent = "\t<dict>\n"
     dictContent += "\t\t<key>NSStringLocalizedFormatKey</key>\n"
     dictContent += "\t\t<string>%#@\(entry.key)@</string>\n"
@@ -30,8 +18,20 @@ struct IOSPluralFormatter: PluralFormatting {
       }
     }
     dictContent += "\t\t</dict>\n"
-    dictContent += "\t</dict>\n"
+    dictContent += "\t</dict>"
     let key = "\t<key>\(entry.key)</key>\n"
-    return (key, dictContent)
+    return key + dictContent
+  }
+  
+  func wrapContent(_ content: String) -> String {
+    """
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    \(content)
+    </dict>
+    </plist>
+    """
   }
 }
