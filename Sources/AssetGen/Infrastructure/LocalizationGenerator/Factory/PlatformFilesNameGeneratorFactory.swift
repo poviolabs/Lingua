@@ -5,6 +5,8 @@ struct PlatformFilesNameGeneratorFactory {
     switch platform {
     case .ios:
       return IOSPlatformFilesNameGenerator()
+    case .android:
+      return AndroidPlatformFilesNameGenerator()
     }
   }
 }
