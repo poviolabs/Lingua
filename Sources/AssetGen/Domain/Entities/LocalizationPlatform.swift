@@ -2,6 +2,7 @@ import Foundation
 
 enum LocalizationPlatform: String {
   case ios
+  case android
 }
 
 extension LocalizationPlatform {
@@ -9,6 +10,8 @@ extension LocalizationPlatform {
     switch self {
     case .ios:
       return "\(languageCode).lproj"
+    case .android:
+      return "values-\(languageCode)"
     }
   }
 }

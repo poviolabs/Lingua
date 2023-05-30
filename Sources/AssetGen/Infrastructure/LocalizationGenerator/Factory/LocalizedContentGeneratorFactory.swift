@@ -10,6 +10,14 @@ struct LocalizedContentGeneratorFactory {
                                                            formatter: IOSPluralFormatter())
       return LocalizedContentGenerator(nonPluralOutputGenerator: nonPluralOutputGenerator,
                                        pluralOutputGenerator: pluralOutputGenerator)
+      
+    case .android:
+      let nonPluralOutputGenerator = LocalizedOutputGenerator(placeholderMapper: AndroidPlaceholderMapper(),
+                                                              formatter: AndroidNonPluralFormatter())
+      let pluralOutputGenerator = LocalizedOutputGenerator(placeholderMapper: AndroidPlaceholderMapper(),
+                                                           formatter: AndroidPluralFormatter())
+      return LocalizedContentGenerator(nonPluralOutputGenerator: nonPluralOutputGenerator,
+                                       pluralOutputGenerator: pluralOutputGenerator)
     }
   }
 }
