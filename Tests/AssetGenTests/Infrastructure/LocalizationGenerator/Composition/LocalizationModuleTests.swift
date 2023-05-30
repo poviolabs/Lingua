@@ -4,7 +4,7 @@ import XCTest
 final class LocalizationModuleTests: XCTestCase {
   private let config: AssetGenConfig.Localization = .make()
   
-  func test_localize_composesDependenciesCorrectly() async throws {
+  func test_localize_invokesCorrectMethodsOfDependencies() async throws {
     let mockSheetDataLoader = MockSheetDataLoader(loadSheetsResult: .success(sheetData))
     let mockPlatformLocalizationGenerator = MockPlatformLocalizationGenerator()
     
@@ -17,7 +17,7 @@ final class LocalizationModuleTests: XCTestCase {
     XCTAssertEqual(mockPlatformLocalizationGenerator.messages, [.generate(data: sheetData, config: config)])
   }
   
-  func test_localize_throwsSheetLoadingError() async {
+  func test_localize_throwsError_onLoadSheetsFailure() async {
     let error = NSError.anyError()
     let mockSheetDataLoader = MockSheetDataLoader(loadSheetsResult: .failure(error))
     let mockPlatformLocalizationGenerator = MockPlatformLocalizationGenerator()
@@ -35,7 +35,7 @@ final class LocalizationModuleTests: XCTestCase {
     XCTAssertTrue(mockPlatformLocalizationGenerator.messages.isEmpty)
   }
   
-  func test_localize_throwsPlatformGeneratorError() async {
+  func test_localize_throwsError_onGenerateLocalizationFilesFailure() async {
     let mockSheetDataLoader = MockSheetDataLoader(loadSheetsResult: .success(sheetData))
     let mockPlatformLocalizationGenerator = MockPlatformLocalizationGenerator(shouldThrowError: true)
     

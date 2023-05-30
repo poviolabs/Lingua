@@ -7,7 +7,7 @@ final class LocalizationModule {
   
   init(config: AssetGenConfig.Localization,
        makeSheetDataLoader: @escaping (AssetGenConfig.Localization) -> SheetDataLoader = { config in
-    GoogleSheetDataLoader.make(with: config)
+    GoogleSheetDataLoaderFactory.make(with: config)
   },
        makePlatformGenerator: @escaping (LocalizationPlatform) -> PlatformLocalizationGenerating = { platform in
     PlatformLocalizationGeneratorFactory.make(for: platform)
