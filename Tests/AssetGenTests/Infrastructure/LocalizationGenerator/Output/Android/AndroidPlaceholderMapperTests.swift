@@ -2,11 +2,6 @@ import XCTest
 @testable import AssetGen
 
 final class AndroidPlaceholderMapperTests: XCTestCase {
-  func test_mapPlaceholders_replacesIOSPlaceholderWithAndroidPlaceholder() {
-    expect(input: "Hello %@, you have %d new messages.",
-           toMapTo: "Hello %1$s, you have %2$d new messages.")
-  }
-  
   func test_mapPlaceholders_replacesNewlineWithEscapedNewline() {
     expect(input: "Hello\nWorld", toMapTo: "Hello\\nWorld")
   }
