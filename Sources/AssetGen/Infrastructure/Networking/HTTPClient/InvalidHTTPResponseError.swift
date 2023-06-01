@@ -1,10 +1,10 @@
 import Foundation
 
-struct InvalidHTTPResponseError: Error, CustomStringConvertible {
+struct InvalidHTTPResponseError: LocalizedError {
   let statusCode: Int
   let data: Data?
   
-  var description: String {
+  var errorDescription: String? {
     "Invalid HTTP response with status code: \(statusCode)"
   }
 }

@@ -18,20 +18,33 @@ final class LocalizationProcessor: CommandLineProcessable {
   
   func process(arguments: [String]) async throws {
     do {
+      logger.log("Processing arguments...", level: .info)
+      
       let arguments = try argumentParser.parse(arguments: arguments)
+      
+      logger.log("Loading configuration file...", level: .info)
+      
       let config: AssetGenConfig = try await entityFileLoader.loadEntity(from: arguments.configFilePath)
-      if let localization = config.localization {
-        let localizationModule = localizationModuleFactory(localization)
-        try await localizationModule.localize(for: arguments.platform)
-      } else {
+      
+      guard let localization = config.localization else {
         throw ProcessorError.missingLocalization
       }
       
+      logger.log("Initializing localization module...", level: .info)
+      
+      let localizationModule = localizationModuleFactory(localization)
+      
+      logger.log("Starting localization...", level: .info)
+      
+      try await localizationModule.localize(for: arguments.platform)
+      
       logger.log("Localization completed!", level: .success)
-    } catch {
-      let errorDescription = (error as CustomStringConvertible).description
-      logger.log(errorDescription, level: .error)
+    } catch let error as ProcessorError {
+      logger.log(error.localizedDescription, level: .error)
       logger.printUsage()
+      throw error
+    } catch {
+      logger.log(error.localizedDescription, level: .error)
       throw error
     }
   }

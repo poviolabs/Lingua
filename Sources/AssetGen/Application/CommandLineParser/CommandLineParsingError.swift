@@ -1,12 +1,12 @@
 import Foundation
 
-enum CommandLineParsingError: Error, CustomStringConvertible {
+enum CommandLineParsingError: LocalizedError {
   case notEnoughArguments
   case invalidAssetGenerationType
   case invalidPlatform
   case invalidConfigFilePath
   
-  var description: String {
+  var errorDescription: String? {
     switch self {
     case .notEnoughArguments:
       return "Not enough arguments provided."

@@ -1,11 +1,11 @@
 import Foundation
 
-enum ProcessorError: Error {
+enum ProcessorError: LocalizedError {
   case missingLocalization
 }
 
-extension ProcessorError: CustomStringConvertible {
-  var description: String {
+extension ProcessorError {
+  var errorDescription: String? {
     switch self {
     case .missingLocalization:
       return "The config json file does not contain 'localization' object"

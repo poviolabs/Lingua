@@ -10,7 +10,11 @@ final class LocalizationProcessorTests: XCTestCase {
     
     try await sut.process(arguments: arguments)
     
-    XCTAssertEqual(actors.logger.messages, [.message(message: "Localization completed!", level: .success)])
+    XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
+                                            .message(message: "Loading configuration file...", level: .info),
+                                            .message(message: "Initializing localization module...", level: .info),
+                                            .message(message: "Starting localization...", level: .info),
+                                            .message(message: "Localization completed!", level: .success)])
     XCTAssertEqual(actors.mockLocalizationModule.messages, [.localize(.ios)])
   }
   
@@ -23,8 +27,29 @@ final class LocalizationProcessorTests: XCTestCase {
     do {
       try await sut.process(arguments: arguments)
     } catch {
-      XCTAssertEqual(actors.logger.messages, [.message(message: ProcessorError.missingLocalization.description, level: .error),
+      XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
+                                              .message(message: "Loading configuration file...", level: .info),
+                                              .message(message: ProcessorError.missingLocalization.localizedDescription, level: .error),
                                               .message(message: printUsage, level: .info)])
+      XCTAssertEqual(actors.mockLocalizationModule.messages, [])
+    }
+  }
+  
+  func test_process_throwsErrorWhenModuleLocalizationFails() async throws {
+    let localizationModule = MockLocalizationModule(shouldThrow: true)
+    let (sut, actors) = makeSUT(localizationModule: localizationModule)
+    let tempDirectoryURL = try createTemporaryDirectoryURL()
+    let configPath = try createTemporaryConfigFile(data: createConfigData(in: tempDirectoryURL), tempDirectoryURL: tempDirectoryURL)
+    let arguments = ["AssetGen", "localization:ios", configPath.path]
+    
+    do {
+      try await sut.process(arguments: arguments)
+    } catch {
+      XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
+                                              .message(message: "Loading configuration file...", level: .info),
+                                              .message(message: "Initializing localization module...", level: .info),
+                                              .message(message: "Starting localization...", level: .info),
+                                              .message(message: DirectoryOperationError.folderCreationFailed.localizedDescription, level: .error)])
       XCTAssertEqual(actors.mockLocalizationModule.messages, [])
     }
   }
@@ -37,18 +62,17 @@ private extension LocalizationProcessorTests {
     let mockLocalizationModule: MockLocalizationModule
   }
   
-  func makeSUT() -> (sut: LocalizationProcessor, actors: Actors) {
+  func makeSUT(localizationModule: MockLocalizationModule = MockLocalizationModule()) -> (sut: LocalizationProcessor, actors: Actors) {
     let argumentParser = CommandLineParser()
     let logger = MockLogger()
-    let mockLocalizationModule = MockLocalizationModule()
     
     let actors = Actors(argumentParser: argumentParser,
                         logger: logger,
-                        mockLocalizationModule: mockLocalizationModule)
+                        mockLocalizationModule: localizationModule)
     
     let sut = ProcessorFactory().makeLocalizationProcessor(argumentParser: argumentParser,
                                                            logger: logger,
-                                                           localizationModuleFactory: { _ in mockLocalizationModule })
+                                                           localizationModuleFactory: { _ in localizationModule })
     
     return (sut, actors)
   }

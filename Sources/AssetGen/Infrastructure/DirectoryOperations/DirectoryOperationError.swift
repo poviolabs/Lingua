@@ -1,10 +1,10 @@
 import Foundation
 
-enum DirectoryOperationError: Error, CustomStringConvertible {
+enum DirectoryOperationError: LocalizedError {
   case folderCreationFailed
   case clearFolderFailed
   
-  var description: String {
+  var errorDescription: String? {
     switch self {
     case .folderCreationFailed:
       return "Failed to create the folder in given directory"
