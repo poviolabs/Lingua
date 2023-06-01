@@ -10,7 +10,8 @@ final class CommandLineParserTests: XCTestCase {
     let arguments = ["AssetGen"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
-      XCTAssertEqual(error as? CommandLineParsingError, .notEnoughArguments)
+      XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
+                     CommandLineParsingError.notEnoughArguments.localizedDescription)
     }
   }
   
@@ -18,7 +19,8 @@ final class CommandLineParserTests: XCTestCase {
     let arguments = ["AssetGen", "invalid:ios", "config.json"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
-      XCTAssertEqual(error as? CommandLineParsingError, .invalidAssetGenerationType)
+      XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
+                     CommandLineParsingError.invalidAssetGenerationType.localizedDescription)
     }
   }
   
@@ -26,7 +28,8 @@ final class CommandLineParserTests: XCTestCase {
     let arguments = ["AssetGen", "", "config.json"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
-      XCTAssertEqual(error as? CommandLineParsingError, .invalidAssetGenerationType)
+      XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
+                     CommandLineParsingError.invalidAssetGenerationType.localizedDescription)
     }
   }
   
@@ -34,7 +37,8 @@ final class CommandLineParserTests: XCTestCase {
     let arguments = ["AssetGen", "localization:invalid", "config.json"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
-      XCTAssertEqual(error as? CommandLineParsingError, .invalidPlatform)
+      XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
+                     CommandLineParsingError.invalidPlatform.localizedDescription)
     }
   }
   
@@ -42,7 +46,8 @@ final class CommandLineParserTests: XCTestCase {
     let arguments = ["AssetGen", "localization:ios", "config.txt"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
-      XCTAssertEqual(error as? CommandLineParsingError, .invalidConfigFilePath)
+      XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
+                     CommandLineParsingError.invalidConfigFilePath.localizedDescription)
     }
   }
   

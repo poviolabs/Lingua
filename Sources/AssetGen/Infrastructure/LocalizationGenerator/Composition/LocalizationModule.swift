@@ -1,6 +1,10 @@
 import Foundation
 
-final class LocalizationModule {
+protocol ModuleLocalizing {
+  func localize(for platform: LocalizationPlatform) async throws
+}
+
+final class LocalizationModule: ModuleLocalizing {
   private let config: AssetGenConfig.Localization
   private let makeSheetDataLoader: (AssetGenConfig.Localization) -> SheetDataLoader
   private let makeGenerator: (LocalizationPlatform) -> PlatformLocalizationGenerating

@@ -49,7 +49,7 @@ final class APIRequestExecutorTests: XCTestCase {
     } catch {
       let error = try XCTUnwrap(error as? InvalidHTTPResponseError)
       XCTAssertEqual(error.statusCode, non200StatusCode)
-      XCTAssertEqual(error.description, "Invalid HTTP response with status code: 404")
+      XCTAssertEqual(error.localizedDescription, "Invalid HTTP response with status code: 404")
       XCTAssertEqual(error.data, responseData)
     }
   }
