@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Transformer {
+protocol Transformable {
   associatedtype Input
   associatedtype Output
   

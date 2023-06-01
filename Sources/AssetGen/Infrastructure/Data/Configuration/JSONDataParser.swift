@@ -1,6 +1,6 @@
 import Foundation
 
-struct JSONDataParser<T: Decodable>: DataParser {
+struct JSONDataParser<T: Decodable>: DataParsing {
   typealias Model = T
   private let jsonDecoder: JSONDecoding
   

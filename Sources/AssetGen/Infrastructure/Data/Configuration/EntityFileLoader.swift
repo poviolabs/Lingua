@@ -1,6 +1,6 @@
 import Foundation
 
-final class EntityFileLoader<T: DataParser, U: Transformer> where T.Model == U.Input {
+final class EntityFileLoader<T: DataParsing, U: Transformable> where T.Model == U.Input {
   private let fileReader: FileReading
   private let parser: T
   private let transformer: U

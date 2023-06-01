@@ -4,7 +4,7 @@ import XCTest
 final class EntityFileLoaderTests: XCTestCase {
   private let testValue = "test_value"
   
-  func testLoadEntity_readsDataFromFileAndTranformToEntity() async throws {
+  func test_loadEntity_readsDataFromFileAndTransformsToEntity() async throws {
     let sut = makeSUT()
     let fileURL = try createTemporaryJSONFile()
     
@@ -12,7 +12,7 @@ final class EntityFileLoaderTests: XCTestCase {
     
     XCTAssertEqual(entity.key, testValue)
     
-    try removeTemporaryFile(at: fileURL)
+    removeTemporaryFile(at: fileURL)
   }
 }
 
@@ -25,7 +25,7 @@ private extension EntityFileLoaderTests {
     let key: String
   }
   
-  struct TestDoubleTranformer: Transformer {
+  struct TestDoubleTranformer: Transformable {
     typealias Input = TestDoubleDto
     typealias Output = TestDoubleEntity
     
