@@ -19,6 +19,7 @@ extension LocalizedFilesGenerator: LocalizedFilesGenerating {
     let languageCode = sheet.languageCode
     let folderName = localizationPlatform.folderName(for: languageCode)
     let outputFolder = try directoryOperator.createDirectory(named: folderName, in: config.outputDirectory)
+    try directoryOperator.removeFiles(withPrefix: .packageName, in: outputFolder)
     
     let sections = Dictionary(grouping: sheet.entries, by: { $0.section })
     

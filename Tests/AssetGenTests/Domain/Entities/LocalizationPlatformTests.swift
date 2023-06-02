@@ -10,7 +10,7 @@ final class LocalizationPlatformTests: XCTestCase {
   
   func test_folderName_returnsCorrectAndroidFolderName() {
     let localizationPlatform = LocalizationPlatform.android
-    let languageCode = "en"
-    XCTAssertEqual(localizationPlatform.folderName(for: languageCode), "values-\(languageCode)")
+    XCTAssertEqual(localizationPlatform.folderName(for: "en"), "values")
+    XCTAssertEqual(localizationPlatform.folderName(for: "de"), "values-de")
   }
 }

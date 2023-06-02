@@ -9,7 +9,7 @@ final class LocalizationModuleIntegrationTests: XCTestCase {
   
   func test_LocalizationHandler_createsAndroidFilesInTemporaryDirectory() async throws {
     try await test_LocalizationModule_createsFilesInTemporaryDirectory(platform: .android,
-                                                                       expectedFiles: ["General.xml", "General-plural.xml"])
+                                                                       expectedFiles: ["\(String.packageName)-General.xml", "\(String.packageName)-General-plural.xml"])
   }
 }
 

@@ -23,7 +23,7 @@ final class DirectoryOperatorTests: XCTestCase {
     }
   }
   
-  func test_clearFolder_clearsAllFiles() throws {
+  func test_removeFiles_clearsAllFiles() throws {
     let errorFileManager = MockFileManager()
     let sut = makeSUT(fileManager: errorFileManager)
     let outputDirectory = NSTemporaryDirectory()
@@ -34,18 +34,18 @@ final class DirectoryOperatorTests: XCTestCase {
     XCTAssertTrue(FileManager.default.fileExists(atPath: createdDirectoryURL.path))
     
     // Add a file to the directory
-    let fileURL = createdDirectoryURL.appendingPathComponent("testFile.txt")
+    let fileURL = createdDirectoryURL.appendingPathComponent("\(String.packageName)-testFile.txt")
     FileManager.default.createFile(atPath: fileURL.path, contents: nil, attributes: nil)
     XCTAssertTrue(FileManager.default.fileExists(atPath: fileURL.path))
     
-    // Clear the folder
-    try sut.clearFolder(at: createdDirectoryURL.path)
+    // Remove files in directory
+    try sut.removeFiles(withPrefix: .packageName, in: createdDirectoryURL)
     
     // Verify the directory is deleted
-    XCTAssertFalse(FileManager.default.fileExists(atPath: createdDirectoryURL.path))
+    XCTAssertFalse(FileManager.default.fileExists(atPath: fileURL.path))
   }
   
-  func test_clearFolder_throwsError_onRemoveItem() throws {
+  func test_removeFiles_throwsError_onRemoveItem() throws {
     let errorFileManager = MockFileManager()
     errorFileManager.shouldThrowErrorOnRemoveItem = true
     let sut = makeSUT(fileManager: errorFileManager)
@@ -56,19 +56,16 @@ final class DirectoryOperatorTests: XCTestCase {
     let createdDirectoryURL = try sut.createDirectory(named: directoryName, in: outputDirectory)
     XCTAssertTrue(FileManager.default.fileExists(atPath: createdDirectoryURL.path))
     
+    // Add a file to the directory
+    let fileURL = createdDirectoryURL.appendingPathComponent("\(String.packageName)-testFile.txt")
+    FileManager.default.createFile(atPath: fileURL.path, contents: nil, attributes: nil)
+    XCTAssertTrue(FileManager.default.fileExists(atPath: fileURL.path))
+    
     // Test the error case
-    XCTAssertThrowsError(try sut.clearFolder(at: createdDirectoryURL.path)) { error in
-      XCTAssertEqual(error as? DirectoryOperationError, DirectoryOperationError.clearFolderFailed)
+    XCTAssertThrowsError(try sut.removeFiles(withPrefix: .packageName, in: createdDirectoryURL)) { error in
+      XCTAssertEqual((error as? DirectoryOperationError)?.localizedDescription,
+                     DirectoryOperationError.removeItemFailed.localizedDescription)
     }
-  }
-  
-  func test_clearFolder_noThrow_whenFolderDoesNotExist() {
-    let sut = makeSUT()
-    let nonExistentDirectory = NSTemporaryDirectory().appending("NonExistentDirectory")
-    
-    XCTAssertFalse(FileManager.default.fileExists(atPath: nonExistentDirectory))
-    
-    XCTAssertNoThrow(try sut.clearFolder(at: nonExistentDirectory))
   }
 }
 

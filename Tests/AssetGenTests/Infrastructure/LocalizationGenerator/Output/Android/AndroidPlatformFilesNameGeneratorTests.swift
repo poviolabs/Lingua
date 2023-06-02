@@ -14,9 +14,9 @@ final class AndroidPlatformFilesNameGeneratorTests: XCTestCase {
                                   contentGenerator: mockContentGenerator)
     
     XCTAssertEqual(fileInfos.first?.0, "non_plural")
-    XCTAssertEqual(fileInfos.first?.1, "test_section.xml")
+    XCTAssertEqual(fileInfos.first?.1, "\(String.packageName)-test_section.xml")
     XCTAssertEqual(fileInfos.last?.0, "plural")
-    XCTAssertEqual(fileInfos.last?.1, "test_section-plural.xml")
+    XCTAssertEqual(fileInfos.last?.1, "\(String.packageName)-test_section-plural.xml")
   }
 }
 

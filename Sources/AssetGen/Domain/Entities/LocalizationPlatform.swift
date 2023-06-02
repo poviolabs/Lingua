@@ -11,7 +11,17 @@ extension LocalizationPlatform {
     case .ios:
       return "\(languageCode).lproj"
     case .android:
-      return "values-\(languageCode)"
+      return androidFolderName(for: languageCode)
     }
+  }
+  
+  private func androidFolderName(for languageCode: String) -> String {
+    let defaultLanguageCode = "en"
+    
+    guard languageCode != defaultLanguageCode else {
+      return "values"
+    }
+    
+    return "values-\(languageCode)"
   }
 }
