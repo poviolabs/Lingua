@@ -28,13 +28,11 @@ final class DirectoryOperator: DirectoryOperable {
     
     let fileURLs = try fileManager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
     
-    for fileURL in fileURLs {
-      if fileURL.lastPathComponent.hasPrefix(prefix) {
-        do {
-          try fileManager.removeItem(at: fileURL)
-        } catch {
-          throw DirectoryOperationError.removeItemFailed
-        }
+    for fileURL in fileURLs where fileURL.lastPathComponent.hasPrefix(prefix) {
+      do {
+        try fileManager.removeItem(at: fileURL)
+      } catch {
+        throw DirectoryOperationError.removeItemFailed
       }
     }
   }
