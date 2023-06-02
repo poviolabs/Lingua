@@ -6,8 +6,8 @@ struct AndroidPlatformFilesNameGenerator: PlatformFilesNameGenerating {
                      contentGenerator: LocalizedContentGenerating) -> [(String, String)] {
     let (nonPluralContent, pluralContent) = contentGenerator.createContent(for: entries)
     return [
-      (nonPluralContent, "\(sectionName).xml"),
-      (pluralContent, "\(sectionName)-plural.xml"),
+      (nonPluralContent, "\(String.packageName)-\(sectionName).xml"),
+      (pluralContent, "\(String.packageName)-\(sectionName)-plural.xml"),
     ]
   }
 }

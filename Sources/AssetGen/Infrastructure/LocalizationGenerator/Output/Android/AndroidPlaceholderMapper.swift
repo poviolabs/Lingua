@@ -15,8 +15,8 @@ struct AndroidPlaceholderMapper: LocalizationPlaceholderMapping {
       let adjustedRange = NSRange(location: match.range.location - locationOffset, length: match.range.length)
       let matchedString = (result as NSString).substring(with: adjustedRange)
       
-      currentIndex += 1
       if let androidPlaceholder = iOSToAndroidPlaceholders[matchedString] {
+        currentIndex += 1
         let replacement = "%\(currentIndex)$\(androidPlaceholder)"
         result = (result as NSString).replacingCharacters(in: adjustedRange, with: replacement)
         locationOffset += match.range.length - replacement.count
@@ -27,6 +27,8 @@ struct AndroidPlaceholderMapper: LocalizationPlaceholderMapping {
       }
     }
     
+    result = result.replacingOccurrences(of: "&", with: "&amp;")
+    result = result.replacingOccurrences(of: "'", with: "\\'")
     return result
   }
   

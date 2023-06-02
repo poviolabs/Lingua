@@ -2,7 +2,7 @@ import XCTest
 @testable import AssetGen
 
 final class PlatformLocalizationGeneratorTests: XCTestCase {
-  func test_generateLocalizationFiles_clearsFolderAndCreatesFiles() {
+  func test_generateLocalizationFiles_clearsFolderAndCreatesFiles() throws {
     let mockDirectoryOperator = MockDirectoryOperator()
     let mockGenerator = MockLocalizedFilesGenerator()
     let config = AssetGenConfig.Localization(apiKey: "key", sheetId: "id", outputDirectory: "/path")
@@ -12,7 +12,7 @@ final class PlatformLocalizationGeneratorTests: XCTestCase {
     
     XCTAssertNoThrow(try sut.generateLocalizationFiles(data: data, config: config))
     
-    XCTAssertEqual(mockDirectoryOperator.messages, [.clearFolder(config.outputDirectory)])
+    XCTAssertTrue(mockDirectoryOperator.messages.isEmpty)
     XCTAssertEqual(mockGenerator.messages, [.generate(sheet: sheet, config: config)])
   }
 }

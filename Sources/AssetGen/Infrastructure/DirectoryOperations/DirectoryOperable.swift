@@ -2,7 +2,7 @@ import Foundation
 
 protocol DirectoryOperable {
   func createDirectory(named: String, in outputDirectory: String) throws -> URL
-  func clearFolder(at path: String) throws
+  func removeFiles(withPrefix prefix: String, in directory: URL) throws
 }
 
 final class DirectoryOperator: DirectoryOperable {
@@ -23,14 +23,17 @@ final class DirectoryOperator: DirectoryOperable {
     return outputFolder
   }
   
-  func clearFolder(at path: String) throws {
-    let mainFolder = URL(fileURLWithPath: path)
-    guard fileManagerProvider.manager.fileExists(atPath: mainFolder.path) else { return }
+  func removeFiles(withPrefix prefix: String, in directory: URL) throws {
+    let fileManager = fileManagerProvider.manager
     
-    do {
-      try fileManagerProvider.manager.removeItem(at: mainFolder)
-    } catch {
-      throw DirectoryOperationError.clearFolderFailed
+    let fileURLs = try fileManager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
+    
+    for fileURL in fileURLs where fileURL.lastPathComponent.hasPrefix(prefix) {
+      do {
+        try fileManager.removeItem(at: fileURL)
+      } catch {
+        throw DirectoryOperationError.removeItemFailed
+      }
     }
   }
 }

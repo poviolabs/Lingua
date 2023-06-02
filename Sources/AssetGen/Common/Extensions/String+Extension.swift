@@ -1,6 +1,8 @@
 import Foundation
 
 extension String {
+  static let packageName = "AssetGen"
+  
   func formatSheetSection() -> String {
     self
       .components(separatedBy: CharacterSet(charactersIn: " _"))

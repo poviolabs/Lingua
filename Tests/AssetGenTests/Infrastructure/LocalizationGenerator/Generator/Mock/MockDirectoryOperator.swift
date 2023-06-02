@@ -3,19 +3,19 @@ import Foundation
 
 class MockDirectoryOperator: DirectoryOperable {
   enum Message: Equatable {
-    case createDirectory(String, String)
-    case clearFolder(String)
+    case createDirectory(named: String, directory: String)
+    case removeFiles(prefix: String, directory: URL)
   }
   
   private(set) var messages = [Message]()
   var url: URL = .anyURL()
   
   func createDirectory(named: String, in outputDirectory: String) throws -> URL {
-    messages.append(.createDirectory(named, outputDirectory))
+    messages.append(.createDirectory(named: named, directory: outputDirectory))
     return url
   }
   
-  func clearFolder(at path: String) throws {
-    messages.append(.clearFolder(path))
+  func removeFiles(withPrefix prefix: String, in directory: URL) throws {
+    messages.append(.removeFiles(prefix: prefix, directory: directory))
   }
 }
