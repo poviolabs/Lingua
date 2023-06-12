@@ -2,7 +2,6 @@ import Foundation
 
 enum CommandLineParsingError: LocalizedError {
   case notEnoughArguments
-  case invalidAssetGenerationType
   case invalidPlatform
   case invalidConfigFilePath
   
@@ -10,8 +9,6 @@ enum CommandLineParsingError: LocalizedError {
     switch self {
     case .notEnoughArguments:
       return "Not enough arguments provided."
-    case .invalidAssetGenerationType:
-      return "Invalid asset generation type."
     case .invalidPlatform:
       return "Invalid platform."
     case .invalidConfigFilePath:

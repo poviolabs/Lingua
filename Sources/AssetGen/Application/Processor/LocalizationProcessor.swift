@@ -45,6 +45,7 @@ final class LocalizationProcessor: CommandLineProcessable {
       throw error
     } catch {
       logger.log(error.localizedDescription, level: .error)
+      logger.printUsage()
       throw error
     }
   }

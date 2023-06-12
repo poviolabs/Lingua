@@ -15,26 +15,8 @@ final class CommandLineParserTests: XCTestCase {
     }
   }
   
-  func test_parse_throwsInvalidAssetGenerationTypeError_forInvalidAssetGenerationType() {
-    let arguments = ["AssetGen", "invalid:ios", "config.json"]
-    
-    XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
-      XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
-                     CommandLineParsingError.invalidAssetGenerationType.localizedDescription)
-    }
-  }
-  
-  func test_parse_throwsInvalidAssetGenerationTypeError_forInvalidAssetGenerationTypeAndPlaform() {
-    let arguments = ["AssetGen", "", "config.json"]
-    
-    XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
-      XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
-                     CommandLineParsingError.invalidAssetGenerationType.localizedDescription)
-    }
-  }
-  
   func test_parse_throwsInvalidPlatformError_forInvalidPlatform() {
-    let arguments = ["AssetGen", "localization:invalid", "config.json"]
+    let arguments = ["AssetGen", "localization_invalid", "config.json"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
       XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
@@ -43,7 +25,7 @@ final class CommandLineParserTests: XCTestCase {
   }
   
   func test_parse_throwsInvalidConfigFilePathError_forInvalidConfigFilePath() {
-    let arguments = ["AssetGen", "localization:ios", "config.txt"]
+    let arguments = ["AssetGen", "ios", "config.txt"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
       XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
@@ -52,11 +34,10 @@ final class CommandLineParserTests: XCTestCase {
   }
   
   func test_parse_parsesArgumentsCorrectly_forValidArguments() throws {
-    let arguments = ["AssetGen", "localization:ios", "config.json"]
+    let arguments = ["AssetGen", "ios", "config.json"]
         
     let commandLineArguments = try sut.parse(arguments: arguments)
     
-    XCTAssertEqual(commandLineArguments.generationType, .localization)
     XCTAssertEqual(commandLineArguments.platform, .ios)
     XCTAssertEqual(commandLineArguments.configFilePath, "config.json")
   }
