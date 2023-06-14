@@ -4,7 +4,7 @@ struct StringsDictFileProcessor: FileProcessor {
   private let fileType = ".stringsdict"
   private let placeholderExtractor: PlaceholderExtractor
   
-  init(placeholderExtractor: PlaceholderExtractor = PlaceholderExtractor()) {
+  init(placeholderExtractor: PlaceholderExtractor = PlaceholderExtractor.make()) {
     self.placeholderExtractor = placeholderExtractor
   }
   
