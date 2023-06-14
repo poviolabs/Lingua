@@ -12,7 +12,7 @@
 
 # AssetGen
 
-AssetGen is a tool designed to streamline the localization process for iOS and Android platforms and asset management for iOS.
+AssetGen is a tool designed to streamline the localization process for iOS and Android platforms.
 It provides a unified solution for generating localization files from a single source, Google Sheets.
 
 There are several benefits of using the tool:
@@ -25,7 +25,7 @@ There are several benefits of using the tool:
 
 - Enhanced productivity through intelligent auto-completion and semantic clarity
 
-- Safeguard against referencing non-existent assets
+- Safeguard against referencing non-existent translations
 
 ## Installation
 
@@ -63,5 +63,5 @@ Then in the configuration file created you need to provide these data, like belo
 Now you can run the tool in terminal, switch to your project directory and run:
 
 ```shell
-$ assetgen localization:ios /path/to/assetgen.json
+$ assetgen ios /path/to/assetgen.json
 ```

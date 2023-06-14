@@ -6,7 +6,7 @@ final class LocalizationProcessorTests: XCTestCase {
     let (sut, actors) = makeSUT()
     let tempDirectoryURL = try createTemporaryDirectoryURL()
     let configPath = try createTemporaryConfigFile(data: createConfigData(in: tempDirectoryURL), tempDirectoryURL: tempDirectoryURL)
-    let arguments = ["AssetGen", "localization:ios", configPath.path]
+    let arguments = ["AssetGen", "ios", configPath.path]
     
     try await sut.process(arguments: arguments)
     
@@ -22,7 +22,7 @@ final class LocalizationProcessorTests: XCTestCase {
     let (sut, actors) = makeSUT()
     let tempDirectoryURL = try createTemporaryDirectoryURL()
     let configPath = try createTemporaryConfigFile(data: createInvalidConfigData(), tempDirectoryURL: tempDirectoryURL)
-    let arguments = ["AssetGen", "localization:ios", configPath.path]
+    let arguments = ["AssetGen", "ios", configPath.path]
     
     do {
       try await sut.process(arguments: arguments)
@@ -40,7 +40,7 @@ final class LocalizationProcessorTests: XCTestCase {
     let (sut, actors) = makeSUT(localizationModule: localizationModule)
     let tempDirectoryURL = try createTemporaryDirectoryURL()
     let configPath = try createTemporaryConfigFile(data: createConfigData(in: tempDirectoryURL), tempDirectoryURL: tempDirectoryURL)
-    let arguments = ["AssetGen", "localization:ios", configPath.path]
+    let arguments = ["AssetGen", "ios", configPath.path]
     
     do {
       try await sut.process(arguments: arguments)
@@ -49,7 +49,8 @@ final class LocalizationProcessorTests: XCTestCase {
                                               .message(message: "Loading configuration file...", level: .info),
                                               .message(message: "Initializing localization module...", level: .info),
                                               .message(message: "Starting localization...", level: .info),
-                                              .message(message: DirectoryOperationError.folderCreationFailed.localizedDescription, level: .error)])
+                                              .message(message: DirectoryOperationError.folderCreationFailed.localizedDescription, level: .error),
+                                              .message(message: printUsage, level: .info)])
       XCTAssertEqual(actors.mockLocalizationModule.messages, [])
     }
   }
