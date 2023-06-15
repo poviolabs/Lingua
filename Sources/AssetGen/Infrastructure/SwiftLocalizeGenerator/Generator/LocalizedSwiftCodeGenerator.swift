@@ -20,11 +20,11 @@ struct LocalizedSwiftCodeGenerator: LocalizedSwiftCodeGenerating {
 
 private extension LocalizedSwiftCodeGenerator {
   func generateStaticPropertyCode(section: String, key: String) -> String {
-    "static let \(key.formatKey()) = tr(\"\(section)\", \"\(key)\")"
+    "\tstatic let \(key.formatKey()) = tr(\"\(section)\", \"\(key)\")"
   }
   
   func generateFunctionCode(section: String, key: String, placeholders: [Placeholder]) -> String {
-    var function = "static func \(key.formatKey())("
+    var function = "\tstatic func \(key.formatKey())("
     
     for (index, placeholder) in placeholders.enumerated() {
       if index > 0 { function += ", " }
@@ -32,7 +32,7 @@ private extension LocalizedSwiftCodeGenerator {
     }
     
     function += ") -> String {\n"
-    function += "\treturn tr(\"\(section)\", \"\(key)\""
+    function += "\t\treturn tr(\"\(section)\", \"\(key)\""
     
     for index in 0..<placeholders.count {
       function += ", param\(index + 1)"
