@@ -2,6 +2,7 @@ import Foundation
 
 extension String {
   static let packageName = "AssetGen"
+  static let swiftLocalizedName = "Lingua"
   
   func formatSheetSection() -> String {
     self
