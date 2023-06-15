@@ -115,11 +115,8 @@ private extension LocalizationProcessorTests {
   var printUsage: String {
     """
     Usage:
-    AssetGen <asset_generation_type>:<platform> <config_file_path>
-    
-    <asset_generation_type> can be:
-    1. localization
-    
+    AssetGen <platform> <config_file_path/file.json>
+
     <platform> is required only for localization functionality and can be:
     1. ios
     2. android
