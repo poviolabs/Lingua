@@ -7,7 +7,6 @@ final class FileSectionAndTranslationProcessorTests: XCTestCase {
     let sut = makeSUT(fileManagerMock: fileManagerMock)
     let path = "testDirectoryPath"
     
-    
     let result = sut.processAndMergeFiles(at: path)
     
     XCTAssertEqual(result.sections, ["file1": Set(["section1"]), "file2": Set(["section1"])])

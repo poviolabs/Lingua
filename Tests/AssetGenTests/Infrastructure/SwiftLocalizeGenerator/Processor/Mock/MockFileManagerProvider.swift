@@ -9,6 +9,6 @@ class MockFileManagerProvider: FileManagerProvider {
   }
   
   var fileManager: FileManager {
-    return manager
+    manager
   }
 }
