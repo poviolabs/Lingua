@@ -23,9 +23,10 @@ final class DefaultLocalizedSwiftCodeOutputStringBuilderTests: XCTestCase {
     let output = sut.buildOutput(sections: sections, translations: translations)
     
     let expectedOutput = """
+    //swiftlint:disable all
+    
     import Foundation
     
-    //swiftlint:disable all
     enum Lingua {
     \tenum section1 {
     \t\tgeneratedCode(section1, key1, value1)

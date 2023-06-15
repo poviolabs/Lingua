@@ -11,9 +11,10 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
     let sectionsOutput = buildSectionsOutput(sections: sections, translations: translations)
     
     let output = """
+           //swiftlint:disable all
+           
            import Foundation
            
-           //swiftlint:disable all
            enum \(String.swiftLocalizedName) {
            \(sectionsOutput)
                
