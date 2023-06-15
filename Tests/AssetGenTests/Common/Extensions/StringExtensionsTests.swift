@@ -31,4 +31,40 @@ final class StringExtensionsTests: XCTestCase {
     let expectedOutput = "helloWorldFooBar"
     XCTAssertEqual(input.formatSheetSection(), expectedOutput)
   }
+  
+  func test_formatKey_returnsCorrectFormat() {
+    let input = "test_key"
+    let expectedOutput = "testKey"
+    
+    let output = input.formatKey()
+    
+    XCTAssertEqual(output, expectedOutput)
+  }
+  
+  func test_camelCased_returnsCorrectCamelCasedFormat() {
+    let input = "test_key"
+    let expectedOutput = "testKey"
+    
+    let output = input.camelCased()
+    
+    XCTAssertEqual(output, expectedOutput)
+  }
+  
+  func test_swiftIdentifier_convertsReservedWords() {
+    let input = "class"
+    let expectedOutput = "`class`"
+    
+    let output = input.swiftIdentifier()
+    
+    XCTAssertEqual(output, expectedOutput)
+  }
+  
+  func test_swiftIdentifier_returnsSameStringIfNotReserved() {
+    let input = "test_key"
+    let expectedOutput = "test_key"
+    
+    let output = input.swiftIdentifier()
+    
+    XCTAssertEqual(output, expectedOutput)
+  }
 }
