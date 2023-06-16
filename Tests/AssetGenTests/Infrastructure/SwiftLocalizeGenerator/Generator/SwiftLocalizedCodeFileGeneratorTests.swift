@@ -7,7 +7,7 @@ final class SwiftLocalizedCodeFileGeneratorTests: XCTestCase {
     let mockContentFilesCreator = MockContentFilesCreator()
     let sut = makeSUT(mockLogger: mockLogger,
                       mockContentFilesCreator: mockContentFilesCreator)
-
+    
     sut.generate(from: "inputPath", outputPath: "outputPath")
     
     XCTAssertEqual(mockLogger.messages, [.message(message: "Created \(String.swiftLocalizedName) file", level: .success)])
@@ -21,7 +21,7 @@ final class SwiftLocalizedCodeFileGeneratorTests: XCTestCase {
     mockContentFilesCreator.shouldThrowError = true
     let sut = makeSUT(mockLogger: mockLogger,
                       mockContentFilesCreator: mockContentFilesCreator)
-
+    
     sut.generate(from: "inputPath", outputPath: "outputPath")
     
     XCTAssertEqual(mockLogger.messages,
@@ -30,14 +30,16 @@ final class SwiftLocalizedCodeFileGeneratorTests: XCTestCase {
 }
 
 private extension SwiftLocalizedCodeFileGeneratorTests {
-  func makeSUT(mockFileProcessor: MergableFileProcessor = FileSectionAndTranslationProcessor(),
-               mockLogger: Logger = MockLogger(),
-               mockContentFilesCreator: ContentFileCreatable = MockContentFilesCreator(),
-               mockOutputStringBuilder: LocalizedSwiftCodeOutputStringBuilder = MockLocalizedSwiftCodeOutputStringBuilder()) -> SwiftLocalizedCodeFileGenerator {
-    return SwiftLocalizedCodeFileGenerator(fileProcessor: mockFileProcessor,
-                                           contentFileCreator: mockContentFilesCreator,
-                                           outputStringBuilder: mockOutputStringBuilder,
-                                           logger: mockLogger,
-                                           fileName: .swiftLocalizedName)
+  func makeSUT(
+    mockFileProcessor: MergableFileProcessor = FileSectionAndTranslationProcessor(),
+    mockLogger: Logger = MockLogger(),
+    mockContentFilesCreator: ContentFileCreatable = MockContentFilesCreator(),
+    mockOutputStringBuilder: LocalizedSwiftCodeOutputStringBuilder = MockLocalizedSwiftCodeOutputStringBuilder()
+  ) -> SwiftLocalizedCodeFileGenerator {
+    SwiftLocalizedCodeFileGenerator(fileProcessor: mockFileProcessor,
+                                    contentFileCreator: mockContentFilesCreator,
+                                    outputStringBuilder: mockOutputStringBuilder,
+                                    logger: mockLogger,
+                                    fileName: .swiftLocalizedName)
   }
 }
