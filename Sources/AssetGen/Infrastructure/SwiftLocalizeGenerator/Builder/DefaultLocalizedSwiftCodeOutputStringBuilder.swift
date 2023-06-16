@@ -18,7 +18,7 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
            enum \(String.packageName) {
            \(sectionsOutput)
                
-           \tprivate static func tr(_ section: String, _ key: String, _ args: CVarArg...) -> String {
+           \tprivate static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
            \t\tlet format = BundleToken.bundle.localizedString(forKey: key, value: nil, table: table)
            \t\treturn String(format: format, locale: Locale.current, arguments: args)
            \t}

@@ -7,6 +7,6 @@ extension AssetGenConfig.Localization {
                    outputDirectory: String = "path") -> AssetGenConfig.Localization {
     .init(apiKey: apiKey,
           sheetId: sheetId,
-          outputDirectory: outputDirectory)
+          outputDirectory: outputDirectory, localizedSwiftCode: .none)
   }
 }
