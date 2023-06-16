@@ -11,15 +11,10 @@ final class LocalizationModule: ModuleLocalizing {
   private let makeLocalizedFileGenerator: (LocalizationPlatform) -> LocalizedCodeFileGenerating
   
   init(config: AssetGenConfig.Localization,
-       makeSheetDataLoader: @escaping (AssetGenConfig.Localization) -> SheetDataLoader = { config in
-    GoogleSheetDataLoaderFactory.make(with: config)
-  },
-       makePlatformGenerator: @escaping (LocalizationPlatform) -> PlatformLocalizationGenerating = { platform in
-    PlatformLocalizationGeneratorFactory.make(for: platform)
-  },
-       makeLocalizedFileGenerator: @escaping (LocalizationPlatform) -> LocalizedCodeFileGenerating = { platform in
-    LocalizedSwiftFileGeneratorFactory.make(platform: platform)
-  }) {
+       makeSheetDataLoader: @escaping (AssetGenConfig.Localization) -> SheetDataLoader,
+       makePlatformGenerator: @escaping (LocalizationPlatform) -> PlatformLocalizationGenerating,
+       makeLocalizedFileGenerator: @escaping (LocalizationPlatform) -> LocalizedCodeFileGenerating
+  ) {
     self.config = config
     self.makeSheetDataLoader = makeSheetDataLoader
     self.makeGenerator = makePlatformGenerator

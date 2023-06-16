@@ -43,7 +43,7 @@ private extension LocalizationModuleIntegrationTests {
     }
     
     // Build a LocalizationModule instance with the mock objects.
-    let localizationModule = LocalizationModule(config: config, makeSheetDataLoader: mockSheetDataLoader)
+    let localizationModule = LocalizationModuleFactory.make(config: config, makeSheetDataLoader: mockSheetDataLoader)
     
     // Run the LocalizationModule to generate the files in the temporary directory.
     try await localizationModule.localize(for: platform)
