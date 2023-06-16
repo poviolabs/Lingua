@@ -1,8 +1,8 @@
 import Foundation
 
 extension String {
-  static let packageName = "AssetGen"
-  static let swiftLocalizedName = "Lingua"
+  static let packageName = "Lingua"
+  static let swiftLocalizedName = "\(String.packageName).swift"
   
   func formatSheetSection() -> String {
     self
