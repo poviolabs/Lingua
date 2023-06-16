@@ -8,9 +8,16 @@ struct AssetGenConfigTransformer: Transformable {
     var localizationDto: AssetGenConfig.Localization?
     
     if let localization = object.localization {
+      var localizedSwiftCode: AssetGenConfig.LocalizedSwiftCode?
+      if let localizedSwiftCodeDto = localization.swiftCode {
+        localizedSwiftCode = .init(stringsDirectory: localizedSwiftCodeDto.stringsDirectory,
+                                   outputSwiftCodeFileDirectory: localizedSwiftCodeDto.outputSwiftCodeFileDirectory)
+      }
+      
       localizationDto = AssetGenConfig.Localization(apiKey: localization.apiKey,
                                                     sheetId: localization.sheetId,
-                                                    outputDirectory: localization.outputDirectory)
+                                                    outputDirectory: localization.outputDirectory,
+                                                    localizedSwiftCode: localizedSwiftCode)
     }
     
     return AssetGenConfig(localization: localizationDto)

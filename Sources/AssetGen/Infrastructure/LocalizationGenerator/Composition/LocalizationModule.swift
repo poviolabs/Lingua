@@ -8,17 +8,17 @@ final class LocalizationModule: ModuleLocalizing {
   private let config: AssetGenConfig.Localization
   private let makeSheetDataLoader: (AssetGenConfig.Localization) -> SheetDataLoader
   private let makeGenerator: (LocalizationPlatform) -> PlatformLocalizationGenerating
+  private let makeLocalizedFileGenerator: (LocalizationPlatform) -> LocalizedCodeFileGenerating
   
   init(config: AssetGenConfig.Localization,
-       makeSheetDataLoader: @escaping (AssetGenConfig.Localization) -> SheetDataLoader = { config in
-    GoogleSheetDataLoaderFactory.make(with: config)
-  },
-       makePlatformGenerator: @escaping (LocalizationPlatform) -> PlatformLocalizationGenerating = { platform in
-    PlatformLocalizationGeneratorFactory.make(for: platform)
-  }) {
+       makeSheetDataLoader: @escaping (AssetGenConfig.Localization) -> SheetDataLoader,
+       makePlatformGenerator: @escaping (LocalizationPlatform) -> PlatformLocalizationGenerating,
+       makeLocalizedFileGenerator: @escaping (LocalizationPlatform) -> LocalizedCodeFileGenerating
+  ) {
     self.config = config
     self.makeSheetDataLoader = makeSheetDataLoader
     self.makeGenerator = makePlatformGenerator
+    self.makeLocalizedFileGenerator = makeLocalizedFileGenerator
   }
   
   func localize(for platform: LocalizationPlatform) async throws {
@@ -27,6 +27,11 @@ final class LocalizationModule: ModuleLocalizing {
       let sheets = try await sheetDataLoader.loadSheets()
       let generator = makeGenerator(platform)
       try generator.generateLocalizationFiles(data: sheets, config: config)
+      if let swiftCodeConfig = config.localizedSwiftCode {
+        let swiftCodeGenerator = makeLocalizedFileGenerator(platform)
+        swiftCodeGenerator.generate(from: swiftCodeConfig.stringsDirectory,
+                                    outputPath: swiftCodeConfig.outputSwiftCodeFileDirectory)
+      }
     } catch {
       throw error
     }

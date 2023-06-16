@@ -4,9 +4,11 @@ import Foundation
 extension AssetGenConfig.Localization {
   static func make(apiKey: String = "key",
                    sheetId: String = "id",
-                   outputDirectory: String = "path") -> AssetGenConfig.Localization {
+                   outputDirectory: String = "path",
+                   localizedSwiftCode: AssetGenConfig.LocalizedSwiftCode? = .none) -> AssetGenConfig.Localization {
     .init(apiKey: apiKey,
           sheetId: sheetId,
-          outputDirectory: outputDirectory)
+          outputDirectory: outputDirectory,
+          localizedSwiftCode: localizedSwiftCode)
   }
 }
