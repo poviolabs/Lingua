@@ -23,6 +23,6 @@ final class LocalizedFilesGeneratorTests: XCTestCase {
     XCTAssertEqual(directoryOperator.messages,
                    [.createDirectory(named: localizationPlatform.folderName(for: sheet.languageCode),
                                      directory: config.outputDirectory),
-                    .removeFiles(prefix: "AssetGen", directory: outputDirectoryURL)])
+                    .removeFiles(prefix: "Lingua", directory: outputDirectoryURL)])
   }
 }

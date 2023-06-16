@@ -10,11 +10,11 @@ struct LocalizedSwiftCodeGenerator: LocalizedSwiftCodeGenerating {
   func generateCode(section: String, key: String, translation: String) -> String {
     let placeholders = placeholderExtractor.extractPlaceholders(from: translation)
     
-    if placeholders.isEmpty {
-      return generateStaticPropertyCode(section: section, key: key)
-    } else {
+    guard placeholders.isEmpty else {
       return generateFunctionCode(section: section, key: key, placeholders: placeholders)
     }
+    
+    return generateStaticPropertyCode(section: section, key: key)
   }
 }
 

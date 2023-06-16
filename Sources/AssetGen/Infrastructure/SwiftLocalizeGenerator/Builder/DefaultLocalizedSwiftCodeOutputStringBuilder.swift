@@ -15,7 +15,7 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
            
            import Foundation
            
-           enum \(String.swiftLocalizedName) {
+           enum \(String.packageName) {
            \(sectionsOutput)
                
            \tprivate static func tr(_ section: String, _ key: String, _ args: CVarArg...) -> String {
