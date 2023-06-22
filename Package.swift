@@ -4,16 +4,16 @@
 import PackageDescription
 
 let package = Package(
-  name: "AssetGen",
+  name: "Lingua",
   platforms: [
     .macOS(.v12),
   ],
   targets: [
     .executableTarget(
-      name: "AssetGen",
+      name: "Lingua",
       dependencies: []),
     .testTarget(
-      name: "AssetGenTests",
-      dependencies: ["AssetGen"]),
+      name: "LinguaTests",
+      dependencies: ["Lingua"]),
   ]
 )
