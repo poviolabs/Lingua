@@ -14,7 +14,7 @@ final class LocalizedFilesGeneratorTests: XCTestCase {
     )
     
     let sheet = LocalizationSheet(language: "en", entries: [LocalizationEntry.create(plural: true)])
-    let config = AssetGenConfig.Localization(apiKey: "key", sheetId: "id", outputDirectory: "path")
+    let config = AssetGenConfig.Localization(apiKey: "key", sheetId: "id", outputDirectory: "path", localizedSwiftCode: .none)
     let outputDirectoryURL = try XCTUnwrap(URL(string: config.outputDirectory))
     directoryOperator.url = outputDirectoryURL
     
@@ -23,6 +23,6 @@ final class LocalizedFilesGeneratorTests: XCTestCase {
     XCTAssertEqual(directoryOperator.messages,
                    [.createDirectory(named: localizationPlatform.folderName(for: sheet.languageCode),
                                      directory: config.outputDirectory),
-                    .removeFiles(prefix: "AssetGen", directory: outputDirectoryURL)])
+                    .removeFiles(prefix: "Lingua", directory: outputDirectoryURL)])
   }
 }

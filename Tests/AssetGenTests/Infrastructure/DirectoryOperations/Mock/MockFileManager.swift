@@ -1,9 +1,18 @@
 import Foundation
 @testable import AssetGen
 
-class MockFileManager: FileManager {
+final class MockFileManager: FileManager {
+  let files: [String]
   var shouldThrowErrorOnRemoveItem = false
   var shouldThrowErrorOnCreateDirectory = false
+  
+  init(files: [String] = []) {
+    self.files = files
+  }
+  
+  override func enumerator(atPath path: String) -> FileManager.DirectoryEnumerator? {
+    DirectoryEnumeratorStub(files: files)
+  }
   
   override func createDirectory(at url: URL,
                                 withIntermediateDirectories createIntermediates: Bool,

@@ -6,7 +6,7 @@ struct ProcessorFactory {
     logger: Logger = ConsoleLogger.shared,
     entityFileLoader: EntityFileLoader<JSONDataParser<AssetGenConfigDto>, AssetGenConfigTransformer> = EntityLoaderFactory.makeAssetGenConfigLoader(),
     localizationModuleFactory: @escaping (AssetGenConfig.Localization) -> ModuleLocalizing = { config in
-      LocalizationModule(config: config)
+      LocalizationModuleFactory.make(config: config)
     }
   ) -> LocalizationProcessor {
     LocalizationProcessor(argumentParser: argumentParser,

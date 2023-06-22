@@ -5,7 +5,7 @@ final class PlatformLocalizationGeneratorTests: XCTestCase {
   func test_generateLocalizationFiles_clearsFolderAndCreatesFiles() throws {
     let mockDirectoryOperator = MockDirectoryOperator()
     let mockGenerator = MockLocalizedFilesGenerator()
-    let config = AssetGenConfig.Localization(apiKey: "key", sheetId: "id", outputDirectory: "/path")
+    let config = AssetGenConfig.Localization(apiKey: "key", sheetId: "id", outputDirectory: "/path", localizedSwiftCode: .none)
     let sheet = LocalizationSheet(language: "en", entries: [.create(plural: true)])
     let data: [LocalizationSheet] = [sheet]
     let sut = makeSUT(directoryOperator: mockDirectoryOperator, generator: mockGenerator)
