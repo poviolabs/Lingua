@@ -34,7 +34,7 @@ Currently we support the tool to install in Homebrew
 via Homebrew:
 
 ```shell
-$ brew tap poviolabs/assetgen
+$ brew tap poviolabs/assetgen https://github.com/poviolabs/assetgen
 $ brew install assetgen
 ```
 
