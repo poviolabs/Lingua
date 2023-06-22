@@ -25,15 +25,15 @@ private extension LocalizationModuleIntegrationTests {
     // Create a config for localization
     let folderName = platform.folderName(for: "en")
     let outputSwiftCodeFileDirectory = tempDirectoryURL.appendingPathComponent(folderName).path
-    let localizedSwiftCode = ToolConfig.LocalizedSwiftCode(stringsDirectory: tempDirectoryURL.path,
+    let localizedSwiftCode = Config.LocalizedSwiftCode(stringsDirectory: tempDirectoryURL.path,
                                                                outputSwiftCodeFileDirectory: outputSwiftCodeFileDirectory)
-    let config = ToolConfig.Localization(apiKey: "key",
+    let config = Config.Localization(apiKey: "key",
                                              sheetId: "id",
                                              outputDirectory: tempDirectoryURL.path,
                                              localizedSwiftCode: localizedSwiftCode)
     
     // Create a mock SheetDataLoader that uses the test configuration.
-    let mockSheetDataLoader: (ToolConfig.Localization) -> SheetDataLoader = { config in
+    let mockSheetDataLoader: (Config.Localization) -> SheetDataLoader = { config in
       let data = [LocalizationSheet(language: "en",
                                     entries: [
                                       LocalizationEntry.create(section: "General", key: "key_general", plural: false),

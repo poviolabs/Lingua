@@ -15,7 +15,7 @@ final class LocalizedFilesGenerator {
 }
 
 extension LocalizedFilesGenerator: LocalizedFilesGenerating {
-  func generate(for sheet: LocalizationSheet, config: ToolConfig.Localization) throws {
+  func generate(for sheet: LocalizationSheet, config: Config.Localization) throws {
     let languageCode = sheet.languageCode
     let folderName = localizationPlatform.folderName(for: languageCode)
     let outputFolder = try directoryOperator.createDirectory(named: folderName, in: config.outputDirectory)

@@ -2,7 +2,7 @@ import XCTest
 @testable import Lingua
 
 final class LocalizationModuleTests: XCTestCase {
-  private let config: ToolConfig.Localization = .make(localizedSwiftCode: .init(stringsDirectory: "path",
+  private let config: Config.Localization = .make(localizedSwiftCode: .init(stringsDirectory: "path",
                                                                                     outputSwiftCodeFileDirectory: "path"))
   
   func test_localize_invokesCorrectMethodsOfDependencies() async throws {
@@ -70,8 +70,8 @@ private extension LocalizationModuleTests {
     [LocalizationSheet(language: "en", entries: [LocalizationEntry.create(plural: true)])]
   }
   
-  func makeSUT(config: ToolConfig.Localization,
-               makeSheetDataLoader: @escaping (ToolConfig.Localization) -> SheetDataLoader,
+  func makeSUT(config: Config.Localization,
+               makeSheetDataLoader: @escaping (Config.Localization) -> SheetDataLoader,
                makePlatformGenerator: @escaping (LocalizationPlatform) -> PlatformLocalizationGenerating,
                makeLocalizedFileGenerator: @escaping (LocalizationPlatform) -> LocalizedCodeFileGenerating
   ) -> LocalizationModule {

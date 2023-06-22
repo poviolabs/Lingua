@@ -10,7 +10,7 @@ final class PlatformLocalizationGenerator: PlatformLocalizationGenerating {
     self.localizedFileGenerator = localizedFileGenerator
   }
   
-  func generateLocalizationFiles(data: [LocalizationSheet], config: ToolConfig.Localization) throws {
+  func generateLocalizationFiles(data: [LocalizationSheet], config: Config.Localization) throws {
     data.forEach { data in
       try? localizedFileGenerator.generate(for: data, config: config)
     }

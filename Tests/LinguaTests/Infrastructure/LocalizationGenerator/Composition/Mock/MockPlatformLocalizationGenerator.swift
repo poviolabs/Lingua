@@ -3,7 +3,7 @@ import XCTest
 
 final class MockPlatformLocalizationGenerator: PlatformLocalizationGenerating {
   enum Message: Equatable {
-    case generate(data: [LocalizationSheet], config: ToolConfig.Localization)
+    case generate(data: [LocalizationSheet], config: Config.Localization)
   }
   
   private(set) var messages = [Message]()
@@ -14,7 +14,7 @@ final class MockPlatformLocalizationGenerator: PlatformLocalizationGenerating {
   }
   
   func generateLocalizationFiles(data: [LocalizationSheet],
-                                 config: ToolConfig.Localization) throws {
+                                 config: Config.Localization) throws {
     if shouldThrowError {
       throw NSError.anyError()
     } else {

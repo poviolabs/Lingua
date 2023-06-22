@@ -1,14 +1,14 @@
 import XCTest
 @testable import Lingua
 
-final class ToolConfigTransformerTest: XCTestCase {
+final class ConfigTransformerTest: XCTestCase {
   func test_transform_mapsAssetGenConfigDto_toEntity() throws {
-    let dto = ToolConfigDto(localization: .init(apiKey: "key",
-                                                    sheetId: "id",
-                                                    outputDirectory: "path",
-                                                    swiftCode: .init(stringsDirectory: "test",
-                                                                     outputSwiftCodeFileDirectory: "test_ouput")))
-    let sut = ToolConfigTransformer()
+    let dto = ConfigDto(localization: .init(apiKey: "key",
+                                                sheetId: "id",
+                                                outputDirectory: "path",
+                                                swiftCode: .init(stringsDirectory: "test",
+                                                                 outputSwiftCodeFileDirectory: "test_ouput")))
+    let sut = ConfigTransformer()
     
     let entity = try sut.transform(dto)
     
@@ -21,8 +21,8 @@ final class ToolConfigTransformerTest: XCTestCase {
   }
   
   func test_transform_mapsAssetGenConfigDto_toEntity_whenSwiftCodeIsMissing() throws {
-    let dto = ToolConfigDto(localization: .init(apiKey: "key", sheetId: "id", outputDirectory: "path", swiftCode: .none))
-    let sut = ToolConfigTransformer()
+    let dto = ConfigDto(localization: .init(apiKey: "key", sheetId: "id", outputDirectory: "path", swiftCode: .none))
+    let sut = ConfigTransformer()
     
     let entity = try sut.transform(dto)
     

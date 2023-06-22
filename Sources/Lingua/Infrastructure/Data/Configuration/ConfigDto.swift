@@ -1,10 +1,10 @@
 import Foundation
 
-struct ToolConfigDto: Equatable, Codable {
+struct ConfigDto: Equatable, Codable {
   let localization: Localization?
 }
 
-extension ToolConfigDto {
+extension ConfigDto {
   struct Localization: Equatable, Codable {
     let apiKey: String
     let sheetId: String

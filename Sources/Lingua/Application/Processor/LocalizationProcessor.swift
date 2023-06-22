@@ -3,13 +3,13 @@ import Foundation
 final class LocalizationProcessor: CommandLineProcessable {
   private let argumentParser: CommandLineParsable
   private let logger: Logger
-  private let entityFileLoader: EntityFileLoader<JSONDataParser<ToolConfigDto>, ToolConfigTransformer>
-  private let localizationModuleFactory: (ToolConfig.Localization) -> ModuleLocalizing
+  private let entityFileLoader: EntityFileLoader<JSONDataParser<ConfigDto>, ConfigTransformer>
+  private let localizationModuleFactory: (Config.Localization) -> ModuleLocalizing
   
   init(argumentParser: CommandLineParsable,
        logger: Logger,
-       entityFileLoader: EntityFileLoader<JSONDataParser<ToolConfigDto>, ToolConfigTransformer>,
-       localizationModuleFactory: @escaping (ToolConfig.Localization) -> ModuleLocalizing) {
+       entityFileLoader: EntityFileLoader<JSONDataParser<ConfigDto>, ConfigTransformer>,
+       localizationModuleFactory: @escaping (Config.Localization) -> ModuleLocalizing) {
     self.argumentParser = argumentParser
     self.logger = logger
     self.entityFileLoader = entityFileLoader
@@ -24,7 +24,7 @@ final class LocalizationProcessor: CommandLineProcessable {
       
       logger.log("Loading configuration file...", level: .info)
       
-      let config: ToolConfig = try await entityFileLoader.loadEntity(from: arguments.configFilePath)
+      let config: Config = try await entityFileLoader.loadEntity(from: arguments.configFilePath)
       
       guard let localization = config.localization else {
         throw ProcessorError.missingLocalization

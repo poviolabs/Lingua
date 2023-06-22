@@ -1,7 +1,7 @@
 import Foundation
 
 struct GoogleSheetDataLoaderFactory {
-  static func make(with config: ToolConfig.Localization) -> SheetDataLoader {
+  static func make(with config: Config.Localization) -> SheetDataLoader {
     let config = GoogleSheetsAPIConfig(apiKey: config.apiKey, sheetId: config.sheetId)
     let requestBuilder = URLRequestBuilder(baseURLString: config.baseUrl)
     let requestExecutor = APIRequestExecutor(requestBuilder: requestBuilder)

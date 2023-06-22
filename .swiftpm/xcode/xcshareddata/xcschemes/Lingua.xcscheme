@@ -9,28 +9,28 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AssetGenTests"
-               BuildableName = "AssetGenTests"
-               BlueprintName = "AssetGenTests"
+               BlueprintIdentifier = "Lingua"
+               BuildableName = "Lingua"
+               BlueprintName = "Lingua"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AssetGen"
-               BuildableName = "AssetGen"
-               BlueprintName = "AssetGen"
+               BlueprintIdentifier = "LinguaTests"
+               BuildableName = "LinguaTests"
+               BlueprintName = "LinguaTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AssetGenTests"
-               BuildableName = "AssetGenTests"
-               BlueprintName = "AssetGenTests"
+               BlueprintIdentifier = "LinguaTests"
+               BuildableName = "LinguaTests"
+               BlueprintName = "LinguaTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -70,9 +70,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AssetGen"
-            BuildableName = "AssetGen"
-            BlueprintName = "AssetGen"
+            BlueprintIdentifier = "Lingua"
+            BuildableName = "Lingua"
+            BlueprintName = "Lingua"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -83,6 +83,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Lingua"
+            BuildableName = "Lingua"
+            BlueprintName = "Lingua"
+            ReferencedContainer = "container:">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

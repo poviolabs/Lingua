@@ -14,7 +14,7 @@ final class LocalizedFilesGeneratorTests: XCTestCase {
     )
     
     let sheet = LocalizationSheet(language: "en", entries: [LocalizationEntry.create(plural: true)])
-    let config = ToolConfig.Localization(apiKey: "key", sheetId: "id", outputDirectory: "path", localizedSwiftCode: .none)
+    let config = Config.Localization(apiKey: "key", sheetId: "id", outputDirectory: "path", localizedSwiftCode: .none)
     let outputDirectoryURL = try XCTUnwrap(URL(string: config.outputDirectory))
     directoryOperator.url = outputDirectoryURL
     

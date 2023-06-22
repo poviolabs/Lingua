@@ -5,13 +5,13 @@ protocol ModuleLocalizing {
 }
 
 final class LocalizationModule: ModuleLocalizing {
-  private let config: ToolConfig.Localization
-  private let makeSheetDataLoader: (ToolConfig.Localization) -> SheetDataLoader
+  private let config: Config.Localization
+  private let makeSheetDataLoader: (Config.Localization) -> SheetDataLoader
   private let makeGenerator: (LocalizationPlatform) -> PlatformLocalizationGenerating
   private let makeLocalizedFileGenerator: (LocalizationPlatform) -> LocalizedCodeFileGenerating
   
-  init(config: ToolConfig.Localization,
-       makeSheetDataLoader: @escaping (ToolConfig.Localization) -> SheetDataLoader,
+  init(config: Config.Localization,
+       makeSheetDataLoader: @escaping (Config.Localization) -> SheetDataLoader,
        makePlatformGenerator: @escaping (LocalizationPlatform) -> PlatformLocalizationGenerating,
        makeLocalizedFileGenerator: @escaping (LocalizationPlatform) -> LocalizedCodeFileGenerating
   ) {

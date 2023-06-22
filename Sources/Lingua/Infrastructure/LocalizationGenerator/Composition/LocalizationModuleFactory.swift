@@ -2,8 +2,8 @@ import Foundation
 
 struct LocalizationModuleFactory {
   static func make(
-    config: ToolConfig.Localization,
-    makeSheetDataLoader: @escaping (ToolConfig.Localization) -> SheetDataLoader = { config in
+    config: Config.Localization,
+    makeSheetDataLoader: @escaping (Config.Localization) -> SheetDataLoader = { config in
       GoogleSheetDataLoaderFactory.make(with: config)
     }
   ) -> ModuleLocalizing {
