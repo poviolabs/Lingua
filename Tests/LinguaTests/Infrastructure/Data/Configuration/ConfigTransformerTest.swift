@@ -2,7 +2,7 @@ import XCTest
 @testable import Lingua
 
 final class ConfigTransformerTest: XCTestCase {
-  func test_transform_mapsAssetGenConfigDto_toEntity() throws {
+  func test_transform_mapsConfigDto_toEntity() throws {
     let dto = ConfigDto(localization: .init(apiKey: "key",
                                                 sheetId: "id",
                                                 outputDirectory: "path",
@@ -20,7 +20,7 @@ final class ConfigTransformerTest: XCTestCase {
                    entity.localization?.localizedSwiftCode?.outputSwiftCodeFileDirectory)
   }
   
-  func test_transform_mapsAssetGenConfigDto_toEntity_whenSwiftCodeIsMissing() throws {
+  func test_transform_mapsConfigDto_toEntity_whenSwiftCodeIsMissing() throws {
     let dto = ConfigDto(localization: .init(apiKey: "key", sheetId: "id", outputDirectory: "path", swiftCode: .none))
     let sut = ConfigTransformer()
     
