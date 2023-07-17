@@ -47,7 +47,9 @@ In order to setup Google sheet, we need to complete two steps. First one is to c
 
 We have prepared a tamplate for sheet structure for you. What you have to do is to open the link below and make a copy `File > Make a copy`
 
-[Lingua - Google Sheets](https://docs.google.com/spreadsheets/d/1GpaPpO4JMleZPd8paSW4qPBQxjImm2xD8yJhvZOP-8w)
+[Mobile Localizations Template - Google Sheets](https://docs.google.com/spreadsheets/d/1Cnqy4gZqh9pGcTF_0jb8QGOnysejZ8dVfSj8dgX4kzM)
+
+**Important:** Make sure to replace the existing API key in your application with the newly generated one. Also, ensure that the Google Sheet you're trying to access has its sharing settings configured to allow access to anyone with the link. You can do this by clicking on "Share" in the upper right corner of the Google Sheet and selecting "Anyone with the link."
 
 ### b. Obtain the sheet id
 
@@ -63,7 +65,7 @@ Here are the steps to enable the Google Sheets API and create an API key:
 
 2. If you haven't already, create a new project or select an existing one.
 
-3. In the left sidebar, click on "APIs & Services," then "Dashboard."
+3. In the left sidebar, click on "APIs & Services"
 
 4. Click on "+ ENABLE APIS AND SERVICES" at the top of the page.
 
@@ -71,21 +73,13 @@ Here are the steps to enable the Google Sheets API and create an API key:
 
 6. Click on "ENABLE" to enable the Google Sheets API for your project.
 
-7. After the API is enabled, go back to the "APIs & Services" > "Dashboard" page.
+7. After the API is enabled, go back to the "APIs & Services" > "Credendtials" page.
 
 8. Click on "CREATE CREDENTIALS" at the top of the page.
 
-9. In the "Which API are you using?" dropdown, select "Google Sheets API."
+9. In the dropdown, select "API key"
 
-10. In the "Where will you be calling the API from?" dropdown, select "Other non-UI (e.g., cron job, daemon)."
-
-11. In the "What data will you be accessing?" section, select "Public data."
-
-12. Click on "What credentials do I need?"
-
-13. You'll be presented with an API key. Click on "Copy" to copy the key to your clipboard. Store this key securely, as you'll need it to access the Google Sheets API in your application.
-
-Make sure to replace the existing API key in your application with the newly generated one. Also, ensure that the Google Sheet you're trying to access has its sharing settings configured to allow access to anyone with the link. You can do this by clicking on "Share" in the upper right corner of the Google Sheet and selecting "Anyone with the link."
+Wait a bit until the key is generated and an information modal with the message `API key created` will be shown.
 
 ## 2. Configuration file
 
