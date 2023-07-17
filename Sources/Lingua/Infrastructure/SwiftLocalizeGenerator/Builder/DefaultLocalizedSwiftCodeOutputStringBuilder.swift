@@ -11,7 +11,7 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
     let sectionsOutput = buildSectionsOutput(sections: sections, translations: translations)
     
     let output = """
-           //swiftlint:disable all
+           // swiftlint:disable all
            
            import Foundation
            
@@ -33,6 +33,9 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
                #endif
              }()
            }
+           
+           // swiftlint:enable all
+           
            """
     return output
   }
