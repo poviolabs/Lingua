@@ -3,6 +3,7 @@ import Foundation
 protocol DirectoryOperable {
   func createDirectory(named: String, in outputDirectory: String) throws -> URL
   func removeFiles(withPrefix prefix: String, in directory: URL) throws
+  func removeAllFiles(in directory: URL) throws
 }
 
 final class DirectoryOperator: DirectoryOperable {
@@ -29,6 +30,20 @@ final class DirectoryOperator: DirectoryOperable {
     let fileURLs = try fileManager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
     
     for fileURL in fileURLs where fileURL.lastPathComponent.hasPrefix(prefix) {
+      do {
+        try fileManager.removeItem(at: fileURL)
+      } catch {
+        throw DirectoryOperationError.removeItemFailed
+      }
+    }
+  }
+  
+  func removeAllFiles(in directory: URL) throws {
+    let fileManager = fileManagerProvider.manager
+    
+    let fileURLs = try fileManager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
+    
+    for fileURL in fileURLs {
       do {
         try fileManager.removeItem(at: fileURL)
       } catch {
