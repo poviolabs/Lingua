@@ -19,7 +19,8 @@ final class PlaceholderExtractorTests: XCTestCase {
   }
   
   func testMultiplePlaceholdersExtraction() {
-    expect(testString: "Hello %@, you are %d years old and your average grade is %f.",
+    expect(sut: PlaceholderExtractor(strategy: NSRegularExpressionPlaceholderExtractor()),
+           testString: "Hello %@, you are %d years old and your average grade is %f.",
            expectedTypes: ["String", "Int", "Double"])
   }
   

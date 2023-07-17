@@ -14,9 +14,11 @@ struct LocalizedFilesGeneratorFactory {
                                                          fileNameGenerator: fileNameGenerator)
     
     let directoryManager = DirectoryOperator.makeDefault()
+    let fileCleanupStrategy = FileCleanupFactory.make(for: localizationPlatform)
     let generator = LocalizedFilesGenerator(directoryOperator: directoryManager,
                                             filesGenerator: filesGenerator,
-                                            localizationPlatform: localizationPlatform)
+                                            localizationPlatform: localizationPlatform,
+                                            fileCleanup: fileCleanupStrategy)
     
     return generator
   }
