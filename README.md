@@ -35,7 +35,7 @@ There are several benefits of using the tool:
 Currently we support the tool to be installed via Homebrew
 
 ```shell
-$ brew tap poviolabs/lingua https://github.com/poviolabs/lingua
+$ brew tap poviolabs/lingua
 $ brew install lingua
 ```
 
