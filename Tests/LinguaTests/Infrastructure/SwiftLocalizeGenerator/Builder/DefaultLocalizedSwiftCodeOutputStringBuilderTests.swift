@@ -23,7 +23,7 @@ final class DefaultLocalizedSwiftCodeOutputStringBuilderTests: XCTestCase {
     let output = sut.buildOutput(sections: sections, translations: translations)
     
     let expectedOutput = """
-    //swiftlint:disable all
+    // swiftlint:disable all
     
     import Foundation
     
@@ -51,6 +51,9 @@ final class DefaultLocalizedSwiftCodeOutputStringBuilderTests: XCTestCase {
         #endif
       }()
     }
+    
+    // swiftlint:enable all
+    
     """
     
     XCTAssertEqual(output, expectedOutput)

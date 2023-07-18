@@ -7,7 +7,7 @@ final class CommandLineParserTests: XCTestCase {
   }()
   
   func test_parse_throwsNotEnoughArgumentsError_forNotEnoughArguments() {
-    let arguments = ["AssetGen"]
+    let arguments = ["Lingua"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
       XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
@@ -16,7 +16,7 @@ final class CommandLineParserTests: XCTestCase {
   }
   
   func test_parse_throwsInvalidPlatformError_forInvalidPlatform() {
-    let arguments = ["AssetGen", "localization_invalid", "config.json"]
+    let arguments = ["Lingua", "localization_invalid", "config.json"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
       XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
@@ -25,7 +25,7 @@ final class CommandLineParserTests: XCTestCase {
   }
   
   func test_parse_throwsInvalidConfigFilePathError_forInvalidConfigFilePath() {
-    let arguments = ["AssetGen", "ios", "config.txt"]
+    let arguments = ["Lingua", "ios", "config.txt"]
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
       XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
@@ -34,7 +34,7 @@ final class CommandLineParserTests: XCTestCase {
   }
   
   func test_parse_parsesArgumentsCorrectly_forValidArguments() throws {
-    let arguments = ["AssetGen", "ios", "config.json"]
+    let arguments = ["Lingua", "ios", "config.json"]
         
     let commandLineArguments = try sut.parse(arguments: arguments)
     

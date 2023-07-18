@@ -8,7 +8,7 @@ struct PlaceholderExtractor {
   }
   
   func extractPlaceholders(from translation: String) -> [Placeholder] {
-    let pattern = "(%([0-9]*\\$)?(\\d*\\$)?[@diufFeEgGxXoOcsaAbBhH]+)"
+    let pattern = "(%([0-9]*\\$)?(\\d*\\$)?[@\\w]+)"
     return strategy.extractPlaceholders(from: translation, pattern: pattern)
   }
 }

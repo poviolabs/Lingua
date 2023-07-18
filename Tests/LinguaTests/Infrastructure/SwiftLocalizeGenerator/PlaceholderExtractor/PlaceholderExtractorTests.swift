@@ -2,39 +2,39 @@ import XCTest
 @testable import Lingua
 
 final class PlaceholderExtractorTests: XCTestCase {
-  func test_extractPlaceholders_withRegexPlaceholderExtractor() {
-    let extractor = PlaceholderExtractor(strategy: RegexPlaceholderExtractor())
-    verifyPlaceholders(extractor: extractor)
+  func testStringPlaceholderExtraction() {
+    expect(testString: "Hello %@, how are you? You've %s and %S", expectedTypes: ["String", "String", "String"])
   }
   
-  func test_extractPlaceholders_withNSRegularExpressionStrategy() {
-    let extractor = PlaceholderExtractor(strategy: NSRegularExpressionPlaceholderExtractor())
-    verifyPlaceholders(extractor: extractor)
+  func testIntPlaceholderExtraction() {
+    expect(testString: "Your age is %d and you've %x and %i", expectedTypes: ["Int", "Int", "Int"])
   }
   
-  func test_extractPlaceholders_withDefaultStrategy() {
-    let extractor = PlaceholderExtractor.make()
-    verifyPlaceholders(extractor: extractor)
+  func testDoublePlaceholderExtraction() {
+    expect(testString: "The area is %f and you've %e and %G", expectedTypes: ["Double", "Double", "Double"])
+  }
+  
+  func testUnknownPlaceholderExtraction() {
+    expect(testString: "Here is a mysterious %Z placeholder", expectedTypes: ["Any"])
+  }
+  
+  func testMultiplePlaceholdersExtraction() {
+    expect(sut: PlaceholderExtractor(strategy: NSRegularExpressionPlaceholderExtractor()),
+           testString: "Hello %@, you are %d years old and your average grade is %f.",
+           expectedTypes: ["String", "Int", "Double"])
+  }
+  
+  func testMultipleCharacterIntPlaceholderExtraction() {
+    expect(testString: "There are %dd and %dh, %@!", expectedTypes: ["Int", "Int", "String"])
   }
 }
- 
+
 private extension PlaceholderExtractorTests {
-  func verifyPlaceholders(extractor: PlaceholderExtractor) {
-    let translation = "Hello %@, you have %d unread messages and %f new notifications and %a."
-    let placeholders = extractor.extractPlaceholders(from: translation)
+  func expect(sut: PlaceholderExtractor = .make() ,testString: String, expectedTypes: [String]) {
+    let placeholders = sut.extractPlaceholders(from: testString)
     
-    XCTAssertEqual(placeholders.count, 4)
-    
-    XCTAssertEqual(placeholders[0].index, 0)
-    XCTAssertEqual(placeholders[0].type.asDataType, "String")
-    
-    XCTAssertEqual(placeholders[1].index, 1)
-    XCTAssertEqual(placeholders[1].type.asDataType, "Int")
-    
-    XCTAssertEqual(placeholders[2].index, 2)
-    XCTAssertEqual(placeholders[2].type.asDataType, "Double")
-    
-    XCTAssertEqual(placeholders[3].index, 3)
-    XCTAssertEqual(placeholders[3].type.asDataType, "Any")
+    for (index, expectedType) in expectedTypes.enumerated() {
+      XCTAssertEqual(placeholders[index].type.asDataType, expectedType)
+    }
   }
 }

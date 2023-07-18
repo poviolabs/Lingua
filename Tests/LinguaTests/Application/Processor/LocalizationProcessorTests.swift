@@ -6,7 +6,7 @@ final class LocalizationProcessorTests: XCTestCase {
     let (sut, actors) = makeSUT()
     let tempDirectoryURL = try createTemporaryDirectoryURL()
     let configPath = try createTemporaryConfigFile(data: createConfigData(in: tempDirectoryURL), tempDirectoryURL: tempDirectoryURL)
-    let arguments = ["AssetGen", "ios", configPath.path]
+    let arguments = ["Lingua", "ios", configPath.path]
     
     try await sut.process(arguments: arguments)
     
@@ -22,7 +22,7 @@ final class LocalizationProcessorTests: XCTestCase {
     let (sut, actors) = makeSUT()
     let tempDirectoryURL = try createTemporaryDirectoryURL()
     let configPath = try createTemporaryConfigFile(data: createInvalidConfigData(), tempDirectoryURL: tempDirectoryURL)
-    let arguments = ["AssetGen", "ios", configPath.path]
+    let arguments = ["Lingua", "ios", configPath.path]
     
     do {
       try await sut.process(arguments: arguments)
@@ -40,7 +40,7 @@ final class LocalizationProcessorTests: XCTestCase {
     let (sut, actors) = makeSUT(localizationModule: localizationModule)
     let tempDirectoryURL = try createTemporaryDirectoryURL()
     let configPath = try createTemporaryConfigFile(data: createConfigData(in: tempDirectoryURL), tempDirectoryURL: tempDirectoryURL)
-    let arguments = ["AssetGen", "ios", configPath.path]
+    let arguments = ["Lingua", "ios", configPath.path]
     
     do {
       try await sut.process(arguments: arguments)
@@ -115,7 +115,7 @@ private extension LocalizationProcessorTests {
   var printUsage: String {
     """
     Usage:
-    AssetGen <platform> <config_file_path/file.json>
+    Lingua <platform> <config_file_path/file.json>
 
     <platform> is required only for localization functionality and can be:
     1. ios

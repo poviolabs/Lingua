@@ -13,12 +13,17 @@ extension Placeholder {
     case any
     
     init(for placeholder: String) {
-      switch placeholder {
-      case "%@", "%A":
+      guard let identifier = placeholder.dropFirst().first else {
+        self = .any
+        return
+      }
+      
+      switch identifier {
+      case "s", "S", "@":
         self = .string
-      case "%d", "%i", "%u", "%o", "%x", "%X":
+      case "d", "i", "u", "o", "x", "X":
         self = .int
-      case "%f", "%F", "%e", "%E", "%g", "%G":
+      case "f", "F", "e", "E", "g", "G":
         self = .double
       default:
         self = .any
