@@ -1,25 +1,25 @@
 import Foundation
 
 struct ConfigTransformer: Transformable {
-  typealias Input = ConfigDto
-  typealias Output = Config
+  typealias Input = Config
+  typealias Output = ConfigDto
   
-  func transform(_ object: ConfigDto) throws -> Config {
-    var localizationDto: Config.Localization?
+  func transform(_ object: Config) throws -> ConfigDto {
+    var localizationDto: ConfigDto.Localization?
     
     if let localization = object.localization {
-      var localizedSwiftCode: Config.LocalizedSwiftCode?
-      if let localizedSwiftCodeDto = localization.swiftCode {
+      var localizedSwiftCode: ConfigDto.LocalizedSwiftCode?
+      if let localizedSwiftCodeDto = localization.localizedSwiftCode {
         localizedSwiftCode = .init(stringsDirectory: localizedSwiftCodeDto.stringsDirectory,
                                    outputSwiftCodeFileDirectory: localizedSwiftCodeDto.outputSwiftCodeFileDirectory)
       }
       
-      localizationDto = Config.Localization(apiKey: localization.apiKey,
-                                                    sheetId: localization.sheetId,
-                                                    outputDirectory: localization.outputDirectory,
-                                                    localizedSwiftCode: localizedSwiftCode)
+      localizationDto = ConfigDto.Localization(apiKey: localization.apiKey,
+                                               sheetId: localization.sheetId,
+                                               outputDirectory: localization.outputDirectory,
+                                               swiftCode: localizedSwiftCode)
     }
     
-    return Config(localization: localizationDto)
+    return ConfigDto(localization: localizationDto)
   }
 }
