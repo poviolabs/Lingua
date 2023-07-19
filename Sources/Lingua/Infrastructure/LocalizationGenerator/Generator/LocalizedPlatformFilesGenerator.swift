@@ -20,7 +20,7 @@ final class LocalizedPlatformFilesGenerator: PlatformFilesGenerating {
       guard !content.isEmpty else { continue }
       
       do {
-        try filesCreator.createFiles(with: content, fileName: fileName, outputFolder: outputFolder)
+        try filesCreator.createFiles(with: String.fileHeader + content, fileName: fileName, outputFolder: outputFolder)
       } catch {
         throw error
       }
