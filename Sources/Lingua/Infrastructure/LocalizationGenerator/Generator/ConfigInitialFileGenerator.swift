@@ -64,6 +64,6 @@ extension ConfigInitialFileGenerator {
                                encoder: CustomJSONEncoder(),
                                transformer: ConfigTransformer(),
                                config: .createTemplateConfig(),
-                               fileName: "lingua.json")
+                               fileName: "lingua_config.json")
   }
 }
