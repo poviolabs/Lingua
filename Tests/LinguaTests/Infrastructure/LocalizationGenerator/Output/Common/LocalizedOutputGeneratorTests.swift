@@ -96,7 +96,7 @@ private extension LocalizedOutputGeneratorTests {
       \t\t</dict>
       \t</dict>
       </dict>
-      </plist>
+      </plist>\n
       """
   }
   
