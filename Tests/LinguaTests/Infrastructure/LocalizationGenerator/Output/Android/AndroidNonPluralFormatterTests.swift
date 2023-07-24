@@ -4,7 +4,7 @@ import XCTest
 final class AndroidNonPluralFormatterTests: XCTestCase {
   func test_formatContent_formatsEntryCorrectly() {
     let entry = LocalizationEntry(section: "section", key: "message", translations: ["one": "You have a new message"])
-    let expectedOutput = "\t<string name=\"message\">You have a new message</string>"
+    let expectedOutput = "\t<string name=\"section_message\">You have a new message</string>"
     let sut = makeSUT()
     
     XCTAssertEqual(sut.formatContent(for: entry), expectedOutput)
