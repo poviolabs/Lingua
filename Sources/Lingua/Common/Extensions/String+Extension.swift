@@ -3,6 +3,10 @@ import Foundation
 extension String {
   static let packageName = "Lingua"
   static let swiftLocalizedName = "\(String.packageName).swift"
+  static let fileHeader = """
+  // This file was generated with Lingua command line tool. Please do not change it!
+  // Source: https://github.com/poviolabs/Lingua\n\n
+  """
   
   func formatSheetSection() -> String {
     self
