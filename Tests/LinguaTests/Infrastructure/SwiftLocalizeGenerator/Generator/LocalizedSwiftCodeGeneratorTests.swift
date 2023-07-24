@@ -6,7 +6,8 @@ final class LocalizedSwiftCodeGeneratorTests: XCTestCase {
     let sut = makeSUT()
     let code = sut.generateCode(section: "section", key: "key", translation: "translation %d %@")
     let expectedCode = """
-         static func key(_ param1: Int, _ param2: String) -> String {
+         \n\t\t/// translation %d %@
+         \t\tstatic func key(_ param1: Int, _ param2: String) -> String {
          \t\t\treturn tr("section", "key", param1, param2)
          \t\t}
          """
@@ -16,7 +17,7 @@ final class LocalizedSwiftCodeGeneratorTests: XCTestCase {
   func test_generateCode_createsStaticPropertyCode_forNoStringFormatSpecifiers() {
     let sut = makeSUT()
     let code = sut.generateCode(section: "section", key: "key", translation: "translation")
-    XCTAssertEqual(code, "static let key = tr(\"section\", \"key\")")
+    XCTAssertEqual(code, "\n\t\t/// translation\n\t\tstatic let key = tr(\"section\", \"key\")")
   }
 }
 
