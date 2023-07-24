@@ -87,7 +87,9 @@ The Lingua tool allows users to manage localization data in Google Sheets, and g
 
 Create a configuration file as a starting point to adapt as your needs, `lingua_config.json` or any other `.json` file.
 
-Then in the configuration file created you need to provide these data, like below:
+To create a sample configuration file as a starting point to adapt to your needs, run `lingua config init`. The tool will create a file named `lingua_config.json` in the directory you are running the Lingua tool.
+
+Then in the configuration file created you need to provide your data, like below:
 
 ```json
 {

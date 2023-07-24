@@ -8,7 +8,7 @@ final class ConfigTransformerTest: XCTestCase {
                                                 outputDirectory: "path",
                                                 swiftCode: .init(stringsDirectory: "test",
                                                                  outputSwiftCodeFileDirectory: "test_ouput")))
-    let sut = ConfigTransformer()
+    let sut = ConfigDtoTransformer()
     
     let entity = try sut.transform(dto)
     
@@ -22,7 +22,7 @@ final class ConfigTransformerTest: XCTestCase {
   
   func test_transform_mapsConfigDto_toEntity_whenSwiftCodeIsMissing() throws {
     let dto = ConfigDto(localization: .init(apiKey: "key", sheetId: "id", outputDirectory: "path", swiftCode: .none))
-    let sut = ConfigTransformer()
+    let sut = ConfigDtoTransformer()
     
     let entity = try sut.transform(dto)
     

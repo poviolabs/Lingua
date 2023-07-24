@@ -6,19 +6,33 @@ protocol CommandLineParsable {
 
 final class CommandLineParser: CommandLineParsable {
   func parse(arguments: [String]) throws -> CommandLineArguments {
-    try validateArgumentCount(arguments)
-        
-    let configFilePathArgument = arguments[2]
-    let platform = try getPlatform(from: arguments[1])
-    try validateConfigFilePath(configFilePathArgument)
+    try validateArgumentCount(arguments, count: 2)
     
-    return CommandLineArguments(platform: platform, configFilePath: configFilePathArgument)
+    let firstArgument = arguments[1].lowercased()
+    let firstCommand = Command(rawValue: firstArgument)
+    
+    switch firstCommand {
+    case .ios, .android:
+      let configFilePathArgument = arguments[2]
+      let platform = try getPlatform(from: firstArgument)
+      try validateConfigFilePath(configFilePathArgument)
+      return CommandLineArguments(command: firstCommand, platform: platform, configFilePath: configFilePathArgument)
+      
+    case .config:
+      guard Command(rawValue: arguments[2].lowercased()) == .initializer else {
+        throw CommandLineParsingError.invalidCommand
+      }
+      return CommandLineArguments(command: firstCommand, platform: nil, configFilePath: nil)
+      
+    default:
+      throw CommandLineParsingError.invalidCommand
+    }
   }
 }
-
+ 
 private extension CommandLineParser {
-  func validateArgumentCount(_ arguments: [String]) throws {
-    guard arguments.count > 2 else {
+  func validateArgumentCount(_ arguments: [String], count: Int) throws {
+    guard arguments.count > count else {
       throw CommandLineParsingError.notEnoughArguments
     }
   }

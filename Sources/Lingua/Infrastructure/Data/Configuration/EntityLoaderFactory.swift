@@ -1,9 +1,9 @@
 import Foundation
 
 struct EntityLoaderFactory {
-  static func makeConfigLoader() -> EntityFileLoader<JSONDataParser<ConfigDto>, ConfigTransformer> {
+  static func makeConfigLoader() -> EntityFileLoader<JSONDataParser<ConfigDto>, ConfigDtoTransformer> {
     let parser = JSONDataParser<ConfigDto>()
-    let transformer = ConfigTransformer()
+    let transformer = ConfigDtoTransformer()
     return EntityFileLoader(parser: parser, transformer: transformer)
   }
 }
