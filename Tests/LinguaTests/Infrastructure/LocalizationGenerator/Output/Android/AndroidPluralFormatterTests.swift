@@ -6,7 +6,7 @@ final class AndroidPluralFormatterTests: XCTestCase {
     let entry = LocalizationEntry(section: "section",
                                   key: "messages",
                                   translations: ["one": "%d new message", "other": "%d new messages"])
-    let expectedOutput = "\t<plurals name=\"messages\">\n\t\t<item quantity=\"one\">%d new message</item>\n\t\t<item quantity=\"other\">%d new messages</item>\n\t</plurals>"
+    let expectedOutput = "\t<plurals name=\"section_messages\">\n\t\t<item quantity=\"one\">%d new message</item>\n\t\t<item quantity=\"other\">%d new messages</item>\n\t</plurals>"
     
     let sut = makeSUT()
     
@@ -17,7 +17,7 @@ final class AndroidPluralFormatterTests: XCTestCase {
     let entry = LocalizationEntry(section: "section",
                                   key: "messages",
                                   translations: ["one": "", "other": "%d new messages"])
-    let expectedOutput = "\t<plurals name=\"messages\">\n\t\t<item quantity=\"other\">%d new messages</item>\n\t</plurals>"
+    let expectedOutput = "\t<plurals name=\"section_messages\">\n\t\t<item quantity=\"other\">%d new messages</item>\n\t</plurals>"
     let sut = makeSUT()
     
     XCTAssertEqual(sut.formatContent(for: entry), expectedOutput)
