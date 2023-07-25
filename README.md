@@ -96,7 +96,7 @@ Then in the configuration file created you need to provide your data, like below
    "localization": {
         "apiKey": "<google_api_key>",
         "sheetId": "<google_spreadsheet_id>",
-        "outputDirectory": "/path/to/Resources/Localization"
+        "outputDirectory": "path/to/Resources/Localization"
     }
 }
 ```
@@ -118,10 +118,10 @@ Since iOS does not have a built in feature to access the localization safely, we
    "localization": {
         "apiKey": "<google_api_key>",
         "sheetId": "<google_spreadsheet_id>",
-        "outputDirectory": "/path/to/Resources/Localization",
+        "outputDirectory": "path/to/Resources/Localization",
         "swiftCode": {
-           "stringsDirectory": "/path/to/Resources/Localization/en.lproj",
-           "outputSwiftCodeFileDirectory": "/path/to/Resources/Localization"
+           "stringsDirectory": "path/to/Resources/Localization/en.lproj",
+           "outputSwiftCodeFileDirectory": "path/to/Resources/Localization"
         }
     }
 }
@@ -142,3 +142,7 @@ $ lingua ios /path/to/lingua_config.json
 ```shell
 $ lingua android /path/to/lingua_config.json
 ```
+
+**Best Usage Practices**
+
+To ensure you're leveraging the tool optimally, both locally and in the context of CICD, we recommend you delve into our [Best Usage Practices guide](./Resources/Docs/App/BEST_USAGE_PRACTICES.md).
