@@ -54,6 +54,33 @@ final class LocalizationProcessorTests: XCTestCase {
       XCTAssertEqual(actors.mockLocalizationModule.messages, [])
     }
   }
+  
+  func test_process_invokesConfigInitialFileGenerator() async throws {
+    let (sut, actors) = makeSUT()
+
+    let arguments = ["Lingua", "config", "init"]
+    
+    try await sut.process(arguments: arguments)
+    
+    XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
+                                            .message(message: "Lingua config file is created.", level: .success)])
+    XCTAssertTrue(actors.mockLocalizationModule.messages.isEmpty)
+  }
+  
+  func test_process_throwsError_whenConfigInitialFileGeneratorFails() async throws {
+    let (sut, actors) = makeSUT(configFileGenerator: MockConfigInitialFileGenerator(shouldThrow: true))
+  
+    let arguments = ["Lingua", "config", "init"]
+    
+    do {
+      try await sut.process(arguments: arguments)
+      XCTFail("It should fail")
+    } catch {
+      XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
+                                              .message(message: "The config json file couldn't be created", level: .error)])
+      XCTAssertTrue(actors.mockLocalizationModule.messages.isEmpty)
+    }
+  }
 }
 
 private extension LocalizationProcessorTests {
@@ -63,7 +90,8 @@ private extension LocalizationProcessorTests {
     let mockLocalizationModule: MockLocalizationModule
   }
   
-  func makeSUT(localizationModule: MockLocalizationModule = MockLocalizationModule()) -> (sut: LocalizationProcessor, actors: Actors) {
+  func makeSUT(localizationModule: MockLocalizationModule = MockLocalizationModule(),
+               configFileGenerator: ConfigInitialFileGenerating = ConfigInitialFileGenerator.make()) -> (sut: LocalizationProcessor, actors: Actors) {
     let argumentParser = CommandLineParser()
     let logger = MockLogger()
     
@@ -73,7 +101,8 @@ private extension LocalizationProcessorTests {
     
     let sut = ProcessorFactory().makeLocalizationProcessor(argumentParser: argumentParser,
                                                            logger: logger,
-                                                           localizationModuleFactory: { _ in localizationModule })
+                                                           localizationModuleFactory: { _ in localizationModule },
+                                                           configFileGenerator: configFileGenerator)
     
     return (sut, actors)
   }

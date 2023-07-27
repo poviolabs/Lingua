@@ -29,6 +29,6 @@ struct LocalizedOutputGenerator: LocalizedOutputGenerating {
       }
       .joined(separator: "\n")
     
-    return content.isEmpty ? "" : formatter.wrapContent(content)
+    return content.isEmpty ? "" : formatter.wrapContent(content).appending("\n")
   }
 }

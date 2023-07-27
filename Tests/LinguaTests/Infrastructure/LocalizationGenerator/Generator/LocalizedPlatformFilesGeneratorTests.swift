@@ -13,8 +13,8 @@ final class LocalizedPlatformFilesGeneratorTests: XCTestCase {
     try sut.createPlatformFiles(for: entries, sectionName: "SectionName", outputFolder: outputFolder, language: "en")
     
     XCTAssertEqual(contentGenerator.createdEntries, entries)
-    XCTAssertEqual(filesCreator.writtenContent["SectionName.\(fileExtension)"], "stringsContent")
-    XCTAssertEqual(filesCreator.writtenContent["SectionName-plural.\(fileExtension)"], "stringsDictContent")
+    XCTAssertEqual(filesCreator.writtenContent["SectionName.\(fileExtension)"], String.fileHeader + "stringsContent")
+    XCTAssertEqual(filesCreator.writtenContent["SectionName-plural.\(fileExtension)"], String.fileHeader + "stringsDictContent")
   }
   
   func test_createPlatformFiles_throwsErrorAndLogsMessage_onCreateFilesFailure() {

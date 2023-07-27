@@ -1,6 +1,7 @@
 import Foundation
 
 struct CommandLineArguments: Equatable {
-  let platform: LocalizationPlatform
-  let configFilePath: String
+  let command: Command?
+  let platform: LocalizationPlatform?
+  let configFilePath: String?
 }

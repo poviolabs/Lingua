@@ -20,7 +20,7 @@ final class CommandLineParserTests: XCTestCase {
     
     XCTAssertThrowsError(try sut.parse(arguments: arguments)) { error in
       XCTAssertEqual((error as? CommandLineParsingError)?.localizedDescription,
-                     CommandLineParsingError.invalidPlatform.localizedDescription)
+                     CommandLineParsingError.invalidCommand.localizedDescription)
     }
   }
   

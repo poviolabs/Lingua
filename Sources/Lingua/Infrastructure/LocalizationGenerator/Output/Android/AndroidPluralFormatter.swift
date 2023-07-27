@@ -8,7 +8,7 @@ struct AndroidPluralFormatter: LocalizedContentFormatting {
       return "\t\t<item quantity=\"\(category)\">\(value)</item>"
     }.joined(separator: "\n")
     
-    let key = "\t<plurals name=\"\(entry.key)\">\n"
+    let key = "\t<plurals name=\"\(entry.androidKey)\">\n"
     let content = key + pluralItems + "\n\t</plurals>"
     return content
   }

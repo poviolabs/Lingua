@@ -87,14 +87,16 @@ The Lingua tool allows users to manage localization data in Google Sheets, and g
 
 Create a configuration file as a starting point to adapt as your needs, `lingua_config.json` or any other `.json` file.
 
-Then in the configuration file created you need to provide these data, like below:
+To create a sample configuration file as a starting point to adapt to your needs, run `lingua config init`. The tool will create a file named `lingua_config.json` in the directory you are running the Lingua tool.
+
+Then in the configuration file created you need to provide your data, like below:
 
 ```json
 {
    "localization": {
         "apiKey": "<google_api_key>",
         "sheetId": "<google_spreadsheet_id>",
-        "outputDirectory": "/path/to/Resources/Localization"
+        "outputDirectory": "path/to/Resources/Localization"
     }
 }
 ```
@@ -116,10 +118,10 @@ Since iOS does not have a built in feature to access the localization safely, we
    "localization": {
         "apiKey": "<google_api_key>",
         "sheetId": "<google_spreadsheet_id>",
-        "outputDirectory": "/path/to/Resources/Localization",
+        "outputDirectory": "path/to/Resources/Localization",
         "swiftCode": {
-           "stringsDirectory": "/path/to/Resources/Localization/en.lproj",
-           "outputSwiftCodeFileDirectory": "/path/to/Resources/Localization"
+           "stringsDirectory": "path/to/Resources/Localization/en.lproj",
+           "outputSwiftCodeFileDirectory": "path/to/Resources/Localization"
         }
     }
 }
@@ -140,3 +142,7 @@ $ lingua ios /path/to/lingua_config.json
 ```shell
 $ lingua android /path/to/lingua_config.json
 ```
+
+**Best Usage Practices**
+
+To ensure you're leveraging the tool optimally, both locally and in the context of CICD, we recommend you delve into our [Best Usage Practices guide](./Resources/Docs/App/BEST_USAGE_PRACTICES.md).
