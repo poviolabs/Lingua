@@ -15,7 +15,7 @@ sed -i '' "s|<google_api_key>|${GOOGLE_API_KEY}|g" $JSON_FILE
 # Update GOOGLE_SPREADSHEET_ID
 sed -i '' "s|<google_spreadsheet_id>|${GOOGLE_SPREADSHEET_ID}|g" $JSON_FILE
 
-# Run the lingua command for `ios` or `android`
+# Run the lingua
 lingua ios ./lingua_config.json
 
 # Restore the original JSON file

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		77AD1C452A7287240034DAC5 /* Example_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AD1C442A7287240034DAC5 /* Example_AppApp.swift */; };
+		77AD1C452A7287240034DAC5 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AD1C442A7287240034DAC5 /* ExampleApp.swift */; };
 		77AD1C472A7287240034DAC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AD1C462A7287240034DAC5 /* ContentView.swift */; };
 		77AD1C492A7287260034DAC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77AD1C482A7287260034DAC5 /* Assets.xcassets */; };
 		77AD1C4C2A7287260034DAC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77AD1C4B2A7287260034DAC5 /* Preview Assets.xcassets */; };
@@ -17,7 +17,7 @@
 
 /* Begin PBXFileReference section */
 		77AD1C412A7287240034DAC5 /* Example-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		77AD1C442A7287240034DAC5 /* Example_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_AppApp.swift; sourceTree = "<group>"; };
+		77AD1C442A7287240034DAC5 /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
 		77AD1C462A7287240034DAC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		77AD1C482A7287260034DAC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77AD1C4B2A7287260034DAC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				77AD1C522A7289260034DAC5 /* Resources */,
-				77AD1C442A7287240034DAC5 /* Example_AppApp.swift */,
+				77AD1C442A7287240034DAC5 /* ExampleApp.swift */,
 				77AD1C462A7287240034DAC5 /* ContentView.swift */,
 				77AD1C482A7287260034DAC5 /* Assets.xcassets */,
 				77AD1C4A2A7287260034DAC5 /* Preview Content */,
@@ -164,7 +164,7 @@
 			files = (
 				77AD1C472A7287240034DAC5 /* ContentView.swift in Sources */,
 				77AD1C5E2A72896A0034DAC5 /* Lingua.swift in Sources */,
-				77AD1C452A7287240034DAC5 /* Example_AppApp.swift in Sources */,
+				77AD1C452A7287240034DAC5 /* ExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
