@@ -27,6 +27,7 @@ final class AndroidPluralFormatterTests: XCTestCase {
     let content = "\t<plurals name=\"messages\">\n\t\t<item quantity=\"one\">%d new message</item>\n\t\t<item quantity=\"other\">%d new messages</item>\n\t</plurals>"
     let expectedOutput = """
          <?xml version="1.0" encoding="utf-8"?>
+         \(String.fileHeader.commentOut(for: .android))
          <resources>
          \(content)
          </resources>

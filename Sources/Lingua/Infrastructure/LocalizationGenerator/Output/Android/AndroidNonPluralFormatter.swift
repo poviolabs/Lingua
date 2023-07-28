@@ -10,6 +10,7 @@ struct AndroidNonPluralFormatter: LocalizedContentFormatting {
   func wrapContent(_ content: String) -> String {
     """
     <?xml version="1.0" encoding="utf-8"?>
+    \(String.fileHeader.commentOut(for: .android))
     <resources>
     \(content)
     </resources>
