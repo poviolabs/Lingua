@@ -3,11 +3,14 @@ import Foundation
 struct LocalizedOutputGenerator: LocalizedOutputGenerating {
   private let placeholderMapper: LocalizationPlaceholderMapping
   private let formatter: LocalizedContentFormatting
+  private let stringEscaper: StringEscaping
   
   init(placeholderMapper: LocalizationPlaceholderMapping,
-       formatter: LocalizedContentFormatting) {
+       formatter: LocalizedContentFormatting,
+       stringEscaper: StringEscaping) {
     self.placeholderMapper = placeholderMapper
     self.formatter = formatter
+    self.stringEscaper = stringEscaper
   }
   
   func generateOutputContent(for entries: [LocalizationEntry]) -> String {
@@ -18,7 +21,7 @@ struct LocalizedOutputGenerator: LocalizedOutputGenerating {
         entry.translations.forEach { category, value in
           if !value.isEmpty {
             let mappedValue = placeholderMapper.mapPlaceholders(value)
-            updatedEntryTranslations[category] = mappedValue
+            updatedEntryTranslations[category] = stringEscaper.escapeSpecialCharacters(in: mappedValue)
           }
         }
         let updatedEntry = LocalizationEntry(section: entry.section,
