@@ -35,7 +35,9 @@ private extension LocalizedOutputGeneratorTests {
   }
   
   func makeSUT() -> LocalizedOutputGenerator {
-    LocalizedOutputGenerator(placeholderMapper: IOSPlaceholderMapper(), formatter: IOSPluralFormatter())
+    LocalizedOutputGenerator(placeholderMapper: IOSPlaceholderMapper(),
+                             formatter: IOSPluralFormatter(),
+                             stringEscaper: IOSStringEscaper())
   }
   
   func createEntriesWithTranslations() -> [LocalizationEntry] {

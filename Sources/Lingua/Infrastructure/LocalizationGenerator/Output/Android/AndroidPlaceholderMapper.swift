@@ -27,8 +27,6 @@ struct AndroidPlaceholderMapper: LocalizationPlaceholderMapping {
       }
     }
     
-    result = result.replacingOccurrences(of: "&", with: "&amp;")
-    result = result.replacingOccurrences(of: "'", with: "\\'")
     return result
   }
   

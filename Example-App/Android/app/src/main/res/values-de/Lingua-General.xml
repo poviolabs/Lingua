@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was generated with Lingua command line tool. Please do not change it!-->
+<!--Source: https://github.com/poviolabs/Lingua-->
+<resources>
+	<string name="general_success">Erfolg</string>
+</resources>

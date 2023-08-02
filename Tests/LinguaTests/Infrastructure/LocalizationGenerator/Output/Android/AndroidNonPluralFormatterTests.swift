@@ -30,6 +30,8 @@ final class AndroidNonPluralFormatterTests: XCTestCase {
     let content = "\t<string name=\"message\">You have a new message</string>"
     let expectedOutput = """
          <?xml version="1.0" encoding="utf-8"?>
+         <!-- This file was generated with Lingua command line tool. Please do not change it! -->
+         <!-- Source: https://github.com/poviolabs/Lingua -->
          <resources>
          \(content)
          </resources>

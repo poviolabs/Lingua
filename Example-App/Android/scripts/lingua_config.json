@@ -1,0 +1,7 @@
+{
+  "localization" : {
+    "sheetId" : "<google_spreadsheet_id>",
+    "apiKey" : "<google_api_key>",
+    "outputDirectory" : "../app/src/main/res"
+  }
+}

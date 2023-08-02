@@ -4,8 +4,8 @@ extension String {
   static let packageName = "Lingua"
   static let swiftLocalizedName = "\(String.packageName).swift"
   static let fileHeader = """
-  // This file was generated with Lingua command line tool. Please do not change it!
-  // Source: https://github.com/poviolabs/Lingua\n\n
+  This file was generated with Lingua command line tool. Please do not change it!
+  Source: https://github.com/poviolabs/Lingua\n\n
   """
   
   func formatSheetSection() -> String {
@@ -40,5 +40,21 @@ extension String {
     ]
     
     return reservedWords.contains(self) ? "`\(self)`" : self
+  }
+  
+  func commentOut(for platform: LocalizationPlatform) -> String {
+    let lines = split(separator: "\n").map { String($0) }
+    var commentedLines: [String] = []
+    
+    for line in lines {
+      switch platform {
+      case .ios:
+        commentedLines.append("// " + line)
+      case .android:
+        commentedLines.append("<!-- " + line + " -->")
+      }
+    }
+    
+    return commentedLines.joined(separator: "\n")
   }
 }

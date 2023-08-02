@@ -67,4 +67,30 @@ final class StringExtensionsTests: XCTestCase {
     
     XCTAssertEqual(output, expectedOutput)
   }
+  
+  func test_commentOut_addsDoubleSlashesBeforeEachLineOnIOS() {
+    let fileHeader = """
+         This file was generated with Lingua command line tool. Please do not change it!
+         Source: https://github.com/poviolabs/Lingua
+         """
+    let expectedCommentedHeader = """
+         // This file was generated with Lingua command line tool. Please do not change it!
+         // Source: https://github.com/poviolabs/Lingua
+         """
+    let result = fileHeader.commentOut(for: .ios)
+    XCTAssertEqual(result, expectedCommentedHeader)
+  }
+  
+  func test_commentOut_addsCommentCommandForEachLineOnAndroid() {
+    let fileHeader = """
+         This file was generated with Lingua command line tool. Please do not change it!
+         Source: https://github.com/poviolabs/Lingua
+         """
+    let expectedCommentedHeader = """
+         <!-- This file was generated with Lingua command line tool. Please do not change it! -->
+         <!-- Source: https://github.com/poviolabs/Lingua -->
+         """
+    let result = fileHeader.commentOut(for: .android)
+    XCTAssertEqual(result, expectedCommentedHeader)
+  }
 }
