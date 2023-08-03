@@ -10,8 +10,7 @@ final class LocalizationProcessorTests: XCTestCase {
     
     try await sut.process(arguments: arguments)
     
-    XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
-                                            .message(message: "Loading configuration file...", level: .info),
+    XCTAssertEqual(actors.logger.messages, [.message(message: "Loading configuration file...", level: .info),
                                             .message(message: "Initializing localization module...", level: .info),
                                             .message(message: "Starting localization...", level: .info),
                                             .message(message: "Localization completed!", level: .success)])
@@ -27,8 +26,7 @@ final class LocalizationProcessorTests: XCTestCase {
     do {
       try await sut.process(arguments: arguments)
     } catch {
-      XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
-                                              .message(message: "Loading configuration file...", level: .info),
+      XCTAssertEqual(actors.logger.messages, [.message(message: "Loading configuration file...", level: .info),
                                               .message(message: ProcessorError.missingLocalization.localizedDescription, level: .error),
                                               .message(message: printUsage, level: .info)])
       XCTAssertEqual(actors.mockLocalizationModule.messages, [])
@@ -45,8 +43,7 @@ final class LocalizationProcessorTests: XCTestCase {
     do {
       try await sut.process(arguments: arguments)
     } catch {
-      XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
-                                              .message(message: "Loading configuration file...", level: .info),
+      XCTAssertEqual(actors.logger.messages, [.message(message: "Loading configuration file...", level: .info),
                                               .message(message: "Initializing localization module...", level: .info),
                                               .message(message: "Starting localization...", level: .info),
                                               .message(message: DirectoryOperationError.folderCreationFailed.localizedDescription, level: .error),
@@ -62,8 +59,7 @@ final class LocalizationProcessorTests: XCTestCase {
     
     try await sut.process(arguments: arguments)
     
-    XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
-                                            .message(message: "Lingua config file is created.", level: .success)])
+    XCTAssertEqual(actors.logger.messages, [.message(message: "Lingua config file is created.", level: .success)])
     XCTAssertTrue(actors.mockLocalizationModule.messages.isEmpty)
   }
   
@@ -76,8 +72,7 @@ final class LocalizationProcessorTests: XCTestCase {
       try await sut.process(arguments: arguments)
       XCTFail("It should fail")
     } catch {
-      XCTAssertEqual(actors.logger.messages, [.message(message: "Processing arguments...", level: .info),
-                                              .message(message: "The config json file couldn't be created", level: .error)])
+      XCTAssertEqual(actors.logger.messages, [.message(message: "The config json file couldn't be created", level: .error)])
       XCTAssertTrue(actors.mockLocalizationModule.messages.isEmpty)
     }
   }

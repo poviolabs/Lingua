@@ -5,4 +5,6 @@ enum Command: String {
   case android
   case config
   case initializer = "init"
+  case version = "--version"
+  case abbreviatedVersion = "-v"
 }

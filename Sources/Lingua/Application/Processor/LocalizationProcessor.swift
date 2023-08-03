@@ -21,8 +21,6 @@ final class LocalizationProcessor: CommandLineProcessable {
   
   func process(arguments: [String]) async throws {
     do {
-      logger.log("Processing arguments...", level: .info)
-      
       let arguments = try argumentParser.parse(arguments: arguments)
       
       switch arguments.command {
@@ -52,6 +50,8 @@ final class LocalizationProcessor: CommandLineProcessable {
       case .config:
         try configFileGenerator.generate()
         logger.log("Lingua config file is created.", level: .success)
+      case .version, .abbreviatedVersion:
+        logger.log("Lingua version: \(String.version)", level: .info)
       default:
         throw CommandLineParsingError.invalidCommand
       }
