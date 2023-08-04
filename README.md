@@ -49,6 +49,11 @@ We have prepared a tamplate for sheet structure for you. What you have to do is 
 
 [Mobile Localizations Template - Google Sheets](https://docs.google.com/spreadsheets/d/1Cnqy4gZqh9pGcTF_0jb8QGOnysejZ8dVfSj8dgX4kzM)
 
+
+
+**Sheet structure**: For detailed information about the sheet structure used in the Lingua localization tool, please refer to the [Sheet Structure Documentation](Resources/Docs/App/SHEET_STRUCTURE.md).
+
+
 **Important:** Make sure to replace the existing API key in your application with the newly generated one. Also, ensure that the Google Sheet you're trying to access has its sharing settings configured to allow access to anyone with the link. You can do this by clicking on "Share" in the upper right corner of the Google Sheet and selecting "Anyone with the link."
 
 ### b. Obtain the sheet id
