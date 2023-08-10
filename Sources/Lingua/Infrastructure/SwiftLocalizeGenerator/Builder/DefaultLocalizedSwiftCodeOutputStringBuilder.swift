@@ -11,9 +11,9 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
     let sectionsOutput = buildSectionsOutput(sections: sections, translations: translations)
     
     let output = """
+           // swiftlint:disable all
            \(String.fileHeader.commentOut(for: .ios))
            
-           // swiftlint:disable all
            import Foundation
            
            enum \(String.packageName) {
