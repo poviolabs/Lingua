@@ -23,10 +23,10 @@ final class DefaultLocalizedSwiftCodeOutputStringBuilderTests: XCTestCase {
     let output = sut.buildOutput(sections: sections, translations: translations)
     
     let expectedOutput = """
+    // swiftlint:disable all
     // This file was generated with Lingua command line tool. Please do not change it!
     // Source: https://github.com/poviolabs/Lingua
     
-    // swiftlint:disable all
     import Foundation
     
     enum Lingua {
