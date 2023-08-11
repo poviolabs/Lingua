@@ -9,8 +9,6 @@ struct AndroidStringEscaper: StringEscaping {
     escapedString = escapedString.replacingOccurrences(of: "\"", with: "\\&quot;")
     escapedString = escapedString.replacingOccurrences(of: "'", with: "\\&apos;")
     
-    debugPrint(string)
-    debugPrint(escapedString)
     return escapedString
   }
 }
