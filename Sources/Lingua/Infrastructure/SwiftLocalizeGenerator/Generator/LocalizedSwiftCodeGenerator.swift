@@ -47,7 +47,7 @@ private extension LocalizedSwiftCodeGenerator {
 private extension String {
   func commented() -> String {
     components(separatedBy: "\n")
-      .map { "\n\t\t/// \($0)" }
-      .joined()
+      .map { "/// \($0)" }
+      .joined(separator: "\n\t\t")
   }
 }

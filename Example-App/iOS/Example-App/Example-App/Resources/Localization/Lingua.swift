@@ -1,12 +1,13 @@
+// swiftlint:disable all
 // This file was generated with Lingua command line tool. Please do not change it!
 // Source: https://github.com/poviolabs/Lingua
 
-// swiftlint:disable all
 import Foundation
 
 enum Lingua {
 	enum General {
-		
+		/// Save
+		static let save = tr("General", "save")
 		/// Success
 		static let success = tr("General", "success")
 	}

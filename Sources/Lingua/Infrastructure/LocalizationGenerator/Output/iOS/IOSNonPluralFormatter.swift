@@ -8,6 +8,6 @@ struct IOSNonPluralFormatter: LocalizedContentFormatting {
   }
   
   func wrapContent(_ content: String) -> String {
-    [String.fileHeader.commentOut(for: .ios), content].joined(separator: "\n")
+    String.fileHeader.commentOut(for: .ios) + "\n\n" + content
   }
 }
