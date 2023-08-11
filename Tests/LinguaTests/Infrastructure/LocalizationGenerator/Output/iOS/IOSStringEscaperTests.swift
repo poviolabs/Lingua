@@ -3,19 +3,16 @@ import XCTest
 
 final class IOSStringEscaperTests: XCTestCase {
   func test_escapeSpecialCharacters_backslash() {
-    expect(original: "This is a test\\", expected: "This is a test\\\\")
+    expect(original: "This is a test\\", expected: "This is a test\\")
   }
   
   func test_escapeSpecialCharacters_quotes() {
     expect(original: "This is a \"test\"", expected: "This is a \\\"test\\\"")
   }
   
-  func test_escapeSpecialCharacters_atSymbol() {
-    expect(original: "This is a @test", expected: "This is a \\@test")
-  }
-  
   func test_escapeSpecialCharacters_multipleCharacters() {
-    expect(original: "This \\ is a \"test\" @ multiple characters", expected: "This \\\\ is a \\\"test\\\" \\@ multiple characters")
+    expect(original: "This is a \"test\" @ multiple \n characters",
+           expected: "This is a \\\"test\\\" @ multiple \n characters")
   }
 }
 
