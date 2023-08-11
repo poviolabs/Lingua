@@ -26,7 +26,7 @@ final class IOSNonPluralFormatterTests: XCTestCase {
     let content = "content"
     let sut = makeSUT()
     let wrappedContent = sut.wrapContent(content)
-    let expectedContent = [String.fileHeader.commentOut(for: .ios), content].joined(separator: "\n")
+    let expectedContent = String.fileHeader.commentOut(for: .ios) + "\n\n" + content
     
     XCTAssertEqual(expectedContent, wrappedContent)
   }
