@@ -12,6 +12,7 @@ struct GoogleSheetErrorResponse: Codable {
   enum Status: String, Codable {
     case permissionDenied = "PERMISSION_DENIED"
     case notFound = "NOT_FOUND"
+    case invalidArgument = "INVALID_ARGUMENT"
     
     var description: String {
       switch self {
@@ -25,7 +26,12 @@ selecting \"Anyone with the link.\"
       case .notFound:
         return """
 The resource you're trying to access couldn't be found.
-Please ensure you're looking in the right place.
+Please ensure you're looking in the right place and the sheet id is correct.
+"""
+      case .invalidArgument:
+        return """
+It seems there was an error with the data provided.
+Please check your inputs and try again.
 """
       }
     }
