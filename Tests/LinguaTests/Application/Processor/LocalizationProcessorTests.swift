@@ -46,8 +46,7 @@ final class LocalizationProcessorTests: XCTestCase {
       XCTAssertEqual(actors.logger.messages, [.message(message: "Loading configuration file...", level: .info),
                                               .message(message: "Initializing localization module...", level: .info),
                                               .message(message: "Starting localization...", level: .info),
-                                              .message(message: DirectoryOperationError.folderCreationFailed.localizedDescription, level: .error),
-                                              .message(message: printUsage, level: .info)])
+                                              .message(message: DirectoryOperationError.folderCreationFailed.localizedDescription, level: .error)])
       XCTAssertEqual(actors.mockLocalizationModule.messages, [])
     }
   }

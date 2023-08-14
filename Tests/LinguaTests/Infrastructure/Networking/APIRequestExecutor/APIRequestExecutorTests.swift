@@ -68,13 +68,42 @@ final class APIRequestExecutorTests: XCTestCase {
       XCTAssertEqual(error, APIError.invalidRequest)
     }
   }
+  
+  func test_send_whenGoogleSheetsErrorReceived_throwsGoogleSheetsError() async throws {
+    let (sut, httpClient, _) = makeSUT(errorHandler: GoogleSheetsErrorHandler())
+    let googleSheetsErrorResponse = GoogleSheetErrorResponse(
+      error: .init(code: 403, message: "Some Error Message", status: .permissionDenied)
+    )
+    let responseData = try? JSONEncoder().encode(googleSheetsErrorResponse)
+    
+    httpClient.data = responseData
+    httpClient.response = HTTPURLResponse.anyURLResponse(statusCode: 403)
+    httpClient.error = nil
+    
+    let testRequest = TestRequest()
+    do {
+      let _: TestDecodable = try await sut.send(testRequest)
+      XCTFail("Expected GoogleSheetsError to be thrown")
+    } catch {
+      let error = try XCTUnwrap(error as? GoogleSheetsError)
+      XCTAssertEqual(error.localizedDescription, """
+Some Error Message
+Additional info: Ensure that the Google Sheet you're trying to access has its sharing
+settings configured to allow access to anyone with the link. You can do this by
+clicking on "Share" in the upper right corner of the Google Sheet and
+selecting "Anyone with the link."
+""")
+    }
+  }
 }
 
 private extension APIRequestExecutorTests {
-  func makeSUT(baseURLString: String = "https://testapi.com") -> (sut: APIRequestExecutor, httpClient: MockHTTPClient, url: URL) {
+  func makeSUT(baseURLString: String = "https://testapi.com", errorHandler: APIErrorHandler? = nil) -> (sut: APIRequestExecutor, httpClient: MockHTTPClient, url: URL) {
     let url: URL = .anyURL()
     let httpClient = MockHTTPClient()
-    let sut = APIRequestExecutor(requestBuilder: .init(baseURLString: baseURLString), httpClient: httpClient)
+    let sut = APIRequestExecutor(requestBuilder: .init(baseURLString: baseURLString),
+                                 httpClient: httpClient,
+                                 errorHandler: errorHandler)
     return (sut, httpClient, url)
   }
 }

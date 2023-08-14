@@ -6,17 +6,20 @@ final class APIRequestExecutor {
   private let jsonDecoder: JSONDecoding
   private let jsonEncoder: JSONEncoding
   private let validStatusCodes: Set<Int>
+  private let errorHandler: APIErrorHandler?
   
   init(requestBuilder: URLRequestBuilder,
        httpClient: HTTPClient = URLSessionHTTPClient(),
        jsonDecoder: JSONDecoding = JSONDecoder(),
        jsonEncoder: JSONEncoding = JSONEncoder(),
-       validStatusCodes: Set<Int> = Set(200...299)) {
+       validStatusCodes: Set<Int> = Set(200...299),
+       errorHandler: APIErrorHandler? = nil) {
     self.requestBuilder = requestBuilder
     self.httpClient = httpClient
     self.jsonDecoder = jsonDecoder
     self.jsonEncoder = jsonEncoder
     self.validStatusCodes = validStatusCodes
+    self.errorHandler = errorHandler
   }
 }
 
@@ -30,7 +33,11 @@ extension APIRequestExecutor: RequestExecutor {
     let (data, httpResponse) = try await httpClient.fetchData(with: request)
     
     guard validStatusCodes.contains(httpResponse.statusCode) else {
-      throw InvalidHTTPResponseError(statusCode: httpResponse.statusCode, data: data)
+      if let errorHandler = errorHandler {
+        return try errorHandler.handleError(data: data, statusCode: httpResponse.statusCode)
+      } else {
+        throw InvalidHTTPResponseError(statusCode: httpResponse.statusCode, data: data)
+      }
     }
     
     return try jsonDecoder.decode(T.self, from: data)
