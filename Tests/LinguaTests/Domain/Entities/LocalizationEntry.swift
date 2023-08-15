@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 extension LocalizationEntry {
   static func create(section: String = "section1",

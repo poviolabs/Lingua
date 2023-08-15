@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizationModuleIntegrationTests: XCTestCase {
   func test_LocalizationModule_createsIOSFilesInTemporaryDirectory() async throws {

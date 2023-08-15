@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class GoogleSheetDataLoaderTests: XCTestCase {
   func test_loadSheets_withValidData_returnsLocalizationSheets() async throws {

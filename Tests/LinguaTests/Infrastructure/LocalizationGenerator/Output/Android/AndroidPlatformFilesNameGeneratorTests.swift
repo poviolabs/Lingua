@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class AndroidPlatformFilesNameGeneratorTests: XCTestCase {
   func test_createContent_returnsAndroidFileNames() {

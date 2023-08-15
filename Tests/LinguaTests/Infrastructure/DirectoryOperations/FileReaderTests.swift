@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class FileReaderTests: XCTestCase {
   func test_readData_readsCorrectDataFromFile() async throws {

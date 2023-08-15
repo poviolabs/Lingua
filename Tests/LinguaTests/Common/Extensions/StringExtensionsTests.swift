@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class StringExtensionsTests: XCTestCase {
   func test_formatSheetSection_handlesEmptyString() {

@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class SheetTranslationBuilderTests: XCTestCase {
   func test_buildTranslations_createsCorrectTranslations_forNonPlurals() {

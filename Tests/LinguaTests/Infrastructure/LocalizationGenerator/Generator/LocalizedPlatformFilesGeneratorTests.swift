@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizedPlatformFilesGeneratorTests: XCTestCase {
   func test_createPlatformFiles_createsFilesSuccessfully() throws {

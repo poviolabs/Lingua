@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizedOutputGeneratorTests: XCTestCase {
   func test_generateOutputContent_returnsValidTranslations() {

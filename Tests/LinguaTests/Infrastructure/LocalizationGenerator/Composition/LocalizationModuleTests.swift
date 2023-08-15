@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizationModuleTests: XCTestCase {
   private let config: Config.Localization = .make(localizedSwiftCode: .init(stringsDirectory: "path",

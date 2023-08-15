@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 final class MockLocalizedSwiftCodeGenerator: LocalizedCodeFileGenerating {
   enum Message: Equatable {

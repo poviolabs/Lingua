@@ -1,4 +1,5 @@
 import Foundation
+import LinguaLib
 
 final class LocalizationProcessor: CommandLineProcessable {
   private let argumentParser: CommandLineParsable
