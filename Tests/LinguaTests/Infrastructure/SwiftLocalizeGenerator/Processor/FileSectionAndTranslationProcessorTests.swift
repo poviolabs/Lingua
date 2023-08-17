@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class FileSectionAndTranslationProcessorTests: XCTestCase {
   func test_processAndMergeFiles_mergesResultsFromAllFileProcessors() {

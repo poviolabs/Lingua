@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class EntityFileLoaderTests: XCTestCase {
   private let testValue = "test_value"

@@ -8,12 +8,19 @@ let package = Package(
   platforms: [
     .macOS(.v12),
   ],
+  products: [
+    .library(name: "LinguaLib", targets: ["LinguaLib"]),
+    .executable(name: "Lingua", targets: ["Lingua"])
+  ],
   targets: [
     .executableTarget(
       name: "Lingua",
+      dependencies: ["LinguaLib"]),
+    .target(
+      name: "LinguaLib",
       dependencies: []),
     .testTarget(
       name: "LinguaTests",
-      dependencies: ["Lingua"]),
+      dependencies: ["Lingua", "LinguaLib"]),
   ]
 )

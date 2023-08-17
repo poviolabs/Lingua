@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class IOSPlaceholderMapperTests: XCTestCase {
   func test_mapPlaceholders_returnsSameContent() {

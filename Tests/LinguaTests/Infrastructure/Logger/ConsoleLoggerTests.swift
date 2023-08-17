@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class ConsoleLoggerTests: XCTestCase {
   func test_log_printsMessagesWithLogLevel() {

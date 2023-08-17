@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizationEntry_AndroidTests: XCTestCase {
   func test_androidKey_buildsSnakeCaseAndroidConvention() {

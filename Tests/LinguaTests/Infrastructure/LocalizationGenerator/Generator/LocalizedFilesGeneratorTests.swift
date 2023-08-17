@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizedFilesGeneratorTests: XCTestCase {
   func test_generate_callsExpectedMethods_forAndroidPlatform() throws {

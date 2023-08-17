@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class AndroidStringEscaperTests: XCTestCase {
   func test_escapeSpecialCharacters_andCharacter() {

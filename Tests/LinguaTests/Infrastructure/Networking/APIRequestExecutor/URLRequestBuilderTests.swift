@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class URLRequestBuilderTests: XCTestCase {
   private let sut = URLRequestBuilder(baseURLString: "https://example.com")

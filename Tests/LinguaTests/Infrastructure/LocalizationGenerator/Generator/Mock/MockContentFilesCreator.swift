@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 class MockContentFilesCreator: ContentFileCreatable {
   var writtenContent: [String: String] = [:]

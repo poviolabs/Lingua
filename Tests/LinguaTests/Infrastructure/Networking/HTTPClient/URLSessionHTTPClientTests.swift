@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class URLSessionHTTPClientTests: XCTestCase {
   func test_fetchData_whenRequestSucceeds_returnsDataAndResponse() async throws {

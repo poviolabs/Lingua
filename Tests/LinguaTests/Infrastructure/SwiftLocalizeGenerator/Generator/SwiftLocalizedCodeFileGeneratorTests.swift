@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class SwiftLocalizedCodeFileGeneratorTests: XCTestCase {
   func test_generate_callsDependenciesInCorrectOrder() {

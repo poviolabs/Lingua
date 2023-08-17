@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class DefaultLocalizedSwiftCodeOutputStringBuilderTests: XCTestCase {
   func test_buildOutput_callsGenerateCodeForEachKeyWithCorrectParameters() throws {

@@ -1,6 +1,7 @@
 import Foundation
+import LinguaLib
 
-extension Logger {
+public extension Logger {
   func printUsage() {
     log("""
         Usage:

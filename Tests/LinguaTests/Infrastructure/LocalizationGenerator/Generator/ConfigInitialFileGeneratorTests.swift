@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class ConfigInitialFileGeneratorTests: XCTestCase {
   func test_generate_encodesConfigAndWritesFile() throws {

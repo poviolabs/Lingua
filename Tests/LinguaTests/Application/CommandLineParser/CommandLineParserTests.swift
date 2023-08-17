@@ -1,4 +1,5 @@
 import XCTest
+import LinguaLib
 @testable import Lingua
 
 final class CommandLineParserTests: XCTestCase {

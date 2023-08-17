@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class APIRequestExecutorTests: XCTestCase {
   func test_send_whenRequestSucceeds_returnsDecodedObject() async throws {

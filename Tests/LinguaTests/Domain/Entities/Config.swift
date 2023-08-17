@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 extension Config.Localization {
   static func make(apiKey: String = "key",

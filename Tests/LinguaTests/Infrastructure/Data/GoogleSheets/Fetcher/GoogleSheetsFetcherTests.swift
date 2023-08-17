@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class GoogleSheetsFetcherTests: XCTestCase {
   func test_fetchSheetNames_sendsCorrectRequest() async throws {
