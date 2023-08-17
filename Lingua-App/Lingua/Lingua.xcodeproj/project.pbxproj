@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		774A1A482A8E588800789A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A472A8E588800789A04 /* Assets.xcassets */; };
 		774A1A4B2A8E588800789A04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */; };
 		774A1A562A8E588800789A04 /* LinguaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A552A8E588800789A04 /* LinguaTests.swift */; };
+		77CF0A3C2A8E5ABB00AB5A2D /* LinguaLib in Frameworks */ = {isa = PBXBuildFile; productRef = 77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77CF0A3C2A8E5ABB00AB5A2D /* LinguaLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +133,9 @@
 			dependencies = (
 			);
 			name = Lingua;
+			packageProductDependencies = (
+				77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */,
+			);
 			productName = Lingua;
 			productReference = 774A1A402A8E588500789A04 /* Lingua.app */;
 			productType = "com.apple.product-type.application";
@@ -181,6 +186,9 @@
 				Base,
 			);
 			mainGroup = 774A1A372A8E588500789A04;
+			packageReferences = (
+				77CF0A3A2A8E5ABB00AB5A2D /* XCLocalSwiftPackageReference "../.." */,
+			);
 			productRefGroup = 774A1A412A8E588500789A04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -474,6 +482,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		77CF0A3A2A8E5ABB00AB5A2D /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LinguaLib;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 774A1A382A8E588500789A04 /* Project object */;
 }
