@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A432A8E588500789A04 /* LinguaApp.swift */; };
+		774A1A462A8E588500789A04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A452A8E588500789A04 /* ContentView.swift */; };
+		774A1A482A8E588800789A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A472A8E588800789A04 /* Assets.xcassets */; };
+		774A1A4B2A8E588800789A04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */; };
+		774A1A562A8E588800789A04 /* LinguaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A552A8E588800789A04 /* LinguaTests.swift */; };
+		77CF0A3C2A8E5ABB00AB5A2D /* LinguaLib in Frameworks */ = {isa = PBXBuildFile; productRef = 77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		774A1A522A8E588800789A04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 774A1A382A8E588500789A04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 774A1A3F2A8E588500789A04;
+			remoteInfo = Lingua;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		774A1A402A8E588500789A04 /* Lingua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingua.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		774A1A432A8E588500789A04 /* LinguaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaApp.swift; sourceTree = "<group>"; };
+		774A1A452A8E588500789A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		774A1A472A8E588800789A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		774A1A4C2A8E588800789A04 /* Lingua.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lingua.entitlements; sourceTree = "<group>"; };
+		774A1A512A8E588800789A04 /* LinguaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinguaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		774A1A552A8E588800789A04 /* LinguaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		774A1A3D2A8E588500789A04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77CF0A3C2A8E5ABB00AB5A2D /* LinguaLib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		774A1A4E2A8E588800789A04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		774A1A372A8E588500789A04 = {
+			isa = PBXGroup;
+			children = (
+				774A1A422A8E588500789A04 /* Lingua */,
+				774A1A542A8E588800789A04 /* LinguaTests */,
+				774A1A412A8E588500789A04 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		774A1A412A8E588500789A04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				774A1A402A8E588500789A04 /* Lingua.app */,
+				774A1A512A8E588800789A04 /* LinguaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		774A1A422A8E588500789A04 /* Lingua */ = {
+			isa = PBXGroup;
+			children = (
+				774A1A6F2A8E593500789A04 /* Scenes */,
+				774A1A6E2A8E592E00789A04 /* App */,
+				774A1A472A8E588800789A04 /* Assets.xcassets */,
+				774A1A4C2A8E588800789A04 /* Lingua.entitlements */,
+				774A1A492A8E588800789A04 /* Preview Content */,
+			);
+			path = Lingua;
+			sourceTree = "<group>";
+		};
+		774A1A492A8E588800789A04 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		774A1A542A8E588800789A04 /* LinguaTests */ = {
+			isa = PBXGroup;
+			children = (
+				774A1A552A8E588800789A04 /* LinguaTests.swift */,
+			);
+			path = LinguaTests;
+			sourceTree = "<group>";
+		};
+		774A1A6E2A8E592E00789A04 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				774A1A432A8E588500789A04 /* LinguaApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		774A1A6F2A8E593500789A04 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				774A1A452A8E588500789A04 /* ContentView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		774A1A3F2A8E588500789A04 /* Lingua */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 774A1A652A8E588800789A04 /* Build configuration list for PBXNativeTarget "Lingua" */;
+			buildPhases = (
+				774A1A3C2A8E588500789A04 /* Sources */,
+				774A1A3D2A8E588500789A04 /* Frameworks */,
+				774A1A3E2A8E588500789A04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lingua;
+			packageProductDependencies = (
+				77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */,
+			);
+			productName = Lingua;
+			productReference = 774A1A402A8E588500789A04 /* Lingua.app */;
+			productType = "com.apple.product-type.application";
+		};
+		774A1A502A8E588800789A04 /* LinguaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 774A1A682A8E588800789A04 /* Build configuration list for PBXNativeTarget "LinguaTests" */;
+			buildPhases = (
+				774A1A4D2A8E588800789A04 /* Sources */,
+				774A1A4E2A8E588800789A04 /* Frameworks */,
+				774A1A4F2A8E588800789A04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				774A1A532A8E588800789A04 /* PBXTargetDependency */,
+			);
+			name = LinguaTests;
+			productName = LinguaTests;
+			productReference = 774A1A512A8E588800789A04 /* LinguaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		774A1A382A8E588500789A04 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					774A1A3F2A8E588500789A04 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					774A1A502A8E588800789A04 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 774A1A3F2A8E588500789A04;
+					};
+				};
+			};
+			buildConfigurationList = 774A1A3B2A8E588500789A04 /* Build configuration list for PBXProject "Lingua" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 774A1A372A8E588500789A04;
+			packageReferences = (
+				77CF0A3A2A8E5ABB00AB5A2D /* XCLocalSwiftPackageReference "../.." */,
+			);
+			productRefGroup = 774A1A412A8E588500789A04 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				774A1A3F2A8E588500789A04 /* Lingua */,
+				774A1A502A8E588800789A04 /* LinguaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		774A1A3E2A8E588500789A04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				774A1A4B2A8E588800789A04 /* Preview Assets.xcassets in Resources */,
+				774A1A482A8E588800789A04 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		774A1A4F2A8E588800789A04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		774A1A3C2A8E588500789A04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				774A1A462A8E588500789A04 /* ContentView.swift in Sources */,
+				774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		774A1A4D2A8E588800789A04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				774A1A562A8E588800789A04 /* LinguaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		774A1A532A8E588800789A04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 774A1A3F2A8E588500789A04 /* Lingua */;
+			targetProxy = 774A1A522A8E588800789A04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		774A1A632A8E588800789A04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		774A1A642A8E588800789A04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		774A1A662A8E588800789A04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Lingua/Lingua.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Lingua/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = povio.Lingua;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		774A1A672A8E588800789A04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Lingua/Lingua.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Lingua/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = povio.Lingua;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		774A1A692A8E588800789A04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = povio.LinguaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lingua.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lingua";
+			};
+			name = Debug;
+		};
+		774A1A6A2A8E588800789A04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = povio.LinguaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lingua.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lingua";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		774A1A3B2A8E588500789A04 /* Build configuration list for PBXProject "Lingua" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				774A1A632A8E588800789A04 /* Debug */,
+				774A1A642A8E588800789A04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		774A1A652A8E588800789A04 /* Build configuration list for PBXNativeTarget "Lingua" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				774A1A662A8E588800789A04 /* Debug */,
+				774A1A672A8E588800789A04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		774A1A682A8E588800789A04 /* Build configuration list for PBXNativeTarget "LinguaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				774A1A692A8E588800789A04 /* Debug */,
+				774A1A6A2A8E588800789A04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		77CF0A3A2A8E5ABB00AB5A2D /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LinguaLib;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 774A1A382A8E588500789A04 /* Project object */;
+}
