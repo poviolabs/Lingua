@@ -39,8 +39,10 @@ struct ValidatingTextField: View {
       }
     }
   }
-  
-  private func validate() {
+}
+
+private extension ValidatingTextField {
+  func validate() {
     isValid = validation.validate(text)
     errorMessage = isValid ? nil : validation.error
   }

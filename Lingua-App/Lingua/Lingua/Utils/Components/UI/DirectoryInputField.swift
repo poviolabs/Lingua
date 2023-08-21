@@ -23,7 +23,9 @@ struct DirectoryInputField: View {
     }
     .padding(.vertical, 5)
   }
-  
+}
+
+private extension DirectoryInputField {
   func chooseDirectory() {
     let panel = NSOpenPanel()
     panel.canChooseFiles = false
@@ -39,7 +41,7 @@ struct DirectoryInputField: View {
     }
   }
   
-  private func saveBookmarkData(from url: URL) {
+   func saveBookmarkData(from url: URL) {
     let bookmarkData = try? url.bookmarkData(options: .withSecurityScope,
                                              includingResourceValuesForKeys: nil,
                                              relativeTo: nil)
