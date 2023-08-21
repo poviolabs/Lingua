@@ -21,7 +21,7 @@ struct ProjectsView: View {
         selection: $viewModel.selectedProject
       ) { index, project in
         NavigationLink(value: project) {
-          ProjectRow(project: project)
+          ProjectItemView(project: project)
         }
         .swipeActions(edge: .trailing) {
           deletionButton(for: project, at: index)
@@ -68,16 +68,16 @@ private extension ProjectsView {
   }
   
   func deletionAlert() -> Alert {
-    Alert(title: Text("Confirmation"),
-          message: Text("Are you sure you want to delete \(projectToDelete?.project.title ?? "this") project?"),
-          primaryButton: .destructive(Text("Delete"), action: {
-      
-      guard let index = projectToDelete?.index else { return }
-      withAnimation {
-        viewModel.deleteProject(at: index)
-      }
-    }),
-          secondaryButton: .cancel())
+    Alert(
+      title: Text("Confirmation"),
+      message: Text("Are you sure you want to delete \(projectToDelete?.project.title ?? "this") project?"),
+      primaryButton: .destructive(Text("Delete"), action: {
+        guard let index = projectToDelete?.index else { return }
+        withAnimation {
+          viewModel.deleteProject(at: index)
+        }
+      }),
+      secondaryButton: .cancel())
   }
   
   func confirmDelete(for project: Project, index: Int) {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProjectRow: View {
+struct ProjectItemView: View {
   var project: Project
   
   var body: some View {
