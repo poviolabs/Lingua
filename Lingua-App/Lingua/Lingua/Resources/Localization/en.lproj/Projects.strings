@@ -6,3 +6,5 @@
 "delete_alert_message" = "Are you sure you want to delete \"%@\" project?";
 "copy_project" = "%@ copy";
 "new_project" = "New project";
+"localizing" = "Localizing...";
+"localized_message" = "\"%@\" has been successfully localized.";

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectsView: View {
   @ObservedObject private var viewModel = ProjectsViewModel()
-  @State private var showAlert: Bool = false
+  @State private var showDeleteAlert: Bool = false
   @State private var projectToDelete: (project: Project, index: Int)?
   
   var body: some View {
@@ -49,9 +49,12 @@ struct ProjectsView: View {
         Text(Lingua.Projects.placeholder)
       }
     }
-    .alert(isPresented: $showAlert) {
+    .alert(isPresented: $showDeleteAlert) {
       deletionAlert()
     }
+    .overlay(ProgressOverlay(isProgressing: $viewModel.isLocalizing, text: Lingua.Projects.localizing))
+    .overlay(hudResultOverlay())
+    
   }
 }
 
@@ -68,9 +71,28 @@ private extension ProjectsView {
         if let index = viewModel.projects.firstIndex(where: { $0.id == project.id }) {
           confirmDelete(for: deletedProject, index: index)
         }
+      },
+      onLocalize: { projectToLocalize in
+        Task { await viewModel.localizeProject(projectToLocalize) }
       }
     )
     .navigationSplitViewColumnWidth(min: 400, ideal: 600)
+  }
+  
+  @ViewBuilder
+  func hudResultOverlay() -> some View {
+    switch viewModel.localizationResult {
+    case .success(let message):
+      HUDOverlay(message: message, isError: false) {
+        viewModel.localizationResult = nil
+      }
+    case .failure(let error):
+      HUDOverlay(message: error.localizedDescription, isError: true) {
+        viewModel.localizationResult = nil
+      }
+    case .none:
+      EmptyView()
+    }
   }
   
   @ViewBuilder
@@ -108,6 +130,6 @@ private extension ProjectsView {
   
   func confirmDelete(for project: Project, index: Int) {
     projectToDelete = (project, index)
-    showAlert = true
+    showDeleteAlert = true
   }
 }

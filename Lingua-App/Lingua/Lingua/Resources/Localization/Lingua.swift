@@ -12,6 +12,8 @@ enum Lingua {
 		static let delete = tr("General", "delete")
 		/// Duplicate
 		static let duplicate = tr("General", "duplicate")
+		/// Error
+		static let error = tr("General", "error")
 		/// Save
 		static let save = tr("General", "save")
 		/// Success
@@ -23,21 +25,21 @@ enum Lingua {
 	enum ProjectForm {
 		/// Configuration
 		static let configurationSection = tr("ProjectForm", "configuration_section")
-		/// API Key
+		/// API Key *
 		static let inputApiKey = tr("ProjectForm", "input_api_key")
-		/// Output directory
+		/// Output directory *
 		static let inputDirectoryOutput = tr("ProjectForm", "input_directory_output")
-		/// Name
+		/// Name *
 		static let inputProjectName = tr("ProjectForm", "input_project_name")
-		/// Sheet ID
+		/// Sheet ID *
 		static let inputSheetId = tr("ProjectForm", "input_sheet_id")
-		/// Lingua.swift Directory
+		/// Lingua.swift Directory *
 		static let linguaSwiftOutputDirectory = tr("ProjectForm", "lingua_swift_output_directory")
 		/// Localize
 		static let localizeButton = tr("ProjectForm", "localize_button")
-		/// Platform
+		/// Platform *
 		static let platformPickerTitle = tr("ProjectForm", "platform_picker_title")
-		/// .strings Directory
+		/// .strings Directory *
 		static let stringsDirectory = tr("ProjectForm", "strings_directory")
 		/// Since iOS does not have a built in feature to access the localization safely, we have made this possible\nusing Lingua tool. Below you have to provide the path where the Swift file you want to be created.\nWith that the tool will create Lingua.swift with an enumeration to easily access localizations in your app.
 		static let swiftCodeDescription = tr("ProjectForm", "swift_code_description")
@@ -56,6 +58,12 @@ enum Lingua {
 		}
 		/// Confirmation
 		static let deleteAlertTitle = tr("Projects", "delete_alert_title")
+		/// "%@" has been successfully localized.
+		static func localizedMessage(_ param1: String) -> String {
+			return tr("Projects", "localized_message", param1)
+		}
+		/// Localizing...
+		static let localizing = tr("Projects", "localizing")
 		/// New project
 		static let newProject = tr("Projects", "new_project")
 		/// Select a project or add a new one.

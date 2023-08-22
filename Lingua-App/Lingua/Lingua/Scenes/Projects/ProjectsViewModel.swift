@@ -10,6 +10,10 @@ import SwiftUI
 class ProjectsViewModel: ObservableObject {
   @Published var projects: [Project] = []
   @Published var selectedProject: Project?
+  @Published var isLocalizing: Bool = false
+  @Published var localizationResult: Result<String, Error>?
+  
+  private let localizationManager = LocalizationManager(directoryAccessor: DirectoryAccessor())
   
   func deleteProject(at index: Int) {
     if projects[index] == selectedProject {
@@ -41,6 +45,25 @@ class ProjectsViewModel: ObservableObject {
                              title: Lingua.Projects.copyProject(project.title))
     projects.append(newProject)
     selectedProject = newProject
+  }
+  
+  @MainActor
+  func localizeProject(_ project: Project) async {
+    withAnimation {
+      isLocalizing = true
+      localizationResult = nil
+    }
+    
+    do {
+      let message = try await localizationManager.localize(project: project)
+      localizationResult = .success(message)
+    } catch {
+      localizationResult = .failure(error)
+    }
+    
+    withAnimation {
+      isLocalizing = false
+    }
   }
 }
 
