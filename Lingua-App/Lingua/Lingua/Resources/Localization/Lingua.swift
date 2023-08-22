@@ -10,6 +10,8 @@ enum Lingua {
 		static let choose = tr("General", "choose")
 		/// Delete
 		static let delete = tr("General", "delete")
+		/// Duplicate
+		static let duplicate = tr("General", "duplicate")
 		/// Save
 		static let save = tr("General", "save")
 		/// Success
@@ -44,12 +46,18 @@ enum Lingua {
 	}
 
 	enum Projects {
+		/// %@ copy
+		static func copyProject(_ param1: String) -> String {
+			return tr("Projects", "copy_project", param1)
+		}
 		/// Are you sure you want to delete "%@" project?
 		static func deleteAlertMessage(_ param1: String) -> String {
 			return tr("Projects", "delete_alert_message", param1)
 		}
 		/// Confirmation
 		static let deleteAlertTitle = tr("Projects", "delete_alert_title")
+		/// New project
+		static let newProject = tr("Projects", "new_project")
 		/// Select a project or add a new one.
 		static let placeholder = tr("Projects", "placeholder")
 	}

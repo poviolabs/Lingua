@@ -26,5 +26,21 @@ class ProjectsViewModel: ObservableObject {
     guard let index = projects.firstIndex(where: { $0.id == project.id }) else { return }
     projects[index] = project
   }
+  
+  func createNewProject() {
+    let newProject = Project(id: UUID(), type: .ios, title: Lingua.Projects.newProject)
+    projects.append(newProject)
+    selectedProject = newProject
+  }
+  
+  func duplicate(_ project: Project) {
+    let newProject = Project(id: UUID(),
+                             type: project.type,
+                             apiKey: project.apiKey,
+                             sheetId: project.sheetId,
+                             title: Lingua.Projects.copyProject(project.title))
+    projects.append(newProject)
+    selectedProject = newProject
+  }
 }
 

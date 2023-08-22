@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProjectsView: View {
   @ObservedObject private var viewModel = ProjectsViewModel()
-  @State private var showingCreateProject: Bool = false
   @State private var showAlert: Bool = false
   @State private var projectToDelete: (project: Project, index: Int)?
   
@@ -24,9 +23,11 @@ struct ProjectsView: View {
           ProjectItemView(project: project)
         }
         .swipeActions(edge: .trailing) {
+          duplicateButton(for: project, at: index)
           deletionButton(for: project, at: index)
         }
         .contextMenu {
+          duplicateButton(for: project, at: index)
           deletionButton(for: project, at: index)
         }
       }
@@ -34,7 +35,9 @@ struct ProjectsView: View {
       .listStyle(DefaultListStyle())
       .toolbar {
         Button(action: {
-          showingCreateProject = true
+          withAnimation {
+            viewModel.createNewProject()
+          }
         }) {
           Image(systemName: "plus")
         }
@@ -46,9 +49,6 @@ struct ProjectsView: View {
         Text(Lingua.Projects.placeholder)
       }
     }
-    .sheet(isPresented: $showingCreateProject, content: {
-      Text("New project")
-    })
     .alert(isPresented: $showAlert) {
       deletionAlert()
     }
@@ -84,15 +84,24 @@ private extension ProjectsView {
     .tint(.red)
   }
   
+  @ViewBuilder
+  func duplicateButton(for project: Project, at index: Int) -> some View {
+    Button(action: {
+      viewModel.duplicate(project)
+    }) {
+      Text(Lingua.General.duplicate)
+      Image(systemName: "doc.on.doc")
+    }
+    .tint(.blue)
+  }
+  
   func deletionAlert() -> Alert {
     Alert(
       title: Text(Lingua.Projects.deleteAlertTitle),
       message: Text(Lingua.Projects.deleteAlertMessage(projectToDelete?.project.title ?? Lingua.General.this)),
       primaryButton: .destructive(Text(Lingua.General.delete), action: {
         guard let index = projectToDelete?.index else { return }
-        withAnimation {
-          viewModel.deleteProject(at: index)
-        }
+        viewModel.deleteProject(at: index)
       }),
       secondaryButton: .cancel())
   }
