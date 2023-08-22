@@ -8,7 +8,9 @@
 import SwiftUI
 
 class ProjectsViewModel: ObservableObject {
-  @Published var projects: [Project] = []
+  @Published var projects: [Project] = UserDefaults.getProjects() {
+    didSet { UserDefaults.setProjects(projects) }
+  }
   @Published var selectedProject: Project?
   @Published var isLocalizing: Bool = false
   @Published var localizationResult: Result<String, Error>?

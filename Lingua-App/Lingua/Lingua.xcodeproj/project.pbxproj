@@ -26,6 +26,7 @@
 		777BC62F2A94B2A000C74D72 /* ProgressOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */; };
 		777BC6322A94B53300C74D72 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6312A94B53300C74D72 /* LocalizationManager.swift */; };
 		777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6332A94E12F00C74D72 /* HUDOverlay.swift */; };
+		777BC6362A94E6A600C74D72 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6352A94E6A600C74D72 /* UserDefaults+Extension.swift */; };
 		77CF0A3C2A8E5ABB00AB5A2D /* LinguaLib in Frameworks */ = {isa = PBXBuildFile; productRef = 77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */; };
 		77CF0A3F2A8E61EE00AB5A2D /* ProjectItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */; };
 		77CF0A422A8E621900AB5A2D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A412A8E621900AB5A2D /* Project.swift */; };
@@ -67,6 +68,7 @@
 		777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlay.swift; sourceTree = "<group>"; };
 		777BC6312A94B53300C74D72 /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
 		777BC6332A94E12F00C74D72 /* HUDOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDOverlay.swift; sourceTree = "<group>"; };
+		777BC6352A94E6A600C74D72 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectItemView.swift; sourceTree = "<group>"; };
 		77CF0A412A8E621900AB5A2D /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizationPlatform+Extension.swift"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				777BC61E2A93A16600C74D72 /* Binding+Project.swift */,
+				777BC6352A94E6A600C74D72 /* UserDefaults+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */,
 				77CF0A442A8E624900AB5A2D /* LocalizationPlatform+Extension.swift in Sources */,
 				777BC6322A94B53300C74D72 /* LocalizationManager.swift in Sources */,
+				777BC6362A94E6A600C74D72 /* UserDefaults+Extension.swift in Sources */,
 				777BC5EF2A938B8400C74D72 /* ProjectFormView.swift in Sources */,
 				774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */,
 				777BC5E82A93639E00C74D72 /* DirectoryInputField.swift in Sources */,

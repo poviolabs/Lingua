@@ -17,9 +17,7 @@ struct HUDOverlay: View {
     ZStack {
       Color(NSColor.windowBackgroundColor)
         .opacity(0.8)
-        .onTapGesture {
-          onDismiss?()
-        }
+        .onTapGesture { dismiss() }
       
       VStack {
         Text(isError ? Lingua.General.error : Lingua.General.success)
@@ -38,10 +36,16 @@ struct HUDOverlay: View {
     }
     .onAppear {
       DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-        withAnimation {
-          onDismiss?()
-        }
+        dismiss()
       }
+    }
+  }
+}
+
+extension HUDOverlay {
+  func dismiss() {
+    withAnimation {
+      onDismiss?()
     }
   }
 }
