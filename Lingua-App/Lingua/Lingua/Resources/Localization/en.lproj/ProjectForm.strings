@@ -1,0 +1,16 @@
+// This file was generated with Lingua command line tool. Please do not change it!
+// Source: https://github.com/poviolabs/Lingua
+
+"configuration_section" = "Configuration";
+"platform_picker_title" = "Platform";
+"input_project_name" = "Name";
+"input_api_key" = "API Key";
+"input_sheet_id" = "Sheet ID";
+"input_directory_output" = "Output directory";
+"swift_code_section" = "iOS Swift Code Settings";
+"swift_code_description" = "Since iOS does not have a built in feature to access the localization safely, we have made this possible
+using Lingua tool. Below you have to provide the path where the Swift file you want to be created.
+With that the tool will create Lingua.swift with an enumeration to easily access localizations in your app.";
+"strings_directory" = ".strings Directory";
+"lingua_swift_output_directory" = "Lingua.swift Directory";
+"localize_button" = "Localize";

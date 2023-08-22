@@ -1,6 +1,8 @@
 import Foundation
 
-public enum LocalizationPlatform: String {
+public enum LocalizationPlatform: String, Identifiable, CaseIterable {
+  public var id: String { rawValue }
+  
   case ios
   case android
 }

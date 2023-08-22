@@ -25,13 +25,6 @@ struct ProjectItemView: View {
       }
       
       Spacer()
-      
-      Button(action: {
-        // Sync Action
-      }) {
-        Image(systemName: "arrow.triangle.2.circlepath")
-          .imageScale(.large)
-      }
     }
     .padding([.top, .bottom], 10)
   }

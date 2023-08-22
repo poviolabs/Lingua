@@ -21,5 +21,10 @@ class ProjectsViewModel: ObservableObject {
   func addProject(_ project: Project) {
     projects.append(project)
   }
+  
+  func updateProject(_ project: Project) {
+    guard let index = projects.firstIndex(where: { $0.id == project.id }) else { return }
+    projects[index] = project
+  }
 }
 
