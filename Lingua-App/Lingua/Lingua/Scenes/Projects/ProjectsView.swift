@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectsView: View {
-  @State private var viewModel = ProjectsViewModel()
+  @ObservedObject private var viewModel = ProjectsViewModel()
   @State private var showingCreateProject: Bool = false
   @State private var showAlert: Bool = false
   @State private var projectToDelete: (project: Project, index: Int)?
@@ -41,9 +41,9 @@ struct ProjectsView: View {
       }
     } detail: {
       if let project = viewModel.selectedProject {
-        Text(project.title)
+        projectFormView(for: project)
       } else {
-        Text("Select a project or add a new one.")
+        Text(Lingua.Projects.placeholder)
       }
     }
     .sheet(isPresented: $showingCreateProject, content: {
@@ -57,11 +57,28 @@ struct ProjectsView: View {
 
 private extension ProjectsView {
   @ViewBuilder
+  func projectFormView(for project: Project) -> some View {
+    ProjectFormView(
+      project: $viewModel.selectedProject.unwrapped(or: project),
+      viewModel: viewModel,
+      onSave: { updatedProject in
+        viewModel.updateProject(updatedProject)
+      },
+      onDelete: { deletedProject in
+        if let index = viewModel.projects.firstIndex(where: { $0.id == project.id }) {
+          confirmDelete(for: deletedProject, index: index)
+        }
+      }
+    )
+    .navigationSplitViewColumnWidth(min: 400, ideal: 600)
+  }
+  
+  @ViewBuilder
   func deletionButton(for project: Project, at index: Int) -> some View {
     Button(action: {
       confirmDelete(for: project, index: index)
     }) {
-      Text("Delete")
+      Text(Lingua.General.delete)
       Image(systemName: "trash")
     }
     .tint(.red)
@@ -69,9 +86,9 @@ private extension ProjectsView {
   
   func deletionAlert() -> Alert {
     Alert(
-      title: Text("Confirmation"),
-      message: Text("Are you sure you want to delete \(projectToDelete?.project.title ?? "this") project?"),
-      primaryButton: .destructive(Text("Delete"), action: {
+      title: Text(Lingua.Projects.deleteAlertTitle),
+      message: Text(Lingua.Projects.deleteAlertMessage(projectToDelete?.project.title ?? Lingua.General.this)),
+      primaryButton: .destructive(Text(Lingua.General.delete), action: {
         guard let index = projectToDelete?.index else { return }
         withAnimation {
           viewModel.deleteProject(at: index)

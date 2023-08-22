@@ -31,7 +31,7 @@ private extension DirectoryInputField {
     panel.canChooseFiles = false
     panel.canChooseDirectories = true
     panel.allowsMultipleSelection = false
-    panel.prompt = "Choose"
+    panel.prompt = Lingua.General.choose
     
     panel.begin { (result) in
       if result == .OK, let url = panel.urls.first {

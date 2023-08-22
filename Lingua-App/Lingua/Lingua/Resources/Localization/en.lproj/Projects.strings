@@ -1,0 +1,6 @@
+// This file was generated with Lingua command line tool. Please do not change it!
+// Source: https://github.com/poviolabs/Lingua
+
+"placeholder" = "Select a project or add a new one.";
+"delete_alert_title" = "Confirmation";
+"delete_alert_message" = "Are you sure you want to delete \"%@\" project?";
