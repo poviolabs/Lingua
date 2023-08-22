@@ -23,6 +23,9 @@
 		777BC6292A93E07500C74D72 /* Projects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 777BC6232A93E07500C74D72 /* Projects.strings */; };
 		777BC62A2A93E07500C74D72 /* ProjectForm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 777BC6252A93E07500C74D72 /* ProjectForm.strings */; };
 		777BC62B2A93E07500C74D72 /* Lingua.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6272A93E07500C74D72 /* Lingua.swift */; };
+		777BC62F2A94B2A000C74D72 /* ProgressOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */; };
+		777BC6322A94B53300C74D72 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6312A94B53300C74D72 /* LocalizationManager.swift */; };
+		777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6332A94E12F00C74D72 /* HUDOverlay.swift */; };
 		77CF0A3C2A8E5ABB00AB5A2D /* LinguaLib in Frameworks */ = {isa = PBXBuildFile; productRef = 77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */; };
 		77CF0A3F2A8E61EE00AB5A2D /* ProjectItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */; };
 		77CF0A422A8E621900AB5A2D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A412A8E621900AB5A2D /* Project.swift */; };
@@ -61,6 +64,9 @@
 		777BC6242A93E07500C74D72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Projects.strings; sourceTree = "<group>"; };
 		777BC6262A93E07500C74D72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProjectForm.strings; sourceTree = "<group>"; };
 		777BC6272A93E07500C74D72 /* Lingua.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lingua.swift; sourceTree = "<group>"; };
+		777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlay.swift; sourceTree = "<group>"; };
+		777BC6312A94B53300C74D72 /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
+		777BC6332A94E12F00C74D72 /* HUDOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDOverlay.swift; sourceTree = "<group>"; };
 		77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectItemView.swift; sourceTree = "<group>"; };
 		77CF0A412A8E621900AB5A2D /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizationPlatform+Extension.swift"; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 		777BC5DD2A93615B00C74D72 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				777BC6302A94B52A00C74D72 /* Manager */,
 				777BC61D2A93A15900C74D72 /* Extensions */,
 				777BC5EA2A93706700C74D72 /* Helpers */,
 				777BC5E22A9361D400C74D72 /* Validation */,
@@ -176,8 +183,10 @@
 		777BC5DF2A93615B00C74D72 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				777BC6332A94E12F00C74D72 /* HUDOverlay.swift */,
 				777BC5E02A93617000C74D72 /* ValidatingTextField.swift */,
 				777BC5E72A93639E00C74D72 /* DirectoryInputField.swift */,
+				777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -232,6 +241,14 @@
 				777BC6272A93E07500C74D72 /* Lingua.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		777BC6302A94B52A00C74D72 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				777BC6312A94B53300C74D72 /* LocalizationManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		77CF0A3D2A8E61DE00AB5A2D /* Projects */ = {
@@ -320,7 +337,6 @@
 			knownRegions = (
 				en,
 				Base,
-				de,
 			);
 			mainGroup = 774A1A372A8E588500789A04;
 			packageReferences = (
@@ -371,10 +387,13 @@
 				777BC5E62A9361F000C74D72 /* RequiredRule.swift in Sources */,
 				777BC61F2A93A16600C74D72 /* Binding+Project.swift in Sources */,
 				777BC62B2A93E07500C74D72 /* Lingua.swift in Sources */,
+				777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */,
 				77CF0A442A8E624900AB5A2D /* LocalizationPlatform+Extension.swift in Sources */,
+				777BC6322A94B53300C74D72 /* LocalizationManager.swift in Sources */,
 				777BC5EF2A938B8400C74D72 /* ProjectFormView.swift in Sources */,
 				774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */,
 				777BC5E82A93639E00C74D72 /* DirectoryInputField.swift in Sources */,
+				777BC62F2A94B2A000C74D72 /* ProgressOverlay.swift in Sources */,
 				777BC5E42A9361E200C74D72 /* ValidationRule.swift in Sources */,
 				777BC5E12A93617000C74D72 /* ValidatingTextField.swift in Sources */,
 				77CF0A422A8E621900AB5A2D /* Project.swift in Sources */,
@@ -432,6 +451,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -461,6 +481,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -495,6 +516,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -524,6 +546,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -554,6 +577,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Lingua/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -579,6 +603,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Lingua/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -602,6 +627,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
 				MARKETING_VERSION = 1.0;
@@ -620,6 +646,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
 				MARKETING_VERSION = 1.0;

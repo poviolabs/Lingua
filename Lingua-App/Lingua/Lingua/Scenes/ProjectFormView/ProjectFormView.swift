@@ -12,16 +12,16 @@ struct ProjectFormView: View {
   @Binding var project: Project
   @ObservedObject var viewModel: ProjectsViewModel
   
-  @State private var apiKeyValid = true
-  @State private var sheetIdValid = true
+  @State private var apiKeyValid = false
+  @State private var sheetIdValid = false
   @State private var titleValid = true
-  @State private var outputPathValid = true
-  @State private var stringsDirectoryValid = true
-  @State private var outputSwiftCodeFileDirectoryValid = true
+  @State private var outputPathValid = false
+  @State private var stringsDirectoryValid = false
+  @State private var outputSwiftCodeFileDirectoryValid = false
 
   var onSave: ((Project) -> Void)? = nil
   var onDelete: ((Project) -> Void)? = nil
-  var onSync: ((Project) -> Void)? = nil
+  var onLocalize: ((Project) -> Void)? = nil
   
   var body: some View {
     Form {
@@ -100,13 +100,13 @@ private extension ProjectFormView {
   @ViewBuilder
   func localizeButton(for project: Project) -> some View {
     Button(action: {
-      // Localize project
+      onLocalize?(project)
     }) {
       HStack {
         Image(systemName: "globe")
         Text(Lingua.ProjectForm.localizeButton)
       }
     }
-    .disabled(!allFieldsValid)
+    .disabled(!allFieldsValid || viewModel.isLocalizing)
   }
 }
