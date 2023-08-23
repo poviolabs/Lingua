@@ -8,7 +8,7 @@
 import Foundation
 import LinguaLib
 
-extension LocalizationPlatform {
+extension LocalizationPlatform: Codable {
   var title: String {
     switch self {
     case .ios:

@@ -8,7 +8,7 @@
 import SwiftUI
 import LinguaLib
 
-struct Project: Identifiable, Hashable, Equatable {
+struct Project: Identifiable, Hashable, Equatable, Codable {
   var id: UUID
   var type: LocalizationPlatform
   var apiKey: String

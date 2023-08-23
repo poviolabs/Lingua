@@ -38,6 +38,9 @@ struct ValidatingTextField: View {
           .font(.caption)
       }
     }
+    .onAppear {
+      isValid = validation.validate(text)
+    }
   }
 }
 
