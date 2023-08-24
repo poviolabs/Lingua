@@ -25,14 +25,22 @@ enum Lingua {
 	enum ProjectForm {
 		/// Configuration
 		static let configurationSection = tr("ProjectForm", "configuration_section")
+		/// Info
+		static let infoHeader = tr("ProjectForm", "info_header")
 		/// API Key *
 		static let inputApiKey = tr("ProjectForm", "input_api_key")
+		/// Choose Directory
+		static let inputDirectoryButton = tr("ProjectForm", "input_directory_button")
 		/// Output directory *
 		static let inputDirectoryOutput = tr("ProjectForm", "input_directory_output")
 		/// Name *
 		static let inputProjectName = tr("ProjectForm", "input_project_name")
 		/// Sheet ID *
 		static let inputSheetId = tr("ProjectForm", "input_sheet_id")
+		/// After you "Localize", you have to Add files to "%@"... in Xcode, if they are not added already
+		static func iosLocalizationInfoMessage(_ param1: String) -> String {
+			return tr("ProjectForm", "ios_localization_info_message", param1)
+		}
 		/// Lingua.swift Directory *
 		static let linguaSwiftOutputDirectory = tr("ProjectForm", "lingua_swift_output_directory")
 		/// Localize
@@ -41,10 +49,12 @@ enum Lingua {
 		static let platformPickerTitle = tr("ProjectForm", "platform_picker_title")
 		/// .strings Directory *
 		static let stringsDirectory = tr("ProjectForm", "strings_directory")
-		/// Since iOS does not have a built in feature to access the localization safely, we have made this possible\nusing Lingua tool. Below you have to provide the path where the Swift file you want to be created.\nWith that the tool will create Lingua.swift with an enumeration to easily access localizations in your app.
+		/// Since iOS does not have a built in feature to access the localization safely, we have made this possible using Lingua tool. Below you have to provide the path where the Swift file you want to be created. With that the tool will create Lingua.swift with an enumeration to easily access localizations in your app.
 		static let swiftCodeDescription = tr("ProjectForm", "swift_code_description")
 		/// iOS Swift Code Settings
 		static let swiftCodeSection = tr("ProjectForm", "swift_code_section")
+		/// Generate Swift Code
+		static let swiftCodeToggleTitle = tr("ProjectForm", "swift_code_toggle_title")
 	}
 
 	enum Projects {

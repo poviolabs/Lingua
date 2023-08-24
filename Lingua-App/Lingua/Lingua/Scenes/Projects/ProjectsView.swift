@@ -49,6 +49,7 @@ struct ProjectsView: View {
         Text(Lingua.Projects.placeholder)
       }
     }
+    .onAppear { viewModel.selectFirstProject() }
     .alert(isPresented: $showDeleteAlert) {
       deletionAlert()
     }

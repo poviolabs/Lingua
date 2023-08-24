@@ -49,6 +49,10 @@ class ProjectsViewModel: ObservableObject {
     selectedProject = newProject
   }
   
+  func selectFirstProject() {
+    selectedProject = projects.first
+  }
+  
   @MainActor
   func localizeProject(_ project: Project) async {
     withAnimation {

@@ -12,15 +12,21 @@ struct LocalizationManager {
   let directoryAccessor: DirectoryAccessor
   
   func localize(project: Project) async throws -> String {
-    let _ = try await directoryAccessor.accessDirectory(fromBookmarkKey: project.bookmarkDataForDirectoryPath)
-    let _ = try await directoryAccessor.accessDirectory(fromBookmarkKey: project.bookmarkDataForStringsDirectory)
-    let _ = try await directoryAccessor.accessDirectory(fromBookmarkKey: project.bookmarkDataForOutputSwiftCodeFileDirectory)
+    try await directoryAccessor.accessDirectory(fromBookmarkKey: project.bookmarkDataForDirectoryPath,
+                                                path: project.directoryPath)
+    try await directoryAccessor.accessDirectory(fromBookmarkKey: project.bookmarkDataForStringsDirectory,
+                                                path: project.swiftCode.stringsDirectory)
+    try await directoryAccessor.accessDirectory(fromBookmarkKey: project.bookmarkDataForOutputSwiftCodeFileDirectory,
+                                                path: project.swiftCode.outputSwiftCodeFileDirectory)
     
     var localizedSwiftCode: Config.LocalizedSwiftCode?
-    if !project.swiftCode.stringsDirectory.isEmpty,
-       !project.swiftCode.outputSwiftCodeFileDirectory.isEmpty {
-      localizedSwiftCode = .init(stringsDirectory: project.swiftCode.stringsDirectory,
-                                 outputSwiftCodeFileDirectory: project.swiftCode.outputSwiftCodeFileDirectory)
+    if project.swiftCodeEnabled,
+       !project.swiftCode.stringsDirectory.isEmpty,
+       !project.swiftCode.outputSwiftCodeFileDirectory.isEmpty,
+       let stringsDirectoryURL = URL(string: project.swiftCode.stringsDirectory),
+       let swiftCodeFileDirectoryURL = URL(string: project.swiftCode.outputSwiftCodeFileDirectory) {
+      localizedSwiftCode = .init(stringsDirectory: stringsDirectoryURL.path,
+                                 outputSwiftCodeFileDirectory: swiftCodeFileDirectoryURL.path)
     }
     
     let config = Config.Localization(apiKey: project.apiKey,
