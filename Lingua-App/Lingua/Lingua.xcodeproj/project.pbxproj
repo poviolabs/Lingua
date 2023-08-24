@@ -28,6 +28,7 @@
 		777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6332A94E12F00C74D72 /* HUDOverlay.swift */; };
 		777BC6362A94E6A600C74D72 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6352A94E6A600C74D72 /* UserDefaults+Extension.swift */; };
 		779F91F72A977378009C77D5 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F91F62A977378009C77D5 /* URL+Extension.swift */; };
+		779F91F92A978AC8009C77D5 /* InformationHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F91F82A978AC8009C77D5 /* InformationHolderView.swift */; };
 		77CF0A3C2A8E5ABB00AB5A2D /* LinguaLib in Frameworks */ = {isa = PBXBuildFile; productRef = 77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */; };
 		77CF0A3F2A8E61EE00AB5A2D /* ProjectItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */; };
 		77CF0A422A8E621900AB5A2D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A412A8E621900AB5A2D /* Project.swift */; };
@@ -73,6 +74,7 @@
 		777BC6332A94E12F00C74D72 /* HUDOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDOverlay.swift; sourceTree = "<group>"; };
 		777BC6352A94E6A600C74D72 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		779F91F62A977378009C77D5 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		779F91F82A978AC8009C77D5 /* InformationHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationHolderView.swift; sourceTree = "<group>"; };
 		77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectItemView.swift; sourceTree = "<group>"; };
 		77CF0A412A8E621900AB5A2D /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizationPlatform+Extension.swift"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				777BC5E02A93617000C74D72 /* ValidatingTextField.swift */,
 				777BC5E72A93639E00C74D72 /* DirectoryInputField.swift */,
 				777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */,
+				779F91F82A978AC8009C77D5 /* InformationHolderView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				779F91F72A977378009C77D5 /* URL+Extension.swift in Sources */,
 				774A1A462A8E588500789A04 /* ContentView.swift in Sources */,
 				777BC5E62A9361F000C74D72 /* RequiredRule.swift in Sources */,
+				779F91F92A978AC8009C77D5 /* InformationHolderView.swift in Sources */,
 				777BC61F2A93A16600C74D72 /* Binding+Project.swift in Sources */,
 				777BC62B2A93E07500C74D72 /* Lingua.swift in Sources */,
 				777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */,
@@ -604,6 +608,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lingua/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,6 +641,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Lingua/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

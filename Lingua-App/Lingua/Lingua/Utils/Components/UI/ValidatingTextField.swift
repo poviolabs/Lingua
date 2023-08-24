@@ -35,7 +35,6 @@ struct ValidatingTextField: View {
     VStack(alignment: .leading, spacing: 5) {
       TextField(title, text: $localText)
         .disabled(isDisabled)
-        .background(.gray.opacity(0.05))
         .cornerRadius(8)
         .focused($isFocused)
         .onChange(of: isFocused, perform: { focused in

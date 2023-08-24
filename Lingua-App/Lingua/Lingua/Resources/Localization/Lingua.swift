@@ -23,6 +23,8 @@ enum Lingua {
 	}
 
 	enum ProjectForm {
+		/// Here are the steps to enable the Google Sheets API and create an API key:\n\n* Go to the https://console.cloud.google.com/.\n* If you haven't already, create a new project or select an existing one.\n* In the left sidebar, click on "APIs & Services"\n* Click on "+ ENABLE APIS AND SERVICES" at the top of the page.\n* In the search bar, type "Google Sheets API" and select it from the list.\n* Click on "ENABLE" to enable the Google Sheets API for your project.\n* After the API is enabled, go back to the "APIs & Services" > "Credendtials" page.\n* Click on "CREATE CREDENTIALS" at the top of the page.\n* In the dropdown, select "API key"\n* Wait a bit until the key is generated and an information modal with the message API key created will be shown.
+		static let apiKeyHelp = tr("ProjectForm", "api_key_help")
 		/// Configuration
 		static let configurationSection = tr("ProjectForm", "configuration_section")
 		/// Info
@@ -43,11 +45,19 @@ enum Lingua {
 		}
 		/// Lingua.swift Directory *
 		static let linguaSwiftOutputDirectory = tr("ProjectForm", "lingua_swift_output_directory")
+		/// This should be the directory where you want to store the generated Lingua.swift file
+		static let linguaSwiftOutputDirectoryHelp = tr("ProjectForm", "lingua_swift_output_directory_help")
 		/// Localize
 		static let localizeButton = tr("ProjectForm", "localize_button")
+		/// The .lproj directory should be the directory where .strings files are saved.\nIt serves as base language directory from where the Lingua.swift file will be created
+		static let lprojDirectoryHelp = tr("ProjectForm", "lproj_directory_help")
+		/// The output directory property should be the path where you want the tool to create localization files.\n\n* For iOS it can be any directory on your project. After you run the command, for the first time, \n   you have to Add files to 'YourProject' in Xcode.\n\n* For Android, since the translation are placed in a specific project directory,\n   the output directory it should look something like this: path/YourProject/app/src/main/res 
+		static let outputDirectoryHelp = tr("ProjectForm", "output_directory_help")
 		/// Platform *
 		static let platformPickerTitle = tr("ProjectForm", "platform_picker_title")
-		/// .strings Directory *
+		/// * Make a copy of the [Sheet Template](https://docs.google.com/spreadsheets/d/1Cnqy4gZqh9pGcTF_0jb8QGOnysejZ8dVfSj8dgX4kzM) from menu "File > Make a copy"\n* Ensure that the Google Sheet you're trying to access has its sharing settings configured to allow access to anyone with the link.\n   You can do this by clicking on "Share" in the upper right corner of the Google Sheet and selecting "Anyone with the link."\n* The sheet id can easly be accessed from the url after you have create a copy of the document tamplate.\n\nExample:\n\nhttps://docs.google.com/spreadsheets/d/ 1GpaPpO4JMleZPd8paSW4qPBQxjImm2xD8yJhvZOP-8w
+		static let sheetIdHelp = tr("ProjectForm", "sheet_id_help")
+		/// .lproj Directory *
 		static let stringsDirectory = tr("ProjectForm", "strings_directory")
 		/// Since iOS does not have a built in feature to access the localization safely, we have made this possible using Lingua tool. Below you have to provide the path where the Swift file you want to be created. With that the tool will create Lingua.swift with an enumeration to easily access localizations in your app.
 		static let swiftCodeDescription = tr("ProjectForm", "swift_code_description")
