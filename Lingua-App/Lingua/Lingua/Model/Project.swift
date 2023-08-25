@@ -40,6 +40,10 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
     self.lastLocalizedAt = lastLocalizedAt
   }
   
+  /// Custom initializer for decoding [Project] from persisted storage.
+  /// This initializer ensures that if new properties are added to [Project] in the future and the persisted
+  /// object doesn't contain those properties (due to being saved with an older app version), the new properties
+  /// will have default values rather than causing a decoding failure.
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
