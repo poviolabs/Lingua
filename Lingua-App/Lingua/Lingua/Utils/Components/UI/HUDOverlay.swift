@@ -19,7 +19,11 @@ struct HUDOverlay: View {
         .opacity(0.8)
         .onTapGesture { dismiss() }
       
-      VStack {
+      VStack(spacing: 10) {
+        Image("app_icon")
+          .resizable()
+          .scaledToFit()
+          .frame(height: 60)
         Text(isError ? Lingua.General.error : Lingua.General.success)
           .font(.title)
           .bold()
