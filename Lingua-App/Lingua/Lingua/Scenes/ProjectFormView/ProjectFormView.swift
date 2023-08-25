@@ -66,14 +66,28 @@ private extension ProjectFormView {
       }.padding([.leading], 8)
       
       ValidatingTextField(title: Lingua.ProjectForm.inputProjectName, validation: RequiredRule(), text: $project.title, isValid: $titleValid)
-      ValidatingTextField(title: Lingua.ProjectForm.inputApiKey, validation: RequiredRule(), text: $project.apiKey, isValid: $apiKeyValid)
-      ValidatingTextField(title: Lingua.ProjectForm.inputSheetId, validation: RequiredRule(), text: $project.sheetId, isValid: $sheetIdValid)
       
-      DirectoryInputField(title: Lingua.ProjectForm.inputDirectoryOutput,
-                          bookmarkDataKey: project.bookmarkDataForDirectoryPath,
-                          directoryPath: $project.directoryPath,
-                          isValid: $outputPathValid,
-                          onDirectorySelected: updateDirectoryPaths)
+      InformationHolderView(content: {
+        ValidatingTextField(title: Lingua.ProjectForm.inputApiKey, validation: RequiredRule(), text: $project.apiKey, isValid: $apiKeyValid)
+      }) {
+        Text(.init(Lingua.ProjectForm.apiKeyHelp)).padding()
+      }
+      
+      InformationHolderView(content: {
+        ValidatingTextField(title: Lingua.ProjectForm.inputSheetId, validation: RequiredRule(), text: $project.sheetId, isValid: $sheetIdValid)
+      }) {
+        Text(.init(Lingua.ProjectForm.sheetIdHelp)).padding()
+      }
+      
+      InformationHolderView(content: {
+        DirectoryInputField(title: Lingua.ProjectForm.inputDirectoryOutput,
+                            bookmarkDataKey: project.bookmarkDataForDirectoryPath,
+                            directoryPath: $project.directoryPath,
+                            isValid: $outputPathValid,
+                            onDirectorySelected: updateDirectoryPaths)
+      }) {
+        Text(.init(Lingua.ProjectForm.outputDirectoryHelp)).padding()
+      }
     }
   }
   
@@ -93,14 +107,23 @@ private extension ProjectFormView {
           }
           .padding(8)
           
-          DirectoryInputField(title: Lingua.ProjectForm.stringsDirectory,
-                              bookmarkDataKey: project.bookmarkDataForStringsDirectory,
-                              directoryPath: $project.swiftCode.stringsDirectory,
-                              isValid: $stringsDirectoryValid)
-          DirectoryInputField(title: Lingua.ProjectForm.linguaSwiftOutputDirectory,
-                              bookmarkDataKey: project.bookmarkDataForOutputSwiftCodeFileDirectory ,
-                              directoryPath: $project.swiftCode.outputSwiftCodeFileDirectory,
-                              isValid: $outputSwiftCodeFileDirectoryValid)
+          InformationHolderView(content: {
+            DirectoryInputField(title: Lingua.ProjectForm.stringsDirectory,
+                                bookmarkDataKey: project.bookmarkDataForStringsDirectory,
+                                directoryPath: $project.swiftCode.stringsDirectory,
+                                isValid: $stringsDirectoryValid)
+          }) {
+            Text(.init(Lingua.ProjectForm.lprojDirectoryHelp)).padding()
+          }
+          
+          InformationHolderView(content: {
+            DirectoryInputField(title: Lingua.ProjectForm.linguaSwiftOutputDirectory,
+                                bookmarkDataKey: project.bookmarkDataForOutputSwiftCodeFileDirectory ,
+                                directoryPath: $project.swiftCode.outputSwiftCodeFileDirectory,
+                                isValid: $outputSwiftCodeFileDirectoryValid)
+          }) {
+            Text(.init(Lingua.ProjectForm.linguaSwiftOutputDirectoryHelp)).padding()
+          }
         }
       }
     }

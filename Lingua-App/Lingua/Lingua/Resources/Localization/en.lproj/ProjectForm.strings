@@ -14,4 +14,35 @@
 "localize_button" = "Localize";
 "swift_code_toggle_title" = "Generate Swift Code";
 "input_directory_button" = "Choose Directory";
+"ios_localization_info_message" = "After you \"Localize\", you have to Add files to \"%@\"... in Xcode, if they are not added already";
+"api_key_help" = "Here are the steps to enable the Google Sheets API and create an API key:
+
+* Go to the https://console.cloud.google.com/.
+* If you haven't already, create a new project or select an existing one.
+* In the left sidebar, click on \"APIs & Services\"
+* Click on \"+ ENABLE APIS AND SERVICES\" at the top of the page.
+* In the search bar, type \"Google Sheets API\" and select it from the list.
+* Click on \"ENABLE\" to enable the Google Sheets API for your project.
+* After the API is enabled, go back to the \"APIs & Services\" > \"Credendtials\" page.
+* Click on \"CREATE CREDENTIALS\" at the top of the page.
+* In the dropdown, select \"API key\"
+* Wait a bit until the key is generated and an information modal with the message API key created will be shown.";
+"sheet_id_help" = "* Make a copy of the [Sheet Template](https://docs.google.com/spreadsheets/d/1Cnqy4gZqh9pGcTF_0jb8QGOnysejZ8dVfSj8dgX4kzM) from menu \"File > Make a copy\"
+* Ensure that the Google Sheet you're trying to access has its sharing settings configured to allow access to anyone with the link.
+   You can do this by clicking on \"Share\" in the upper right corner of the Google Sheet and selecting \"Anyone with the link.\"
+* The sheet id can easly be accessed from the url after you have create a copy of the document tamplate.
+
+Example:
+
+https://docs.google.com/spreadsheets/d/ 1GpaPpO4JMleZPd8paSW4qPBQxjImm2xD8yJhvZOP-8w";
 "info_header" = "Info";
+"output_directory_help" = "The output directory property should be the path where you want the tool to create localization files.
+
+* For iOS it can be any directory on your project. After you run the command, for the first time, 
+   you have to Add files to 'YourProject' in Xcode.
+
+* For Android, since the translation are placed in a specific project directory,
+   the output directory it should look something like this: path/YourProject/app/src/main/res ";
+"lproj_directory_help" = "The .lproj directory should be the directory where .strings files are saved.
+It serves as base language directory from where the Lingua.swift file will be created";
+"lingua_swift_output_directory_help" = "This should be the directory where you want to store the generated Lingua.swift file";
