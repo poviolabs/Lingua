@@ -11,6 +11,9 @@ class ProjectsViewModel: ObservableObject {
   @Published var projects: [Project] = UserDefaults.getProjects() {
     didSet { UserDefaults.setProjects(projects) }
   }
+  var sortedProjects: [Project] {
+      projects.sorted(by: { $0.lastLocalizedAt ?? Date.distantPast > $1.lastLocalizedAt ?? Date.distantPast })
+  }
   @Published var selectedProject: Project?
   @Published var isLocalizing: Bool = false
   @Published var localizationResult: Result<String, Error>?
@@ -50,7 +53,19 @@ class ProjectsViewModel: ObservableObject {
   }
   
   func selectFirstProject() {
-    selectedProject = projects.first
+    selectedProject = sortedProjects.first
+  }
+  
+  func updateSyncDate(for project: Project) {
+    if let index = projects.firstIndex(where: { $0.id == project.id }) {
+      var updatedProject = projects[index]
+      updatedProject.lastLocalizedAt = Date()
+      projects[index] = updatedProject
+      
+      withAnimation {
+        selectedProject = updatedProject
+      }
+    }
   }
   
   @MainActor
@@ -62,6 +77,7 @@ class ProjectsViewModel: ObservableObject {
     
     do {
       let message = try await localizationManager.localize(project: project)
+      updateSyncDate(for: project)
       localizationResult = .success(message)
     } catch {
       localizationResult = .failure(error)
