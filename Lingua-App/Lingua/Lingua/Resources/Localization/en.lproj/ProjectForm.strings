@@ -46,3 +46,4 @@ https://docs.google.com/spreadsheets/d/ 1GpaPpO4JMleZPd8paSW4qPBQxjImm2xD8yJhvZO
 "lproj_directory_help" = "The .lproj directory should be the directory where .strings files are saved.
 It serves as base language directory from where the Lingua.swift file will be created";
 "lingua_swift_output_directory_help" = "This should be the directory where you want to store the generated Lingua.swift file";
+"last_localized_subtitle" = "Last localized: %@";

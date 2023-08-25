@@ -15,7 +15,7 @@ struct ProjectsView: View {
   var body: some View {
     NavigationSplitView {
       List(
-        Array(zip(viewModel.projects.indices, viewModel.projects)),
+        Array(zip(viewModel.sortedProjects.indices, viewModel.sortedProjects)),
         id: \.1.id,
         selection: $viewModel.selectedProject
       ) { index, project in
@@ -55,7 +55,6 @@ struct ProjectsView: View {
     }
     .overlay(ProgressOverlay(isProgressing: $viewModel.isLocalizing, text: Lingua.Projects.localizing))
     .overlay(hudResultOverlay())
-    
   }
 }
 

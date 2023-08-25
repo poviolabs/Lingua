@@ -17,6 +17,8 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
   var title: String
   var swiftCode: SwiftCode
   var swiftCodeEnabled: Bool = true
+  var createdAt: Date
+  var lastLocalizedAt: Date?
   
   init(id: UUID,
        type: LocalizationPlatform,
@@ -24,7 +26,9 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
        sheetId: String = "",
        directoryPath: String = "",
        title: String = "",
-       swiftCode: SwiftCode = .init(stringsDirectory: "", outputSwiftCodeFileDirectory: "")) {
+       swiftCode: SwiftCode = .init(stringsDirectory: "", outputSwiftCodeFileDirectory: ""),
+       createdAt: Date = .init(),
+       lastLocalizedAt: Date? = nil) {
     self.id = id
     self.type = type
     self.apiKey = apiKey
@@ -32,6 +36,27 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
     self.directoryPath = directoryPath
     self.title = title
     self.swiftCode = swiftCode
+    self.createdAt = createdAt
+    self.lastLocalizedAt = lastLocalizedAt
+  }
+  
+  /// Custom initializer for decoding [Project] from persisted storage.
+  /// This initializer ensures that if new properties are added to [Project] in the future and the persisted
+  /// object doesn't contain those properties (due to being saved with an older app version), the new properties
+  /// will have default values rather than causing a decoding failure.
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    
+    id = try container.decode(UUID.self, forKey: .id)
+    type = try container.decode(LocalizationPlatform.self, forKey: .type)
+    apiKey = try container.decode(String.self, forKey: .apiKey)
+    sheetId = try container.decode(String.self, forKey: .sheetId)
+    directoryPath = try container.decode(String.self, forKey: .directoryPath)
+    title = try container.decode(String.self, forKey: .title)
+    swiftCode = try container.decode(SwiftCode.self, forKey: .swiftCode)
+    swiftCodeEnabled = try container.decode(Bool.self, forKey: .swiftCodeEnabled)
+    createdAt = try container.decodeIfPresent(Date.self, forKey: .createdAt) ?? Date()
+    lastLocalizedAt = try container.decodeIfPresent(Date.self, forKey: .lastLocalizedAt)
   }
 }
 

@@ -43,6 +43,10 @@ enum Lingua {
 		static func iosLocalizationInfoMessage(_ param1: String) -> String {
 			return tr("ProjectForm", "ios_localization_info_message", param1)
 		}
+		/// Last localized: %@
+		static func lastLocalizedSubtitle(_ param1: String) -> String {
+			return tr("ProjectForm", "last_localized_subtitle", param1)
+		}
 		/// Lingua.swift Directory *
 		static let linguaSwiftOutputDirectory = tr("ProjectForm", "lingua_swift_output_directory")
 		/// This should be the directory where you want to store the generated Lingua.swift file
