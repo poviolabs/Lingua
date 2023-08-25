@@ -16,6 +16,7 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
   var directoryPath: String
   var title: String
   var swiftCode: SwiftCode
+  var swiftCodeEnabled: Bool = true
   
   init(id: UUID,
        type: LocalizationPlatform,
@@ -41,15 +42,15 @@ extension Project {
   }
   
   var bookmarkDataForDirectoryPath: String {
-    directoryPath
+    "\(id.uuidString)directoryPath"
   }
   
   var bookmarkDataForOutputSwiftCodeFileDirectory: String {
-    swiftCode.outputSwiftCodeFileDirectory
+    "\(id.uuidString)outputSwiftCodeFileDirectory"
   }
   
   var bookmarkDataForStringsDirectory: String {
-    swiftCode.stringsDirectory
+    "\(id.uuidString)stringsDirectory"
   }
   
   var icon: Image {

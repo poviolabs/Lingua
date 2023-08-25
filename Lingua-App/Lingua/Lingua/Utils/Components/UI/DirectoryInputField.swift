@@ -14,10 +14,12 @@ struct DirectoryInputField: View {
   @Binding var directoryPath: String
   @Binding var isValid: Bool
   
+  var onDirectorySelected: ((String) -> Void)? = nil
+  
   var body: some View {
     HStack {
       ValidatingTextField(title: title, validation: RequiredRule(), isDisabled: true, text: $directoryPath, isValid: $isValid)
-      Button("Choose Directory") {
+      Button(Lingua.ProjectForm.inputDirectoryButton) {
         chooseDirectory()
       }
     }
@@ -34,17 +36,20 @@ private extension DirectoryInputField {
     panel.prompt = Lingua.General.choose
     
     panel.begin { (result) in
-      if result == .OK, let url = panel.urls.first {
-        directoryPath = url.path
+      if let url = panel.urls.first {
+        directoryPath = url.absoluteString
         saveBookmarkData(from: url)
       }
+      onDirectorySelected?(directoryPath)
     }
   }
   
-   func saveBookmarkData(from url: URL) {
-    let bookmarkData = try? url.bookmarkData(options: .withSecurityScope,
-                                             includingResourceValuesForKeys: nil,
-                                             relativeTo: nil)
-    UserDefaults.standard.set(bookmarkData, forKey: bookmarkDataKey)
+  func saveBookmarkData(from url: URL) {
+    do {
+      try url.saveBookmarkData(forKey: bookmarkDataKey)
+    } catch {
+      debugPrint(error.localizedDescription)
+      directoryPath = ""
+    }
   }
 }
