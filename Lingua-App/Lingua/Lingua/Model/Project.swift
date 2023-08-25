@@ -42,15 +42,15 @@ extension Project {
   }
   
   var bookmarkDataForDirectoryPath: String {
-    id.uuidString + "directoryPath"
+    "\(id.uuidString)directoryPath"
   }
   
   var bookmarkDataForOutputSwiftCodeFileDirectory: String {
-    id.uuidString + "outputSwiftCodeFileDirectory"
+    "\(id.uuidString)outputSwiftCodeFileDirectory"
   }
   
   var bookmarkDataForStringsDirectory: String {
-    id.uuidString + "stringsDirectory"
+    "\(id.uuidString)stringsDirectory"
   }
   
   var icon: Image {
