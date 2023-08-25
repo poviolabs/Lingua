@@ -8,3 +8,4 @@
 "new_project" = "New project";
 "localizing" = "Localizing...";
 "localized_message" = "\"%@\" has been successfully localized.";
+"list_section_header" = "Projects";

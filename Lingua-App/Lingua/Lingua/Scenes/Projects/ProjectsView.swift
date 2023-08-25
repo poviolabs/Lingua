@@ -10,28 +10,30 @@ import SwiftUI
 struct ProjectsView: View {
   @ObservedObject private var viewModel = ProjectsViewModel()
   @State private var showDeleteAlert: Bool = false
-  @State private var projectToDelete: (project: Project, index: Int)?
+  @State private var projectToDelete: Project?
   
   var body: some View {
     NavigationSplitView {
-      List(
-        Array(zip(viewModel.sortedProjects.indices, viewModel.sortedProjects)),
-        id: \.1.id,
-        selection: $viewModel.selectedProject
-      ) { index, project in
-        NavigationLink(value: project) {
-          ProjectItemView(project: project)
-        }
-        .swipeActions(edge: .trailing) {
-          duplicateButton(for: project, at: index)
-          deletionButton(for: project, at: index)
-        }
-        .contextMenu {
-          duplicateButton(for: project, at: index)
-          deletionButton(for: project, at: index)
+      CustomSearchBar(searchTerm: $viewModel.searchTerm)
+
+      List(selection: $viewModel.selectedProject) {
+        Section(header: Text(Lingua.Projects.listSectionHeader)) {
+          ForEach(viewModel.filteredProjects, id: \.id) { project in
+            NavigationLink(value: project) {
+              ProjectItemView(project: project)
+            }
+            .swipeActions(edge: .trailing) {
+              duplicateButton(for: project)
+              deletionButton(for: project)
+            }
+            .contextMenu {
+              duplicateButton(for: project)
+              deletionButton(for: project)
+            }
+          }
         }
       }
-      .navigationSplitViewColumnWidth(min: 250, ideal: 250, max: 400)
+      .navigationSplitViewColumnWidth(min: 250, ideal: 250, max: 600)
       .listStyle(DefaultListStyle())
       .toolbar {
         Button(action: {
@@ -50,9 +52,7 @@ struct ProjectsView: View {
       }
     }
     .onAppear { viewModel.selectFirstProject() }
-    .alert(isPresented: $showDeleteAlert) {
-      deletionAlert()
-    }
+    .alert(isPresented: $showDeleteAlert) { deletionAlert() }
     .overlay(ProgressOverlay(isProgressing: $viewModel.isLocalizing, text: Lingua.Projects.localizing))
     .overlay(hudResultOverlay())
   }
@@ -68,9 +68,7 @@ private extension ProjectsView {
         viewModel.updateProject(updatedProject)
       },
       onDelete: { deletedProject in
-        if let index = viewModel.projects.firstIndex(where: { $0.id == project.id }) {
-          confirmDelete(for: deletedProject, index: index)
-        }
+        confirmDelete(for: deletedProject)
       },
       onLocalize: { projectToLocalize in
         Task { await viewModel.localizeProject(projectToLocalize) }
@@ -96,9 +94,9 @@ private extension ProjectsView {
   }
   
   @ViewBuilder
-  func deletionButton(for project: Project, at index: Int) -> some View {
+  func deletionButton(for project: Project) -> some View {
     Button(action: {
-      confirmDelete(for: project, index: index)
+      confirmDelete(for: project)
     }) {
       Text(Lingua.General.delete)
       Image(systemName: "trash")
@@ -107,7 +105,7 @@ private extension ProjectsView {
   }
   
   @ViewBuilder
-  func duplicateButton(for project: Project, at index: Int) -> some View {
+  func duplicateButton(for project: Project) -> some View {
     Button(action: {
       viewModel.duplicate(project)
     }) {
@@ -120,16 +118,16 @@ private extension ProjectsView {
   func deletionAlert() -> Alert {
     Alert(
       title: Text(Lingua.Projects.deleteAlertTitle),
-      message: Text(Lingua.Projects.deleteAlertMessage(projectToDelete?.project.title ?? Lingua.General.this)),
+      message: Text(Lingua.Projects.deleteAlertMessage(projectToDelete?.title ?? Lingua.General.this)),
       primaryButton: .destructive(Text(Lingua.General.delete), action: {
-        guard let index = projectToDelete?.index else { return }
-        viewModel.deleteProject(at: index)
+        guard let project = projectToDelete else { return }
+        viewModel.deleteProject(project)
       }),
       secondaryButton: .cancel())
   }
   
-  func confirmDelete(for project: Project, index: Int) {
-    projectToDelete = (project, index)
+  func confirmDelete(for project: Project) {
+    projectToDelete = project
     showDeleteAlert = true
   }
 }

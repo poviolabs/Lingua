@@ -16,6 +16,8 @@ enum Lingua {
 		static let error = tr("General", "error")
 		/// Save
 		static let save = tr("General", "save")
+		/// Search
+		static let search = tr("General", "search")
 		/// Success
 		static let success = tr("General", "success")
 		/// this
@@ -82,6 +84,8 @@ enum Lingua {
 		}
 		/// Confirmation
 		static let deleteAlertTitle = tr("Projects", "delete_alert_title")
+		/// Projects
+		static let listSectionHeader = tr("Projects", "list_section_header")
 		/// "%@" has been successfully localized.
 		static func localizedMessage(_ param1: String) -> String {
 			return tr("Projects", "localized_message", param1)
