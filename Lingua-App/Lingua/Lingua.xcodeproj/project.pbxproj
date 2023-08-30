@@ -119,7 +119,9 @@
 				774A1A542A8E588800789A04 /* LinguaTests */,
 				774A1A412A8E588500789A04 /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		774A1A412A8E588500789A04 /* Products */ = {
 			isa = PBXGroup;
