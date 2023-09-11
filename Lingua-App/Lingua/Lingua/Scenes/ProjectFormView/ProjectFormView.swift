@@ -35,6 +35,7 @@ struct ProjectFormView: View {
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
           localizeButton(for: project)
+            .keyboardShortcut("l", modifiers: [.command, .shift])
         }
       }
       .onChange(of: project) { newValue in
