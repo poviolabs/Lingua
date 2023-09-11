@@ -10,9 +10,9 @@ struct FileSectionAndTranslationProcessor: MergableFileProcessor {
     self.fileProcessors = fileProcessors
   }
   
-  func processAndMergeFiles(at path: String) -> (sections: [String: Set<String>], translations: [String: String]) {
+  func processAndMergeFiles(at path: String) -> (sections: [String: Set<String>], translations: [String: [String: String]]) {
     let enumerator = fileManagerProvider.manager.enumerator(atPath: path)
-
+    
     var allResults: [(String, Set<String>, [String: String])] = []
     
     while let file = enumerator?.nextObject() as? String {
@@ -33,23 +33,25 @@ struct FileSectionAndTranslationProcessor: MergableFileProcessor {
 }
 
 private extension FileSectionAndTranslationProcessor {
-  func merge(results: [(String, Set<String>, [String: String])]) -> (sections: [String: Set<String>], translations: [String: String]) {
-     var sections: [String: Set<String>] = [:]
-     var translations: [String: String] = [:]
-     
-     for (section, resultSections, resultTranslations) in results {
-       // Merge sections
-       if let existingSections = sections[section] {
-         sections[section] = existingSections.union(resultSections)
-       } else {
-         sections[section] = resultSections
-       }
-       
-       // Merge translations
-       translations.merge(resultTranslations) { (_, new) in new }
-     }
-     
-     return (sections, translations)
-   }
+  func merge(results: [(String, Set<String>, [String: String])]) -> (sections: [String: Set<String>], translations: [String: [String: String]]) {
+    var sections: [String: Set<String>] = [:]
+    var translations: [String: [String: String]] = [:]
+    
+    for (section, resultSections, resultTranslations) in results {
+      // Merge sections
+      if let existingSections = sections[section] {
+        sections[section] = existingSections.union(resultSections)
+      } else {
+        sections[section] = resultSections
+      }
+      
+      // Merge translations
+      if translations[section] == nil {
+        translations[section] = [:]
+      }
+      translations[section]?.merge(resultTranslations) { (_, new) in new }
+    }
+    
+    return (sections, translations)
+  }
 }
-

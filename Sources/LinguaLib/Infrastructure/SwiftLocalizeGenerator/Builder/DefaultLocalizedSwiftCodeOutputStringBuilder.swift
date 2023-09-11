@@ -7,7 +7,7 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
     self.codeGenerator = codeGenerator
   }
   
-  func buildOutput(sections: [String: Set<String>], translations: [String: String]) -> String {
+  func buildOutput(sections: [String: Set<String>], translations: [String: [String: String]]) -> String {
     let sectionsOutput = buildSectionsOutput(sections: sections, translations: translations)
     
     let output = """
@@ -43,7 +43,7 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
 }
 
 private extension DefaultLocalizedSwiftCodeOutputStringBuilder {
-  func buildSectionsOutput(sections: [String: Set<String>], translations: [String: String]) -> String {
+  func buildSectionsOutput(sections: [String: Set<String>], translations: [String: [String: String]]) -> String {
     sections
       .keys
       .sorted()
@@ -55,11 +55,11 @@ private extension DefaultLocalizedSwiftCodeOutputStringBuilder {
       .joined(separator: "\n\n")
   }
   
-  func buildKeysOutput(section: String, keys: Set<String>, translations: [String: String]) -> String {
+  func buildKeysOutput(section: String, keys: Set<String>, translations: [String: [String: String]]) -> String {
     keys
       .sorted()
       .map { key in
-        let translation = translations[key] ?? ""
+        let translation = translations[section]?[key] ?? ""
         return "\t\t" + codeGenerator.generateCode(section: section, key: key, translation: translation)
       }
       .joined(separator: "\n")
