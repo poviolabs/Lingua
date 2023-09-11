@@ -10,7 +10,7 @@ final class FileSectionAndTranslationProcessorTests: XCTestCase {
     let result = sut.processAndMergeFiles(at: path)
     
     XCTAssertEqual(result.sections, ["file1": Set(["section1"]), "file2": Set(["section1"])])
-    XCTAssertEqual(result.translations, ["translation1": "translationValue1"])
+    XCTAssertEqual(result.translations, ["file1": ["translation1": "translationValue1"], "file2": ["translation1": "translationValue1"]])
   }
 }
 
