@@ -35,16 +35,7 @@ There are several benefits of using the tool:
 
 - Safeguard against referencing non-existent translations
 
-## Installation
-
-Currently we support the tool to be installed via Homebrew
-
-```shell
-$ brew tap poviolabs/lingua https://github.com/poviolabs/lingua
-$ brew install lingua
-```
-
-## 1. Setup Google Sheet
+## Setup Google Sheet
 
 In order to setup Google sheet, we need to complete two steps. First one is to create a sheet with predefined structure, and the second one is to obtain api key and sheet id.
 
@@ -88,9 +79,35 @@ Here are the steps to enable the Google Sheets API and create an API key:
 
 Wait a bit until the key is generated and an information modal with the message `API key created` will be shown.
 
-## 2. Configuration file
+## Usage
 
-The Lingua tool allows users to manage localization data in Google Sheets, and generate output files that can be used in iOS and Android projects. Users can define keys and translations in Google Sheets, and specify different translations for different platforms, such as iOS and Android. To achieve this is needed to create a Google Sheet, get the sheet id and api key.
+### 1. macOS App
+
+The Lingua macOS app provides a user-friendly interface for managing your localization process seamlessly. You can configure your settings and initiate the translation process directly from the app.
+
+#### Installation
+
+You can download the macOS app from [App Store](https://apps.apple.com/us/app/lingua-tool/id6463116155). Follow the installation guide available on the page to get started with the app.
+
+#### Features and Usage
+
+- **Settings Configuration:** Easily configure and manage your settings through the app's settings panel.
+- **Translation Initiation:** Initiate the translation process with a single click without the need for terminal commands.
+
+### 2. Terminal App
+
+For those who prefer using the terminal or require scriptable solutions, Lingua offers a terminal app that allows you to manage and initiate translations directly from the command line.
+
+#### Installation
+
+Currently we support the tool to be installed via Homebrew
+
+```shell
+$ brew tap poviolabs/lingua
+$ brew install lingua
+```
+
+#### Configuration file
 
 Create a configuration file as a starting point to adapt as your needs, `lingua_config.json` or any other `.json` file.
 
@@ -108,7 +125,7 @@ Then in the configuration file created you need to provide your data, like below
 }
 ```
 
-### Output directory
+#### Output directory
 
 The output directory property should be the path where you want the tool to create localization files. 
 
@@ -116,7 +133,7 @@ The output directory property should be the path where you want the tool to crea
 
 * For Android, since the translation are placed in a specific project directory, the output directory it should look something like this: **`path/YourProject/app/src/main/res `**
 
-## iOS specific
+#### iOS specific
 
 Since iOS does not have a built in feature to access the localization safely, we have made this possible using Lingua tool. In the configuration file you have to provide the path where the default language strings are stored and where the Swift file you want to be created. With that the tool will create **Lingua.swift** with an enumeration to easily access localizations in your app.
 
@@ -133,8 +150,6 @@ Since iOS does not have a built in feature to access the localization safely, we
     }
 }
 ```
-
-## Usage
 
 Now you can run the tool in terminal, switch to your project directory and run:
 
