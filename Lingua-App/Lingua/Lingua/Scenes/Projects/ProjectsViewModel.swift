@@ -11,16 +11,24 @@ class ProjectsViewModel: ObservableObject {
   @Published var projects: [Project] = UserDefaults.getProjects() {
     didSet { UserDefaults.setProjects(projects) }
   }
-  var sortedProjects: [Project] {
-      projects.sorted(by: { $0.lastLocalizedAt ?? Date.distantPast > $1.lastLocalizedAt ?? Date.distantPast })
+  private var sortedProjects: [Project] {
+    projects.sorted(by: { $0.lastLocalizedAt ?? Date.distantPast > $1.lastLocalizedAt ?? Date.distantPast })
   }
+  var filteredProjects: [Project] {
+    guard !searchTerm.isEmpty else {
+      return sortedProjects
+    }
+    return sortedProjects.filter { $0.title.localizedCaseInsensitiveContains(searchTerm) }
+  }
+  @Published var searchTerm: String = ""
   @Published var selectedProject: Project?
   @Published var isLocalizing: Bool = false
   @Published var localizationResult: Result<String, Error>?
   
   private let localizationManager = LocalizationManager(directoryAccessor: DirectoryAccessor())
   
-  func deleteProject(at index: Int) {
+  func deleteProject(_ project: Project) {
+    guard let index = projects.firstIndex(where: { $0.id == project.id }) else { return }
     if projects[index] == selectedProject {
       selectedProject = nil
     }
@@ -53,7 +61,9 @@ class ProjectsViewModel: ObservableObject {
   }
   
   func selectFirstProject() {
-    selectedProject = sortedProjects.first
+    withAnimation {
+      selectedProject = filteredProjects.first
+    }
   }
   
   func updateSyncDate(for project: Project) {
@@ -88,4 +98,3 @@ class ProjectsViewModel: ObservableObject {
     }
   }
 }
-

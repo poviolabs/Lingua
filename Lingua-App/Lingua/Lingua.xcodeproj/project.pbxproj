@@ -36,6 +36,7 @@
 		77CF0A442A8E624900AB5A2D /* LocalizationPlatform+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */; };
 		77CF0A462A8E62F300AB5A2D /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */; };
 		77CF0A4B2A8F54B400AB5A2D /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */; };
+		77F89A482A98DF3A009EE7B1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizationPlatform+Extension.swift"; sourceTree = "<group>"; };
 		77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
+		77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				777BC5E72A93639E00C74D72 /* DirectoryInputField.swift */,
 				777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */,
 				779F91F82A978AC8009C77D5 /* InformationHolderView.swift */,
+				77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77F89A482A98DF3A009EE7B1 /* CustomSearchBar.swift in Sources */,
 				777BC5EC2A93707B00C74D72 /* DirectoryAccessor.swift in Sources */,
 				779F91FB2A97A7B0009C77D5 /* Date+Extension.swift in Sources */,
 				77CF0A462A8E62F300AB5A2D /* ProjectsView.swift in Sources */,
