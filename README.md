@@ -1,7 +1,7 @@
 <p align="center">
-    <a href="Resources/Docs/README.md">
-      <img src="Resources/Images/Lingua.png" width="90%" alt="Lingua" />
-    </a>
+    <a href="Resources/Docs/README.md">
+      <img src="Resources/Images/Lingua.png" width="50%" alt="Lingua" />
+    </a>
 </p>
 <p align="center">
     <a href="Resources/Docs/README.md">
