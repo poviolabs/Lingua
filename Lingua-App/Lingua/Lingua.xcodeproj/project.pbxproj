@@ -36,6 +36,7 @@
 		77CF0A462A8E62F300AB5A2D /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */; };
 		77CF0A4B2A8F54B400AB5A2D /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */; };
 		77F89A482A98DF3A009EE7B1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */; };
+		9941DA812ABE33140098B49A /* App.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9941DA7F2ABE33140098B49A /* App.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		9941DA802ABE33140098B49A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/App.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				777BC6212A93E07500C74D72 /* General.strings */,
 				777BC6232A93E07500C74D72 /* Projects.strings */,
 				777BC6252A93E07500C74D72 /* ProjectForm.strings */,
+				9941DA7F2ABE33140098B49A /* App.strings */,
 				777BC6272A93E07500C74D72 /* Lingua.swift */,
 			);
 			path = Localization;
@@ -368,6 +371,7 @@
 			files = (
 				777BC6282A93E07500C74D72 /* General.strings in Resources */,
 				777BC62A2A93E07500C74D72 /* ProjectForm.strings in Resources */,
+				9941DA812ABE33140098B49A /* App.strings in Resources */,
 				777BC6292A93E07500C74D72 /* Projects.strings in Resources */,
 				774A1A482A8E588800789A04 /* Assets.xcassets in Resources */,
 			);
@@ -454,6 +458,14 @@
 				777BC6262A93E07500C74D72 /* en */,
 			);
 			name = ProjectForm.strings;
+			sourceTree = "<group>";
+		};
+		9941DA7F2ABE33140098B49A /* App.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9941DA802ABE33140098B49A /* en */,
+			);
+			name = App.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
