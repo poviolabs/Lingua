@@ -10,7 +10,6 @@
 		774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A432A8E588500789A04 /* LinguaApp.swift */; };
 		774A1A462A8E588500789A04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A452A8E588500789A04 /* ContentView.swift */; };
 		774A1A482A8E588800789A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A472A8E588800789A04 /* Assets.xcassets */; };
-		774A1A4B2A8E588800789A04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */; };
 		774A1A562A8E588800789A04 /* LinguaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A552A8E588800789A04 /* LinguaTests.swift */; };
 		777BC5E12A93617000C74D72 /* ValidatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5E02A93617000C74D72 /* ValidatingTextField.swift */; };
 		777BC5E42A9361E200C74D72 /* ValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5E32A9361E200C74D72 /* ValidationRule.swift */; };
@@ -56,7 +55,6 @@
 		774A1A432A8E588500789A04 /* LinguaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaApp.swift; sourceTree = "<group>"; };
 		774A1A452A8E588500789A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		774A1A472A8E588800789A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		774A1A4C2A8E588800789A04 /* Lingua.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lingua.entitlements; sourceTree = "<group>"; };
 		774A1A512A8E588800789A04 /* LinguaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinguaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		774A1A552A8E588800789A04 /* LinguaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaTests.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 		774A1A422A8E588500789A04 /* Lingua */ = {
 			isa = PBXGroup;
 			children = (
-				774A1A492A8E588800789A04 /* Preview Content */,
 				777BC5F02A938E2B00C74D72 /* Resources */,
 				777BC5DD2A93615B00C74D72 /* Utils */,
 				77CF0A402A8E620900AB5A2D /* Model */,
@@ -145,14 +142,6 @@
 				774A1A432A8E588500789A04 /* LinguaApp.swift */,
 			);
 			path = Lingua;
-			sourceTree = "<group>";
-		};
-		774A1A492A8E588800789A04 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		774A1A542A8E588800789A04 /* LinguaTests */ = {
@@ -378,7 +367,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				777BC6282A93E07500C74D72 /* General.strings in Resources */,
-				774A1A4B2A8E588800789A04 /* Preview Assets.xcassets in Resources */,
 				777BC62A2A93E07500C74D72 /* ProjectForm.strings in Resources */,
 				777BC6292A93E07500C74D72 /* Projects.strings in Resources */,
 				774A1A482A8E588800789A04 /* Assets.xcassets in Resources */,
