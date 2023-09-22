@@ -38,6 +38,7 @@ struct ProjectFormView: View {
         }
       }
       .onChange(of: project) { newValue in
+        guard project != newValue else { return }
         onSave?(newValue)
       }
       .formStyle(.grouped)
@@ -176,7 +177,6 @@ private extension ProjectFormView {
   @ViewBuilder
   func localizeButton(for project: Project) -> some View {
     Button(action: {
-      print("Localize", project.title)
       onLocalize?(project)
     }) {
       HStack {
