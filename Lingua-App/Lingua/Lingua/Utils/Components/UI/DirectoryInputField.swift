@@ -27,6 +27,7 @@ struct DirectoryInputField: View {
   }
 }
 
+// MARK: - Private Methods
 private extension DirectoryInputField {
   func chooseDirectory() {
     let panel = NSOpenPanel()

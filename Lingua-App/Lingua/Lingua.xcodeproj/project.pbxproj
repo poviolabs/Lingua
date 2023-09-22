@@ -51,7 +51,7 @@
 
 /* Begin PBXFileReference section */
 		7701E03F2A96036D00D4311E /* Lingua */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Lingua; path = ../..; sourceTree = "<group>"; };
-		7701E0402A96070E00D4311E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7701E0402A96070E00D4311E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774A1A402A8E588500789A04 /* Lingua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		774A1A432A8E588500789A04 /* LinguaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaApp.swift; sourceTree = "<group>"; };
 		774A1A452A8E588500789A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,15 +137,12 @@
 		774A1A422A8E588500789A04 /* Lingua */ = {
 			isa = PBXGroup;
 			children = (
-				7701E0402A96070E00D4311E /* Info.plist */,
+				774A1A492A8E588800789A04 /* Preview Content */,
 				777BC5F02A938E2B00C74D72 /* Resources */,
 				777BC5DD2A93615B00C74D72 /* Utils */,
 				77CF0A402A8E620900AB5A2D /* Model */,
 				774A1A6F2A8E593500789A04 /* Scenes */,
-				774A1A6E2A8E592E00789A04 /* App */,
-				774A1A472A8E588800789A04 /* Assets.xcassets */,
-				774A1A4C2A8E588800789A04 /* Lingua.entitlements */,
-				774A1A492A8E588800789A04 /* Preview Content */,
+				774A1A432A8E588500789A04 /* LinguaApp.swift */,
 			);
 			path = Lingua;
 			sourceTree = "<group>";
@@ -164,14 +161,6 @@
 				774A1A552A8E588800789A04 /* LinguaTests.swift */,
 			);
 			path = LinguaTests;
-			sourceTree = "<group>";
-		};
-		774A1A6E2A8E592E00789A04 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				774A1A432A8E588500789A04 /* LinguaApp.swift */,
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 		774A1A6F2A8E593500789A04 /* Scenes */ = {
@@ -245,6 +234,9 @@
 		777BC5F02A938E2B00C74D72 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7701E0402A96070E00D4311E /* Info.plist */,
+				774A1A4C2A8E588800789A04 /* Lingua.entitlements */,
+				774A1A472A8E588800789A04 /* Assets.xcassets */,
 				777BC6202A93E07500C74D72 /* Localization */,
 			);
 			path = Resources;
@@ -606,7 +598,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Lingua/Lingua.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Lingua/Resources/Lingua.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -617,7 +609,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Lingua/Info.plist;
+				INFOPLIST_FILE = Lingua/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,7 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Lingua/Lingua.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Lingua/Resources/Lingua.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -650,7 +642,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Lingua/Info.plist;
+				INFOPLIST_FILE = Lingua/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
