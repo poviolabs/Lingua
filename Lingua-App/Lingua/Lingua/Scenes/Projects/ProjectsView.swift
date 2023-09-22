@@ -15,10 +15,10 @@ struct ProjectsView: View {
   var body: some View {
     NavigationSplitView {
       CustomSearchBar(searchTerm: $viewModel.searchTerm)
-
+      
       List(selection: $viewModel.selectedProject) {
         Section(header: Text(Lingua.Projects.listSectionHeader)) {
-          ForEach(viewModel.filteredProjects, id: \.id) { project in
+          ForEach(viewModel.filteredProjects) { project in
             NavigationLink(value: project) {
               ProjectItemView(project: project)
             }
@@ -43,6 +43,7 @@ struct ProjectsView: View {
         }) {
           Image(systemName: "plus")
         }
+        .keyboardShortcut("n", modifiers: [.command, .shift])
       }
     } detail: {
       if let project = viewModel.selectedProject {
@@ -53,17 +54,21 @@ struct ProjectsView: View {
     }
     .onAppear { viewModel.selectFirstProject() }
     .alert(isPresented: $showDeleteAlert) { deletionAlert() }
-    .overlay(ProgressOverlay(isProgressing: $viewModel.isLocalizing, text: Lingua.Projects.localizing))
+    .overlay(ProgressOverlay(
+      isProgressing: $viewModel.isLocalizing,
+      text: Lingua.Projects.localizing
+    ))
     .overlay(hudResultOverlay())
   }
 }
 
+// MARK: - Private View Builders
 private extension ProjectsView {
   @ViewBuilder
   func projectFormView(for project: Project) -> some View {
     ProjectFormView(
-      project: $viewModel.selectedProject.unwrapped(or: project),
-      viewModel: viewModel,
+      project: $viewModel.selectedProject.unwrapped(or: project), 
+      isLocalizing: $viewModel.isLocalizing,
       onSave: { updatedProject in
         viewModel.updateProject(updatedProject)
       },
