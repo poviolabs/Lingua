@@ -184,7 +184,6 @@ private extension ProjectFormView {
         Text(Lingua.ProjectForm.localizeButton)
       }
     }
-    .buttonStyle(.borderless)
     .keyboardShortcut("l", modifiers: [.command, .shift])
     .disabled(!allFieldsValid || isLocalizing)
   }
