@@ -10,7 +10,6 @@
 		774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A432A8E588500789A04 /* LinguaApp.swift */; };
 		774A1A462A8E588500789A04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A452A8E588500789A04 /* ContentView.swift */; };
 		774A1A482A8E588800789A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A472A8E588800789A04 /* Assets.xcassets */; };
-		774A1A4B2A8E588800789A04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */; };
 		774A1A562A8E588800789A04 /* LinguaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A552A8E588800789A04 /* LinguaTests.swift */; };
 		777BC5E12A93617000C74D72 /* ValidatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5E02A93617000C74D72 /* ValidatingTextField.swift */; };
 		777BC5E42A9361E200C74D72 /* ValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5E32A9361E200C74D72 /* ValidationRule.swift */; };
@@ -37,6 +36,7 @@
 		77CF0A462A8E62F300AB5A2D /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */; };
 		77CF0A4B2A8F54B400AB5A2D /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */; };
 		77F89A482A98DF3A009EE7B1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */; };
+		9941DA812ABE33140098B49A /* App.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9941DA7F2ABE33140098B49A /* App.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +51,11 @@
 
 /* Begin PBXFileReference section */
 		7701E03F2A96036D00D4311E /* Lingua */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Lingua; path = ../..; sourceTree = "<group>"; };
-		7701E0402A96070E00D4311E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7701E0402A96070E00D4311E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774A1A402A8E588500789A04 /* Lingua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		774A1A432A8E588500789A04 /* LinguaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaApp.swift; sourceTree = "<group>"; };
 		774A1A452A8E588500789A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		774A1A472A8E588800789A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		774A1A4C2A8E588800789A04 /* Lingua.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lingua.entitlements; sourceTree = "<group>"; };
 		774A1A512A8E588800789A04 /* LinguaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinguaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		774A1A552A8E588800789A04 /* LinguaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaTests.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		9941DA802ABE33140098B49A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/App.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,25 +137,13 @@
 		774A1A422A8E588500789A04 /* Lingua */ = {
 			isa = PBXGroup;
 			children = (
-				7701E0402A96070E00D4311E /* Info.plist */,
 				777BC5F02A938E2B00C74D72 /* Resources */,
 				777BC5DD2A93615B00C74D72 /* Utils */,
 				77CF0A402A8E620900AB5A2D /* Model */,
 				774A1A6F2A8E593500789A04 /* Scenes */,
-				774A1A6E2A8E592E00789A04 /* App */,
-				774A1A472A8E588800789A04 /* Assets.xcassets */,
-				774A1A4C2A8E588800789A04 /* Lingua.entitlements */,
-				774A1A492A8E588800789A04 /* Preview Content */,
+				774A1A432A8E588500789A04 /* LinguaApp.swift */,
 			);
 			path = Lingua;
-			sourceTree = "<group>";
-		};
-		774A1A492A8E588800789A04 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				774A1A4A2A8E588800789A04 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		774A1A542A8E588800789A04 /* LinguaTests */ = {
@@ -164,14 +152,6 @@
 				774A1A552A8E588800789A04 /* LinguaTests.swift */,
 			);
 			path = LinguaTests;
-			sourceTree = "<group>";
-		};
-		774A1A6E2A8E592E00789A04 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				774A1A432A8E588500789A04 /* LinguaApp.swift */,
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 		774A1A6F2A8E593500789A04 /* Scenes */ = {
@@ -245,6 +225,9 @@
 		777BC5F02A938E2B00C74D72 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7701E0402A96070E00D4311E /* Info.plist */,
+				774A1A4C2A8E588800789A04 /* Lingua.entitlements */,
+				774A1A472A8E588800789A04 /* Assets.xcassets */,
 				777BC6202A93E07500C74D72 /* Localization */,
 			);
 			path = Resources;
@@ -267,6 +250,7 @@
 				777BC6212A93E07500C74D72 /* General.strings */,
 				777BC6232A93E07500C74D72 /* Projects.strings */,
 				777BC6252A93E07500C74D72 /* ProjectForm.strings */,
+				9941DA7F2ABE33140098B49A /* App.strings */,
 				777BC6272A93E07500C74D72 /* Lingua.swift */,
 			);
 			path = Localization;
@@ -386,8 +370,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				777BC6282A93E07500C74D72 /* General.strings in Resources */,
-				774A1A4B2A8E588800789A04 /* Preview Assets.xcassets in Resources */,
 				777BC62A2A93E07500C74D72 /* ProjectForm.strings in Resources */,
+				9941DA812ABE33140098B49A /* App.strings in Resources */,
 				777BC6292A93E07500C74D72 /* Projects.strings in Resources */,
 				774A1A482A8E588800789A04 /* Assets.xcassets in Resources */,
 			);
@@ -474,6 +458,14 @@
 				777BC6262A93E07500C74D72 /* en */,
 			);
 			name = ProjectForm.strings;
+			sourceTree = "<group>";
+		};
+		9941DA7F2ABE33140098B49A /* App.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9941DA802ABE33140098B49A /* en */,
+			);
+			name = App.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -606,18 +598,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Lingua/Lingua.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Lingua/Resources/Lingua.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Lingua/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7G58AP3AJX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Lingua/Info.plist;
+				INFOPLIST_FILE = Lingua/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,18 +631,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Lingua/Lingua.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Lingua/Resources/Lingua.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Lingua/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7G58AP3AJX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Lingua/Info.plist;
+				INFOPLIST_FILE = Lingua/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (

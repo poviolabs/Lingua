@@ -1,0 +1,7 @@
+// This file was generated with Lingua command line tool. Please do not change it!
+// Source: https://github.com/poviolabs/Lingua
+
+"about" = "About Lingua";
+"description" = "A unified localization management tool for iOS & Android";
+"copyright" = "Copyright";
+"copyright_year" = "© 2023 Povio Inc.";

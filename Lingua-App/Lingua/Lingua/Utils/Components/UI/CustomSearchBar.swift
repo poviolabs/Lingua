@@ -14,7 +14,7 @@ struct CustomSearchBar: View {
     HStack(spacing: 4) {
       Image(systemName: "magnifyingglass")
         .foregroundColor(Color.primary)
-        .padding([.leading], 4)
+        .padding(.leading, 4)
       
       TextField(Lingua.General.search, text: $searchTerm)
         .textFieldStyle(PlainTextFieldStyle())
@@ -29,7 +29,7 @@ struct CustomSearchBar: View {
             .foregroundColor(.gray)
         }
         .buttonStyle(BorderlessButtonStyle())
-        .padding([.trailing], 4)
+        .padding(.trailing, 4)
       }
     }
     .background(

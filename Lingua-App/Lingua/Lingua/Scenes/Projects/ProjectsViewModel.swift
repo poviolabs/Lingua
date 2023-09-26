@@ -12,12 +12,12 @@ class ProjectsViewModel: ObservableObject {
     didSet { UserDefaults.setProjects(projects) }
   }
   private var sortedProjects: [Project] {
-    projects.sorted(by: { $0.lastLocalizedAt ?? Date.distantPast > $1.lastLocalizedAt ?? Date.distantPast })
+    projects.sorted(by: {
+      $0.lastLocalizedAt ?? Date.distantPast > $1.lastLocalizedAt ?? Date.distantPast
+    })
   }
   var filteredProjects: [Project] {
-    guard !searchTerm.isEmpty else {
-      return sortedProjects
-    }
+    guard !searchTerm.isEmpty else { return sortedProjects }
     return sortedProjects.filter { $0.title.localizedCaseInsensitiveContains(searchTerm) }
   }
   @Published var searchTerm: String = ""
@@ -26,7 +26,10 @@ class ProjectsViewModel: ObservableObject {
   @Published var localizationResult: Result<String, Error>?
   
   private let localizationManager = LocalizationManager(directoryAccessor: DirectoryAccessor())
-  
+}
+
+// MARK: - Public Methods
+extension ProjectsViewModel {
   func deleteProject(_ project: Project) {
     guard let index = projects.firstIndex(where: { $0.id == project.id }) else { return }
     if projects[index] == selectedProject {

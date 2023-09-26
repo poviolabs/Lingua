@@ -37,14 +37,14 @@ struct ValidatingTextField: View {
         .disabled(isDisabled)
         .cornerRadius(8)
         .focused($isFocused)
-        .onChange(of: isFocused, perform: { focused in
+        .onChange(of: isFocused) { focused in
           if !focused {
             validate()
           }
-        })
+        }
       
-      if let error = errorMessage {
-        Text(error)
+      if let errorMessage {
+        Text(errorMessage)
           .foregroundColor(.red)
           .font(.caption)
       }
@@ -67,6 +67,7 @@ struct ValidatingTextField: View {
   }
 }
 
+// MARK: - Private Methods
 private extension ValidatingTextField {
   func validate() {
     isValid = validation.validate(localText)

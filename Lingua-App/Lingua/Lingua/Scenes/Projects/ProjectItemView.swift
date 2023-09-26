@@ -26,6 +26,6 @@ struct ProjectItemView: View {
       
       Spacer()
     }
-    .padding([.top, .bottom], 10)
+    .padding(.vertical, 10)
   }
 }

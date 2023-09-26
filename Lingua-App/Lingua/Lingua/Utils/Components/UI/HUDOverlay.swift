@@ -20,7 +20,7 @@ struct HUDOverlay: View {
         .onTapGesture { dismiss() }
       
       VStack(spacing: 10) {
-        Image("app_icon")
+        Image(.appIcon)
           .resizable()
           .scaledToFit()
           .frame(height: 60)

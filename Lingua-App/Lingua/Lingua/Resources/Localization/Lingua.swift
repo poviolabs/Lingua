@@ -5,6 +5,17 @@
 import Foundation
 
 enum Lingua {
+	enum App {
+		/// About Lingua
+		static let about = tr("App", "about")
+		/// Copyright
+		static let copyright = tr("App", "copyright")
+		/// © 2023 Povio Inc.
+		static let copyrightYear = tr("App", "copyright_year")
+		/// A unified localization management tool for iOS & Android
+		static let description = tr("App", "description")
+	}
+
 	enum General {
 		/// Choose
 		static let choose = tr("General", "choose")
