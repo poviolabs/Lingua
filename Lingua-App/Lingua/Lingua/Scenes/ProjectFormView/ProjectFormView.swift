@@ -34,7 +34,7 @@ struct ProjectFormView: View {
       .navigationSubtitle(project.lastLocalizedAt.map { Lingua.ProjectForm.lastLocalizedSubtitle($0.formatted) } ?? "")
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
-          localizeButton(for: project)
+          localizeButton()
         }
       }
       .onChange(of: project) { newValue in
@@ -175,7 +175,7 @@ private extension ProjectFormView {
   }
   
   @ViewBuilder
-  func localizeButton(for project: Project) -> some View {
+  func localizeButton() -> some View {
     Button(action: {
       onLocalize?(project)
     }) {
