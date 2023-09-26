@@ -24,3 +24,7 @@ jobs:
       
     - name: Run tests
       run: swift test -v
+      
+    - name: Build Lingua macOS project
+      working-directory: ./Lingua-App/Lingua
+      run: xcodebuild -project Lingua.xcodeproj -scheme LinguaApp build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
