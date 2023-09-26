@@ -24,25 +24,8 @@ jobs:
       
     - name: Run tests
       run: swift test -v
-      
-    - name: Import code signing certificate
-      env:
-        MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
-      run: |
-        echo ${{ secrets.MACOS_CERTIFICATE }} | base64 --decode > certificate.p12
-        security create-keychain -p "" build.keychain
-        security import certificate.p12 -t agg -k ~/Library/Keychains/build.keychain -P $MACOS_CERTIFICATE_PASSWORD -A
-        security list-keychains -s ~/Library/Keychains/build.keychain
-        security default-keychain -s ~/Library/Keychains/build.keychain
-        security unlock-keychain -p "" ~/Library/Keychains/build.keychain
 
-    - name: Import provisioning profile
-      run: |
-        echo ${{ secrets.MACOS_PROVISIONING_PROFILE }} | base64 --decode > profile.mobileprovision
-        mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-        cp profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
-
-    - name: Build and code sign the macOS app
+    - name: Build the macOS app without signing
       working-directory: ./Lingua-App/Lingua
       run: |
-        xcodebuild -project Lingua.xcodeproj -scheme LinguaApp clean build CODE_SIGN_IDENTITY="Mac Developer: Egzon Arifi (7G58AP3AJX)" PROVISIONING_PROFILE_SPECIFIER="7G58AP3AJX.com.povio.Lingua"
+        xcodebuild -project Lingua.xcodeproj -scheme LinguaApp clean build CODE_SIGNING_ALLOWED=NO
