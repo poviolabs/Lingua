@@ -76,7 +76,7 @@ private extension ProjectFormView {
           isValid: $apiKeyValid
         )
       }) {
-        Text(Lingua.ProjectForm.apiKeyHelp)
+        Text(.init(Lingua.ProjectForm.apiKeyHelp))
           .padding()
       }
       
@@ -88,7 +88,7 @@ private extension ProjectFormView {
           isValid: $sheetIdValid
         )
       }) {
-        Text(Lingua.ProjectForm.sheetIdHelp)
+        Text(.init(Lingua.ProjectForm.sheetIdHelp))
           .padding()
       }
       
@@ -132,7 +132,7 @@ private extension ProjectFormView {
               isValid: $stringsDirectoryValid
             )
           }) {
-            Text(Lingua.ProjectForm.lprojDirectoryHelp)
+            Text(.init(Lingua.ProjectForm.lprojDirectoryHelp))
               .padding()
           }
           
