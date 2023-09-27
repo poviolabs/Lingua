@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 class FailingURLComponents: URLComponentsProvider {
   var queryItems: [URLQueryItem]?

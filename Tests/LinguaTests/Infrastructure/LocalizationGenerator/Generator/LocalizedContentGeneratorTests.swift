@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizedContentGeneratorTests: XCTestCase {
   func test_createContent_returnsPluralAndNonPluralDictContent() {

@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 final class MockCodeGenerator: LocalizedSwiftCodeGenerating {
   var generateCodeCalled = false

@@ -24,3 +24,8 @@ jobs:
       
     - name: Run tests
       run: swift test -v
+
+    - name: Build the macOS app without signing
+      working-directory: ./Lingua-App/Lingua
+      run: |
+        xcodebuild -project Lingua.xcodeproj -scheme LinguaApp clean build CODE_SIGNING_ALLOWED=NO

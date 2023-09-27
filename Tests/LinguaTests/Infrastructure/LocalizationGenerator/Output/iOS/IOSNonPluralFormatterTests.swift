@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class IOSNonPluralFormatterTests: XCTestCase {
   func test_formatContent() {

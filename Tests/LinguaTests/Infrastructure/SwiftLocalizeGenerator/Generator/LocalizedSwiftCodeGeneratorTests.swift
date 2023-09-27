@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizedSwiftCodeGeneratorTests: XCTestCase {
   func test_generateCode_createsFunctionCode_whenUsingStringFormatSpecifiers() {

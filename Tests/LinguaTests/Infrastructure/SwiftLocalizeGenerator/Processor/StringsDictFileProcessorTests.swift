@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class StringsDictFileProcessorTests: XCTestCase {
   func test_canHandle_returnsTrueForStringsDictFile() {

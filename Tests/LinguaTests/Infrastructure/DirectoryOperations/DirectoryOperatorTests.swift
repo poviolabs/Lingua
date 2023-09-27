@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class DirectoryOperatorTests: XCTestCase {
   func test_createDirectory_createsDirectorySuccessfully() throws {

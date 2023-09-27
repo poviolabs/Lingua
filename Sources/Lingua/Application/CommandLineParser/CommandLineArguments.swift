@@ -1,7 +1,8 @@
 import Foundation
+import LinguaLib
 
-struct CommandLineArguments: Equatable {
-  let command: Command?
-  let platform: LocalizationPlatform?
-  let configFilePath: String?
+public struct CommandLineArguments: Equatable {
+  public let command: Command?
+  public let platform: LocalizationPlatform?
+  public let configFilePath: String?
 }

@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class AndroidPluralFormatterTests: XCTestCase {
   func test_formatContent_formatsSingleEntryCorrectly() {

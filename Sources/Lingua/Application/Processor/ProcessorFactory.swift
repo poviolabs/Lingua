@@ -1,4 +1,5 @@
 import Foundation
+import LinguaLib
 
 struct ProcessorFactory {
   func makeLocalizationProcessor(

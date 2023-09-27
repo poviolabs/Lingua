@@ -1,11 +1,11 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class DefaultLocalizedSwiftCodeOutputStringBuilderTests: XCTestCase {
   func test_buildOutput_callsGenerateCodeForEachKeyWithCorrectParameters() throws {
     let (sut, mockCodeGenerator) = makeSUT()
     let sections: [String: Set<String>] = ["section1": Set(["key1", "key2"]), "section2": Set(["key3"])]
-    let translations: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
+    let translations: [String: [String: String]] = ["section1": ["key1": "value1", "key2": "value2"], "section2": ["key3": "value3"]]
     
     _ = sut.buildOutput(sections: sections, translations: translations)
     
@@ -18,7 +18,7 @@ final class DefaultLocalizedSwiftCodeOutputStringBuilderTests: XCTestCase {
   func test_buildOutput_createsCorrectOutput() {
     let (sut, _) = makeSUT()
     let sections: [String: Set<String>] = ["section1": Set(["key1", "key2"]), "section2": Set(["key3"])]
-    let translations: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
+    let translations: [String: [String: String]] = ["section1": ["key1": "value1", "key2": "value2"], "section2": ["key3": "value3"]]
     
     let output = sut.buildOutput(sections: sections, translations: translations)
     

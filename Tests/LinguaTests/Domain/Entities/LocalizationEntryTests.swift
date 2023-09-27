@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizationEntryTests: XCTestCase {
   func test_plural_returnsTrue_forMultipleTranslations() {

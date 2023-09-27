@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class ConfigTransformerTest: XCTestCase {
   func test_transform_mapsConfigDto_toEntity() throws {

@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 final class MockPrinter: Printer {
  private(set) var messages = [String]()

@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 class MockContentWriter: ContentWritable {
   private(set) var writtenContent: (content: String, destinationURL: URL)?

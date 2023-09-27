@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 class MockLocalizedOutputGenerator: LocalizedOutputGenerating {
   private let outputClosure: ([LocalizationEntry]) -> String

@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 class MockPlatformFilesGenerator: PlatformFilesGenerating {
   var createPlatformFilesCallCount = 0

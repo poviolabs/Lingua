@@ -1,4 +1,5 @@
 import Foundation
+import LinguaLib
 
 protocol CommandLineParsable {
   func parse(arguments: [String]) throws -> CommandLineArguments

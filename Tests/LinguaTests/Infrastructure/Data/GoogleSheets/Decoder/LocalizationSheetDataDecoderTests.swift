@@ -1,5 +1,5 @@
 import XCTest
-@testable import Lingua
+@testable import LinguaLib
 
 final class LocalizationSheetDataDecoderTests: XCTestCase {
   func test_decode_withValidData_returnsCorrectSheet() {

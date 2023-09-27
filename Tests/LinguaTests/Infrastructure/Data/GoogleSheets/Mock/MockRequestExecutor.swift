@@ -1,5 +1,5 @@
 import Foundation
-@testable import Lingua
+@testable import LinguaLib
 
 final class MockRequestExecutor: RequestExecutor {
   private(set) var receivedRequests: [any Request] = []
