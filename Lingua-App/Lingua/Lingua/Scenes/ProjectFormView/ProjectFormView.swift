@@ -38,7 +38,6 @@ struct ProjectFormView: View {
         }
       }
       .onChange(of: project) { newValue in
-        guard project != newValue else { return }
         onSave?(newValue)
       }
       .formStyle(.grouped)
