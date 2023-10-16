@@ -2,7 +2,7 @@ import Foundation
 
 public extension String {
   static let packageName = "Lingua"
-  static let version = "0.2.6"
+  static let version = "1.0.1"
   static let swiftLocalizedName = "\(String.packageName).swift"
   static let fileHeader = """
   This file was generated with Lingua command line tool. Please do not change it!
