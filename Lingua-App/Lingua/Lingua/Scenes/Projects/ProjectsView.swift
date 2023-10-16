@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ProjectsView: View {
-  @ObservedObject private var viewModel = ProjectsViewModel()
-  @State private var showDeleteAlert: Bool = false
-  @State private var projectToDelete: Project?
+  @EnvironmentObject private var viewModel: ProjectsViewModel
   
   var body: some View {
     NavigationSplitView {
@@ -43,7 +41,6 @@ struct ProjectsView: View {
         }) {
           Image(systemName: "plus")
         }
-        .keyboardShortcut("n", modifiers: [.command, .shift])
       }
     } detail: {
       if let project = viewModel.selectedProject {
@@ -53,7 +50,7 @@ struct ProjectsView: View {
       }
     }
     .onAppear { viewModel.selectFirstProject() }
-    .alert(isPresented: $showDeleteAlert) { deletionAlert() }
+    .alert(isPresented: $viewModel.showDeleteAlert) { deletionAlert() }
     .overlay(ProgressOverlay(
       isProgressing: $viewModel.isLocalizing,
       text: Lingua.Projects.localizing
@@ -123,16 +120,16 @@ private extension ProjectsView {
   func deletionAlert() -> Alert {
     Alert(
       title: Text(Lingua.Projects.deleteAlertTitle),
-      message: Text(Lingua.Projects.deleteAlertMessage(projectToDelete?.title ?? Lingua.General.this)),
+      message: Text(Lingua.Projects.deleteAlertMessage(viewModel.projectToDelete?.title ?? Lingua.General.this)),
       primaryButton: .destructive(Text(Lingua.General.delete), action: {
-        guard let project = projectToDelete else { return }
+        guard let project = viewModel.projectToDelete else { return }
         viewModel.deleteProject(project)
       }),
       secondaryButton: .cancel())
   }
   
   func confirmDelete(for project: Project) {
-    projectToDelete = project
-    showDeleteAlert = true
+    viewModel.projectToDelete = project
+    viewModel.showDeleteAlert = true
   }
 }

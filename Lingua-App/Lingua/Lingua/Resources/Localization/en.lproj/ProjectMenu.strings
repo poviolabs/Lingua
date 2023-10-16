@@ -1,0 +1,8 @@
+// This file was generated with Lingua command line tool. Please do not change it!
+// Source: https://github.com/poviolabs/Lingua
+
+"title" = "Project";
+"localize" = "Localize";
+"new" = "New";
+"duplicate" = "Duplicate";
+"delete" = "Delete";

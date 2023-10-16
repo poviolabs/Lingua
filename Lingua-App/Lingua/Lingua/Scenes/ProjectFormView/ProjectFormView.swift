@@ -183,21 +183,12 @@ private extension ProjectFormView {
         Text(Lingua.ProjectForm.localizeButton)
       }
     }
-    .keyboardShortcut("l", modifiers: [.command, .shift])
-    .disabled(!allFieldsValid || isLocalizing)
+    .disabled(!project.isValid() || isLocalizing)
   }
 }
 
 // MARK: - Private Methods
 private extension ProjectFormView {
-  var allFieldsValid: Bool {
-    let basicValidation = apiKeyValid && sheetIdValid && titleValid && outputPathValid
-    if project.type == .ios && project.swiftCodeEnabled {
-      return basicValidation && stringsDirectoryValid && outputSwiftCodeFileDirectoryValid
-    }
-    return basicValidation
-  }
-  
   func updateDirectoryPaths(for directory: String) {
     if project.swiftCode.outputSwiftCodeFileDirectory.isEmpty {
       project.swiftCode.outputSwiftCodeFileDirectory = directory
