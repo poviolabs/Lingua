@@ -36,6 +36,8 @@
 		77CF0A462A8E62F300AB5A2D /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */; };
 		77CF0A4B2A8F54B400AB5A2D /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */; };
 		77F89A482A98DF3A009EE7B1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */; };
+		77FB97662ADC3928004CED84 /* LinguaAppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */; };
+		77FB97692ADC3A8B004CED84 /* ProjectMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77FB97672ADC3A8B004CED84 /* ProjectMenu.strings */; };
 		9941DA812ABE33140098B49A /* App.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9941DA7F2ABE33140098B49A /* App.strings */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaAppCommands.swift; sourceTree = "<group>"; };
+		77FB97682ADC3A8B004CED84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProjectMenu.strings; sourceTree = "<group>"; };
 		9941DA802ABE33140098B49A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/App.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,11 +141,11 @@
 		774A1A422A8E588500789A04 /* Lingua */ = {
 			isa = PBXGroup;
 			children = (
+				77FB97622ADBE681004CED84 /* App */,
 				777BC5F02A938E2B00C74D72 /* Resources */,
 				777BC5DD2A93615B00C74D72 /* Utils */,
 				77CF0A402A8E620900AB5A2D /* Model */,
 				774A1A6F2A8E593500789A04 /* Scenes */,
-				774A1A432A8E588500789A04 /* LinguaApp.swift */,
 			);
 			path = Lingua;
 			sourceTree = "<group>";
@@ -247,6 +251,7 @@
 		777BC6202A93E07500C74D72 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				77FB97672ADC3A8B004CED84 /* ProjectMenu.strings */,
 				777BC6212A93E07500C74D72 /* General.strings */,
 				777BC6232A93E07500C74D72 /* Projects.strings */,
 				777BC6252A93E07500C74D72 /* ProjectForm.strings */,
@@ -281,6 +286,15 @@
 				77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		77FB97622ADBE681004CED84 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				774A1A432A8E588500789A04 /* LinguaApp.swift */,
+				77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				777BC6282A93E07500C74D72 /* General.strings in Resources */,
+				77FB97692ADC3A8B004CED84 /* ProjectMenu.strings in Resources */,
 				777BC62A2A93E07500C74D72 /* ProjectForm.strings in Resources */,
 				9941DA812ABE33140098B49A /* App.strings in Resources */,
 				777BC6292A93E07500C74D72 /* Projects.strings in Resources */,
@@ -404,6 +419,7 @@
 				777BC61F2A93A16600C74D72 /* Binding+Project.swift in Sources */,
 				777BC62B2A93E07500C74D72 /* Lingua.swift in Sources */,
 				777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */,
+				77FB97662ADC3928004CED84 /* LinguaAppCommands.swift in Sources */,
 				77CF0A442A8E624900AB5A2D /* LocalizationPlatform+Extension.swift in Sources */,
 				777BC6322A94B53300C74D72 /* LocalizationManager.swift in Sources */,
 				777BC6362A94E6A600C74D72 /* UserDefaults+Extension.swift in Sources */,
@@ -458,6 +474,14 @@
 				777BC6262A93E07500C74D72 /* en */,
 			);
 			name = ProjectForm.strings;
+			sourceTree = "<group>";
+		};
+		77FB97672ADC3A8B004CED84 /* ProjectMenu.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				77FB97682ADC3A8B004CED84 /* en */,
+			);
+			name = ProjectMenu.strings;
 			sourceTree = "<group>";
 		};
 		9941DA7F2ABE33140098B49A /* App.strings */ = {
@@ -603,7 +627,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
@@ -619,7 +643,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.povio.Lingua;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -639,7 +663,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
@@ -655,7 +679,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.povio.Lingua;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

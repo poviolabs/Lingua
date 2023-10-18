@@ -23,6 +23,8 @@ class ProjectsViewModel: ObservableObject {
   @Published var searchTerm: String = ""
   @Published var selectedProject: Project?
   @Published var isLocalizing: Bool = false
+  @Published var showDeleteAlert: Bool = false
+  @Published var projectToDelete: Project?
   @Published var localizationResult: Result<String, Error>?
   
   private let localizationManager = LocalizationManager(directoryAccessor: DirectoryAccessor())
