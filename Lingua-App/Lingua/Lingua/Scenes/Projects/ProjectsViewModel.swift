@@ -8,7 +8,7 @@
 import SwiftUI
 
 class ProjectsViewModel: ObservableObject {
-  @Published var projects: [Project] = UserDefaults.getProjects() {
+  var projects: [Project] = UserDefaults.getProjects() {
     didSet { UserDefaults.setProjects(projects) }
   }
   private var sortedProjects: [Project] {
@@ -47,12 +47,16 @@ extension ProjectsViewModel {
   func updateProject(_ project: Project) {
     guard let index = projects.firstIndex(where: { $0.id == project.id }) else { return }
     projects[index] = project
+    
+    if selectedProject?.id == project.id {
+      updateSelectedProject(project)
+    }
   }
   
   func createNewProject() {
     let newProject = Project(id: UUID(), type: .ios, title: Lingua.Projects.newProject)
     projects.append(newProject)
-    selectedProject = newProject
+    updateSelectedProject(newProject)
   }
   
   func duplicate(_ project: Project) {
@@ -62,24 +66,22 @@ extension ProjectsViewModel {
                              sheetId: project.sheetId,
                              title: Lingua.Projects.copyProject(project.title))
     projects.append(newProject)
-    selectedProject = newProject
+    updateSelectedProject(newProject)
   }
   
   func selectFirstProject() {
-    withAnimation {
-      selectedProject = filteredProjects.first
-    }
+    guard let firsProject = filteredProjects.first else { return }
+    updateSelectedProject(firsProject)
   }
   
+  @MainActor
   func updateSyncDate(for project: Project) {
     if let index = projects.firstIndex(where: { $0.id == project.id }) {
-      var updatedProject = projects[index]
+      var updatedProject = project
       updatedProject.lastLocalizedAt = Date()
       projects[index] = updatedProject
-      
-      withAnimation {
-        selectedProject = updatedProject
-      }
+    
+      updateSelectedProject(updatedProject)
     }
   }
   
@@ -100,6 +102,15 @@ extension ProjectsViewModel {
     
     withAnimation {
       isLocalizing = false
+    }
+  }
+}
+
+// MARK: - Private methods
+private extension ProjectsViewModel {
+  func updateSelectedProject(_ project: Project) {
+    withAnimation(.easeIn(duration: 0.5)) {
+      self.selectedProject = project
     }
   }
 }
