@@ -9,7 +9,7 @@ import SwiftUI
 import LinguaLib
 
 struct ProjectFormView: View {
-  @Binding var project: Project
+  @ObservedObject var viewModel: ProjectFormViewModel
   @Binding var isLocalizing: Bool
   
   @State private var apiKeyValid = false
@@ -30,19 +30,19 @@ struct ProjectFormView: View {
         swiftCodeFormSection()
         iOSInfoFormSection()
       }
-      .navigationTitle(project.title)
-      .navigationSubtitle(project.lastLocalizedAt.map { Lingua.ProjectForm.lastLocalizedSubtitle($0.formatted) } ?? "")
+      .navigationTitle(viewModel.project.title)
+      .navigationSubtitle(viewModel.project.lastLocalizedAt.map { Lingua.ProjectForm.lastLocalizedSubtitle($0.formatted) } ?? "")
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
           localizeButton()
         }
       }
-      .onChange(of: project) { newValue in
+      .onChange(of: viewModel.project) { newValue in
         onSave?(newValue)
       }
       .formStyle(.grouped)
       
-      deleteButton(for: project).padding()
+      deleteButton(for: viewModel.project).padding()
     }
     .padding()
   }
@@ -53,7 +53,7 @@ private extension ProjectFormView {
   @ViewBuilder
   func basicConfigurationFormSection() -> some View {
     Section(header: Text(Lingua.ProjectForm.configurationSection).font(.headline)) {
-      Picker(Lingua.ProjectForm.platformPickerTitle, selection: $project.type) {
+      Picker(Lingua.ProjectForm.platformPickerTitle, selection: $viewModel.project.type) {
         ForEach(LocalizationPlatform.allCases) { type in
           Text(type.title)
             .tag(type)
@@ -63,7 +63,7 @@ private extension ProjectFormView {
       ValidatingTextField(
         title: Lingua.ProjectForm.inputProjectName,
         validation: RequiredRule(),
-        text: $project.title,
+        text: $viewModel.project.title,
         isValid: $titleValid
       )
       
@@ -71,7 +71,7 @@ private extension ProjectFormView {
         ValidatingTextField(
           title: Lingua.ProjectForm.inputApiKey,
           validation: RequiredRule(),
-          text: $project.apiKey,
+          text: $viewModel.project.apiKey,
           isValid: $apiKeyValid
         )
       }) {
@@ -83,7 +83,7 @@ private extension ProjectFormView {
         ValidatingTextField(
           title: Lingua.ProjectForm.inputSheetId,
           validation: RequiredRule(),
-          text: $project.sheetId,
+          text: $viewModel.project.sheetId,
           isValid: $sheetIdValid
         )
       }) {
@@ -94,8 +94,8 @@ private extension ProjectFormView {
       InformationHolderView(content: {
         DirectoryInputField(
           title: Lingua.ProjectForm.inputDirectoryOutput,
-          bookmarkDataKey: project.bookmarkDataForDirectoryPath,
-          directoryPath: $project.directoryPath,
+          bookmarkDataKey: viewModel.project.bookmarkDataForDirectoryPath,
+          directoryPath: $viewModel.project.directoryPath,
           isValid: $outputPathValid,
           onDirectorySelected: updateDirectoryPaths
         )
@@ -108,14 +108,14 @@ private extension ProjectFormView {
   
   @ViewBuilder
   func swiftCodeFormSection() -> some View {
-    if project.type == .ios {
+    if viewModel.project.type == .ios {
       Section {
-        Toggle(isOn: $project.swiftCodeEnabled) {
+        Toggle(isOn: $viewModel.project.swiftCodeEnabled) {
           Text(Lingua.ProjectForm.swiftCodeToggleTitle)
             .bold()
         }
         
-        if project.swiftCodeEnabled {
+        if viewModel.project.swiftCodeEnabled {
           VStack(alignment: .leading, spacing: 8) {
             Text(Lingua.ProjectForm.swiftCodeSection).font(.headline)
             Text(Lingua.ProjectForm.swiftCodeDescription)
@@ -126,8 +126,8 @@ private extension ProjectFormView {
           InformationHolderView(content: {
             DirectoryInputField(
               title: Lingua.ProjectForm.stringsDirectory,
-              bookmarkDataKey: project.bookmarkDataForStringsDirectory,
-              directoryPath: $project.swiftCode.stringsDirectory,
+              bookmarkDataKey: viewModel.project.bookmarkDataForStringsDirectory,
+              directoryPath: $viewModel.project.swiftCode.stringsDirectory,
               isValid: $stringsDirectoryValid
             )
           }) {
@@ -138,8 +138,8 @@ private extension ProjectFormView {
           InformationHolderView(content: {
             DirectoryInputField(
               title: Lingua.ProjectForm.linguaSwiftOutputDirectory,
-              bookmarkDataKey: project.bookmarkDataForOutputSwiftCodeFileDirectory ,
-              directoryPath: $project.swiftCode.outputSwiftCodeFileDirectory,
+              bookmarkDataKey: viewModel.project.bookmarkDataForOutputSwiftCodeFileDirectory ,
+              directoryPath: $viewModel.project.swiftCode.outputSwiftCodeFileDirectory,
               isValid: $outputSwiftCodeFileDirectoryValid
             )
           }) {
@@ -153,9 +153,9 @@ private extension ProjectFormView {
   
   @ViewBuilder
   func iOSInfoFormSection() -> some View {
-    if project.type == .ios {
+    if viewModel.project.type == .ios {
       Section(Lingua.ProjectForm.infoHeader) {
-        Text(Lingua.ProjectForm.iosLocalizationInfoMessage(project.title))
+        Text(Lingua.ProjectForm.iosLocalizationInfoMessage(viewModel.project.title))
           .font(.subheadline)
       }
     }
@@ -176,28 +176,28 @@ private extension ProjectFormView {
   @ViewBuilder
   func localizeButton() -> some View {
     Button(action: {
-      onLocalize?(project)
+      onLocalize?(viewModel.project)
     }) {
       HStack {
         Image(systemName: "globe")
         Text(Lingua.ProjectForm.localizeButton)
       }
     }
-    .disabled(!project.isValid() || isLocalizing)
+    .disabled(!viewModel.project.isValid() || isLocalizing)
   }
 }
 
 // MARK: - Private Methods
 private extension ProjectFormView {
   func updateDirectoryPaths(for directory: String) {
-    if project.swiftCode.outputSwiftCodeFileDirectory.isEmpty {
-      project.swiftCode.outputSwiftCodeFileDirectory = directory
+    if viewModel.project.swiftCode.outputSwiftCodeFileDirectory.isEmpty {
+      viewModel.project.swiftCode.outputSwiftCodeFileDirectory = directory
     }
     
     guard let directoryURL = URL(string: directory) else { return }
-    try? directoryURL.saveBookmarkData(forKey: project.bookmarkDataForOutputSwiftCodeFileDirectory)
+    try? directoryURL.saveBookmarkData(forKey: viewModel.project.bookmarkDataForOutputSwiftCodeFileDirectory)
     
-    guard project.swiftCode.stringsDirectory.isEmpty else { return }
+    guard viewModel.project.swiftCode.stringsDirectory.isEmpty else { return }
     let directoryPath = directoryURL.path
     let fileManager = FileManager.default
     
@@ -207,13 +207,13 @@ private extension ProjectFormView {
     if subpaths.contains(where: { $0 == "en.lproj" }) ||
         !subpaths.contains(where: { $0.hasSuffix(".lproj") }) {
       let enLprojURL = URL(fileURLWithPath: enLprojPath)
-      project.swiftCode.stringsDirectory = enLprojURL.absoluteString
-      try? enLprojURL.saveBookmarkData(forKey: project.bookmarkDataForStringsDirectory)
+      viewModel.project.swiftCode.stringsDirectory = enLprojURL.absoluteString
+      try? enLprojURL.saveBookmarkData(forKey: viewModel.project.bookmarkDataForStringsDirectory)
     } else if let firstLprojRelativePath = subpaths.first(where: { $0.hasSuffix(".lproj") }) {
       let firstLprojFullPath = directoryPath.appending("/\(firstLprojRelativePath)")
       let firstLprojFullURL = URL(fileURLWithPath: firstLprojFullPath)
-      project.swiftCode.stringsDirectory = firstLprojFullURL.absoluteString
-      try? firstLprojFullURL.saveBookmarkData(forKey: project.bookmarkDataForStringsDirectory)
+      viewModel.project.swiftCode.stringsDirectory = firstLprojFullURL.absoluteString
+      try? firstLprojFullURL.saveBookmarkData(forKey: viewModel.project.bookmarkDataForStringsDirectory)
     }
   }
 }

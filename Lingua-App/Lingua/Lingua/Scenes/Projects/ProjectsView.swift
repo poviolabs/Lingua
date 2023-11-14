@@ -14,22 +14,16 @@ struct ProjectsView: View {
     NavigationSplitView {
       CustomSearchBar(searchTerm: $viewModel.searchTerm)
       
-      List(selection: $viewModel.selectedProject) {
-        Section(header: Text(Lingua.Projects.listSectionHeader)) {
-          ForEach(viewModel.filteredProjects) { project in
-            NavigationLink(value: project) {
-              ProjectItemView(project: project)
-            }
-            .swipeActions(edge: .trailing) {
-              duplicateButton(for: project)
-              deletionButton(for: project)
-            }
-            .contextMenu {
-              duplicateButton(for: project)
-              deletionButton(for: project)
-            }
+      List(viewModel.filteredProjects, selection: $viewModel.selectedProjectId) { project in
+        ProjectItemView(project: project)
+          .swipeActions(edge: .trailing) {
+            duplicateButton(for: project)
+            deletionButton(for: project)
           }
-        }
+          .contextMenu {
+            duplicateButton(for: project)
+            deletionButton(for: project)
+          }
       }
       .navigationSplitViewColumnWidth(min: 250, ideal: 250, max: 600)
       .listStyle(DefaultListStyle())
@@ -61,10 +55,9 @@ struct ProjectsView: View {
 
 // MARK: - Private View Builders
 private extension ProjectsView {
-  @ViewBuilder
   func projectFormView(for project: Project) -> some View {
     ProjectFormView(
-      project: $viewModel.selectedProject.unwrapped(or: project), 
+      viewModel: ProjectFormViewModel(project: project),
       isLocalizing: $viewModel.isLocalizing,
       onSave: { updatedProject in
         viewModel.updateProject(updatedProject)

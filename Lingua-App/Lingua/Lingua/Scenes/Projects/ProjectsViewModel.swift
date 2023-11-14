@@ -8,7 +8,7 @@
 import SwiftUI
 
 class ProjectsViewModel: ObservableObject {
-  var projects: [Project] = UserDefaults.getProjects() {
+  @Published var projects: [Project] = UserDefaults.getProjects() {
     didSet { UserDefaults.setProjects(projects) }
   }
   private var sortedProjects: [Project] {
@@ -21,11 +21,14 @@ class ProjectsViewModel: ObservableObject {
     return sortedProjects.filter { $0.title.localizedCaseInsensitiveContains(searchTerm) }
   }
   @Published var searchTerm: String = ""
-  @Published var selectedProject: Project?
+  var selectedProject: Project? {
+    projects.first(where: { $0.id == selectedProjectId })
+  }
   @Published var isLocalizing: Bool = false
   @Published var showDeleteAlert: Bool = false
   @Published var projectToDelete: Project?
   @Published var localizationResult: Result<String, Error>?
+  @Published var selectedProjectId: UUID?
   
   private let localizationManager = LocalizationManager(directoryAccessor: DirectoryAccessor())
 }
@@ -35,7 +38,7 @@ extension ProjectsViewModel {
   func deleteProject(_ project: Project) {
     guard let index = projects.firstIndex(where: { $0.id == project.id }) else { return }
     if projects[index] == selectedProject {
-      selectedProject = nil
+      selectedProjectId = nil
     }
     projects.remove(at: index)
   }
@@ -70,8 +73,8 @@ extension ProjectsViewModel {
   }
   
   func selectFirstProject() {
-    guard let firsProject = filteredProjects.first else { return }
-    updateSelectedProject(firsProject)
+    guard let firstProject = filteredProjects.first else { return }
+    updateSelectedProject(firstProject)
   }
   
   @MainActor
@@ -110,7 +113,7 @@ extension ProjectsViewModel {
 private extension ProjectsViewModel {
   func updateSelectedProject(_ project: Project) {
     withAnimation(.easeIn(duration: 0.5)) {
-      self.selectedProject = project
+      self.selectedProjectId = project.id
     }
   }
 }
