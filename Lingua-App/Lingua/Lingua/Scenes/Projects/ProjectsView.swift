@@ -12,6 +12,12 @@ struct ProjectsView: View {
   
   var body: some View {
     NavigationSplitView {
+      Text("")
+        .navigationSplitViewColumnWidth(0)
+        .toolbar {
+          Spacer()
+        }
+    } content: {
       CustomSearchBar(searchTerm: $viewModel.searchTerm)
       
       List(viewModel.filteredProjects, selection: $viewModel.selectedProjectId) { project in
@@ -25,7 +31,7 @@ struct ProjectsView: View {
             deletionButton(for: project)
           }
       }
-      .navigationSplitViewColumnWidth(min: 250, ideal: 250, max: 600)
+      .navigationSplitViewColumnWidth(300)
       .listStyle(DefaultListStyle())
       .toolbar {
         Button(action: {
@@ -39,10 +45,17 @@ struct ProjectsView: View {
     } detail: {
       if let project = viewModel.selectedProject {
         projectFormView(for: project)
+          .toolbar {
+            Spacer()
+          }
       } else {
         Text(Lingua.Projects.placeholder)
+          .toolbar {
+            Spacer()
+          }
       }
     }
+    .scrollContentBackground(.hidden)
     .onAppear { viewModel.selectFirstProject() }
     .alert(isPresented: $viewModel.showDeleteAlert) { deletionAlert() }
     .overlay(ProgressOverlay(
