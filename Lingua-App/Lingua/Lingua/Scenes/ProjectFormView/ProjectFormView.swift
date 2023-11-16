@@ -30,9 +30,15 @@ struct ProjectFormView: View {
         swiftCodeFormSection()
         iOSInfoFormSection()
       }
-      .navigationTitle(viewModel.project.title)
-      .navigationSubtitle(viewModel.project.lastLocalizedAt.map { Lingua.ProjectForm.lastLocalizedSubtitle($0.formatted) } ?? "")
       .toolbar {
+        ToolbarItem(placement: .cancellationAction) {
+          VStack(alignment: .leading) {
+            Text(viewModel.project.title)
+              .font(.headline)
+            Text(viewModel.project.lastLocalizedAt.map { Lingua.ProjectForm.lastLocalizedSubtitle($0.formatted) } ?? "")
+              .font(.subheadline)
+          }
+        }
         ToolbarItem(placement: .primaryAction) {
           localizeButton()
         }

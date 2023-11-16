@@ -9,17 +9,20 @@ import SwiftUI
 
 struct ProjectsView: View {
   @EnvironmentObject private var viewModel: ProjectsViewModel
-  
+  @State private var columnVisibility = NavigationSplitViewVisibility.automatic
+
   var body: some View {
-    NavigationSplitView {
-      Text("")
-        .navigationSplitViewColumnWidth(0)
-        .toolbar {
-          Spacer()
+    NavigationSplitView(columnVisibility: $columnVisibility) {
+      VStack {
+        HStack {
+          Image(systemName: "folder")
+          Text("Projects")
         }
+        Spacer()
+      }
     } content: {
       CustomSearchBar(searchTerm: $viewModel.searchTerm)
-      
+
       List(viewModel.filteredProjects, selection: $viewModel.selectedProjectId) { project in
         ProjectItemView(project: project)
           .swipeActions(edge: .trailing) {
@@ -31,7 +34,7 @@ struct ProjectsView: View {
             deletionButton(for: project)
           }
       }
-      .navigationSplitViewColumnWidth(300)
+      .navigationSplitViewColumnWidth(min: 340, ideal: 340, max: 500)
       .listStyle(DefaultListStyle())
       .toolbar {
         Button(action: {
@@ -56,7 +59,10 @@ struct ProjectsView: View {
       }
     }
     .scrollContentBackground(.hidden)
-    .onAppear { viewModel.selectFirstProject() }
+    .onAppear {
+      viewModel.selectFirstProject()
+      columnVisibility = .doubleColumn
+    }
     .alert(isPresented: $viewModel.showDeleteAlert) { deletionAlert() }
     .overlay(ProgressOverlay(
       isProgressing: $viewModel.isLocalizing,
