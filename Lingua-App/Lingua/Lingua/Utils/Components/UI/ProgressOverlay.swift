@@ -14,7 +14,7 @@ struct ProgressOverlay: View {
   var body: some View {
     if isProgressing {
       ZStack {
-        Color(NSColor.windowBackgroundColor).opacity(0.8)
+        Color(NSColor.windowBackgroundColor).opacity(0.5)
         ProgressView(text)
           .padding()
           .background(Color(NSColor.windowBackgroundColor))
@@ -22,7 +22,6 @@ struct ProgressOverlay: View {
           .shadow(radius: 10)
           .padding(40)
       }
-      .transition(.opacity)
     }
   }
 }

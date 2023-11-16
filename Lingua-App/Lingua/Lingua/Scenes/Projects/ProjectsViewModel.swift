@@ -84,8 +84,6 @@ extension ProjectsViewModel {
         projects[index].lastLocalizedAt = Date()
         projects.insert(projects.remove(at: index), at: 0)
       }
-
-      selectFirstProject()
     }
   }
   
