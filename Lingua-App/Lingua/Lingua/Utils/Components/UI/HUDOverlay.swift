@@ -16,7 +16,7 @@ struct HUDOverlay: View {
   var body: some View {
     ZStack {
       Color(NSColor.windowBackgroundColor)
-        .opacity(0.8)
+        .opacity(0.5)
         .onTapGesture { dismiss() }
       
       VStack(spacing: 10) {

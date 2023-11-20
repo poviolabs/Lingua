@@ -80,11 +80,10 @@ extension ProjectsViewModel {
   @MainActor
   func updateSyncDate(for project: Project) {
     if let index = projects.firstIndex(where: { $0.id == project.id }) {
-      var updatedProject = project
-      updatedProject.lastLocalizedAt = Date()
-      projects[index] = updatedProject
-    
-      updateSelectedProject(updatedProject)
+      withAnimation {
+        projects[index].lastLocalizedAt = Date()
+        projects.insert(projects.remove(at: index), at: 0)
+      }
     }
   }
   
