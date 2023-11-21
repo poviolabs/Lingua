@@ -86,4 +86,14 @@ extension Project {
       return Image(systemName: "a.square.fill")
     }
   }
+  
+  func isValid(_ rule: RequiredRule = .init()) -> Bool {
+    let basicValidation = rule.validate(apiKey) && rule.validate(sheetId) &&
+    rule.validate(title) && rule.validate(directoryPath)
+    if type == .ios && swiftCodeEnabled {
+      return basicValidation && rule.validate(swiftCode.stringsDirectory) &&
+      rule.validate(swiftCode.outputSwiftCodeFileDirectory)
+    }
+    return basicValidation
+  }
 }

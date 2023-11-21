@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ValidatingTextField: View {
   var title: String
@@ -17,7 +18,8 @@ struct ValidatingTextField: View {
   @State private var localText: String
   @State private var errorMessage: String? = nil
   @FocusState private var isFocused: Bool
-  
+  @State private var textChangeCancellable: AnyCancellable?
+
   init(title: String,
        validation: ValidationRule,
        isDisabled: Bool = false,
@@ -53,10 +55,15 @@ struct ValidatingTextField: View {
       isValid = validation.validate(text)
     }
     .onChange(of: localText) { newValue in
-      if text != newValue {
-        text = newValue
-      }
-      validate()
+      textChangeCancellable?.cancel()
+      textChangeCancellable = Just(newValue)
+        .delay(for: 0.2, scheduler: RunLoop.main)
+        .sink { delayedValue in
+          if self.text != delayedValue {
+            self.text = delayedValue
+          }
+          validate()
+        }
     }
     .onChange(of: text) { newValue in
       if localText != newValue {

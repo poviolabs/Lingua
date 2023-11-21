@@ -84,6 +84,19 @@ enum Lingua {
 		static let swiftCodeToggleTitle = tr("ProjectForm", "swift_code_toggle_title")
 	}
 
+	enum ProjectMenu {
+		/// Delete
+		static let delete = tr("ProjectMenu", "delete")
+		/// Duplicate
+		static let duplicate = tr("ProjectMenu", "duplicate")
+		/// Localize
+		static let localize = tr("ProjectMenu", "localize")
+		/// New
+		static let new = tr("ProjectMenu", "new")
+		/// Project
+		static let title = tr("ProjectMenu", "title")
+	}
+
 	enum Projects {
 		/// %@ copy
 		static func copyProject(_ param1: String) -> String {
