@@ -106,6 +106,11 @@ extension ProjectsViewModel {
       isLocalizing = false
     }
   }
+
+  func confirmDelete(for project: Project) {
+    projectToDelete = project
+    showDeleteAlert = true
+  }
 }
 
 // MARK: - Private methods

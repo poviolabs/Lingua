@@ -39,6 +39,9 @@
 		77F89A482A98DF3A009EE7B1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */; };
 		77FB97662ADC3928004CED84 /* LinguaAppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */; };
 		77FB97692ADC3A8B004CED84 /* ProjectMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77FB97672ADC3A8B004CED84 /* ProjectMenu.strings */; };
+		970D1F7A2B10CB5D00F6CD8E /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D1F792B10CB5D00F6CD8E /* ProjectListView.swift */; };
+		970D1F7C2B10CBE900F6CD8E /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D1F7B2B10CBE900F6CD8E /* ConditionalModifier.swift */; };
+		970D1F802B10EC3F00F6CD8E /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D1F7F2B10EC3F00F6CD8E /* Window.swift */; };
 		9941DA812ABE33140098B49A /* App.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9941DA7F2ABE33140098B49A /* App.strings */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +92,9 @@
 		77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaAppCommands.swift; sourceTree = "<group>"; };
 		77FB97682ADC3A8B004CED84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProjectMenu.strings; sourceTree = "<group>"; };
+		970D1F792B10CB5D00F6CD8E /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
+		970D1F7B2B10CBE900F6CD8E /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
+		970D1F7F2B10EC3F00F6CD8E /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		9941DA802ABE33140098B49A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/App.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				777BC5EB2A93707B00C74D72 /* DirectoryAccessor.swift */,
+				970D1F7B2B10CBE900F6CD8E /* ConditionalModifier.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -278,6 +285,7 @@
 				77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */,
 				77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */,
 				77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */,
+				970D1F792B10CB5D00F6CD8E /* ProjectListView.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -296,6 +304,7 @@
 			children = (
 				774A1A432A8E588500789A04 /* LinguaApp.swift */,
 				77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */,
+				970D1F7F2B10EC3F00F6CD8E /* Window.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -413,10 +422,12 @@
 				778E9F162B03B4E20063B50F /* ProjectFormViewModel.swift in Sources */,
 				777BC5EC2A93707B00C74D72 /* DirectoryAccessor.swift in Sources */,
 				779F91FB2A97A7B0009C77D5 /* Date+Extension.swift in Sources */,
+				970D1F7C2B10CBE900F6CD8E /* ConditionalModifier.swift in Sources */,
 				77CF0A462A8E62F300AB5A2D /* ProjectsView.swift in Sources */,
 				77CF0A3F2A8E61EE00AB5A2D /* ProjectItemView.swift in Sources */,
 				77CF0A4B2A8F54B400AB5A2D /* ProjectsViewModel.swift in Sources */,
 				779F91F72A977378009C77D5 /* URL+Extension.swift in Sources */,
+				970D1F7A2B10CB5D00F6CD8E /* ProjectListView.swift in Sources */,
 				774A1A462A8E588500789A04 /* ContentView.swift in Sources */,
 				777BC5E62A9361F000C74D72 /* RequiredRule.swift in Sources */,
 				779F91F92A978AC8009C77D5 /* InformationHolderView.swift in Sources */,
@@ -430,6 +441,7 @@
 				777BC5EF2A938B8400C74D72 /* ProjectFormView.swift in Sources */,
 				774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */,
 				777BC5E82A93639E00C74D72 /* DirectoryInputField.swift in Sources */,
+				970D1F802B10EC3F00F6CD8E /* Window.swift in Sources */,
 				777BC62F2A94B2A000C74D72 /* ProgressOverlay.swift in Sources */,
 				777BC5E42A9361E200C74D72 /* ValidationRule.swift in Sources */,
 				777BC5E12A93617000C74D72 /* ValidatingTextField.swift in Sources */,
