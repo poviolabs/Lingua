@@ -28,6 +28,7 @@ struct ProjectFormView: View {
       Form {
         basicConfigurationFormSection()
         swiftCodeFormSection()
+        filterSectionsFormSection()
         iOSInfoFormSection()
       }
       .toolbar {
@@ -152,6 +153,19 @@ private extension ProjectFormView {
             Text(.init(Lingua.ProjectForm.linguaSwiftOutputDirectoryHelp))
               .padding()
           }
+        }
+      }
+    }
+  }
+  
+  @ViewBuilder
+  func filterSectionsFormSection() -> some View {
+    Section {
+      Toggle(isOn: $viewModel.project.filterSectionsEnabled) {
+        Text("Enable sections filtering...")
+          .bold()
+        if viewModel.project.filterSectionsEnabled {
+          SectionsInputView(sections: $viewModel.project.allowedSections)
         }
       }
     }

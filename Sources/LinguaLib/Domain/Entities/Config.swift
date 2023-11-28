@@ -10,12 +10,20 @@ public extension Config {
     let sheetId: String
     let outputDirectory: String
     let localizedSwiftCode: LocalizedSwiftCode?
+    let allowedSections: [String]?
     
-    public init(apiKey: String, sheetId: String, outputDirectory: String, localizedSwiftCode: LocalizedSwiftCode?) {
+    public init(
+      apiKey: String,
+      sheetId: String,
+      outputDirectory: String,
+      localizedSwiftCode: LocalizedSwiftCode?,
+      allowedSections: [String]? = nil
+    ) {
       self.apiKey = apiKey
       self.sheetId = sheetId
       self.outputDirectory = outputDirectory
       self.localizedSwiftCode = localizedSwiftCode
+      self.allowedSections = allowedSections
     }
   }
   
