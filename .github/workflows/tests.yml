@@ -18,12 +18,7 @@ jobs:
       
     - name: Checkout Repository
       uses: actions/checkout@v3
-
-    - name: Clean Derived Data
-      working-directory: ./Lingua-App/Lingua
-      run: |
-        xcodebuild -project Lingua.xcodeproj -scheme LinguaApp clean
-
+        
     - name: Build project
       run: swift build -v
       
