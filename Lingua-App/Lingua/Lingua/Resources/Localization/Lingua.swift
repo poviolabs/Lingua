@@ -14,6 +14,8 @@ enum Lingua {
 		static let copyrightYear = tr("App", "copyright_year")
 		/// A unified localization management tool for iOS & Android
 		static let description = tr("App", "description")
+		/// Lingua Settings...
+		static let settings = tr("App", "settings")
 	}
 
 	enum General {

@@ -5,7 +5,3 @@ struct ContentView: View {
     Text(Lingua.General.success).padding()
   }
 }
-
-#Preview {
-  ContentView()
-}

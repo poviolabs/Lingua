@@ -21,30 +21,8 @@ struct ProjectsView: View {
         Spacer()
       }
     } content: {
-      CustomSearchBar(searchTerm: $viewModel.searchTerm)
-
-      List(viewModel.filteredProjects, selection: $viewModel.selectedProjectId) { project in
-        ProjectItemView(project: project)
-          .swipeActions(edge: .trailing) {
-            duplicateButton(for: project)
-            deletionButton(for: project)
-          }
-          .contextMenu {
-            duplicateButton(for: project)
-            deletionButton(for: project)
-          }
-      }
-      .navigationSplitViewColumnWidth(min: 340, ideal: 340, max: 500)
-      .listStyle(DefaultListStyle())
-      .toolbar {
-        Button(action: {
-          withAnimation {
-            viewModel.createNewProject()
-          }
-        }) {
-          Image(systemName: "plus")
-        }
-      }
+      ProjectListView()
+        .environmentObject(viewModel)
     } detail: {
       if let project = viewModel.selectedProject {
         projectFormView(for: project)
@@ -82,7 +60,7 @@ private extension ProjectsView {
         viewModel.updateProject(updatedProject)
       },
       onDelete: { deletedProject in
-        confirmDelete(for: deletedProject)
+        viewModel.confirmDelete(for: deletedProject)
       },
       onLocalize: { projectToLocalize in
         Task { await viewModel.localizeProject(projectToLocalize) }
@@ -107,28 +85,6 @@ private extension ProjectsView {
     }
   }
   
-  @ViewBuilder
-  func deletionButton(for project: Project) -> some View {
-    Button(action: {
-      confirmDelete(for: project)
-    }) {
-      Text(Lingua.General.delete)
-      Image(systemName: "trash")
-    }
-    .tint(.red)
-  }
-  
-  @ViewBuilder
-  func duplicateButton(for project: Project) -> some View {
-    Button(action: {
-      viewModel.duplicate(project)
-    }) {
-      Text(Lingua.General.duplicate)
-      Image(systemName: "doc.on.doc")
-    }
-    .tint(.blue)
-  }
-  
   func deletionAlert() -> Alert {
     Alert(
       title: Text(Lingua.Projects.deleteAlertTitle),
@@ -138,10 +94,5 @@ private extension ProjectsView {
         viewModel.deleteProject(project)
       }),
       secondaryButton: .cancel())
-  }
-  
-  func confirmDelete(for project: Project) {
-    viewModel.projectToDelete = project
-    viewModel.showDeleteAlert = true
   }
 }
