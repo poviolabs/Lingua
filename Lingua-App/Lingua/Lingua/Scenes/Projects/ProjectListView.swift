@@ -101,7 +101,3 @@ extension ProjectListView {
     .tint(.blue)
   }
 }
-
-#Preview {
-  ProjectListView()
-}
