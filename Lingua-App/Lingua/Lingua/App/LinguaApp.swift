@@ -24,8 +24,8 @@ struct LinguaApp: App {
       commands.aboutApp()
       commands.projectCommands
     }
-
-    MenuBarExtra(String.packageName, systemImage: "globe") {
+    
+    MenuBarExtra(String.packageName, image: "lingua_menu_bar_icon") {
       VStack(spacing: 0) {
         ProjectListView(shouldAddLocalizeButton: true)
           .environmentObject(viewModel)
