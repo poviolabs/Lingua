@@ -94,7 +94,7 @@ You can download the macOS app from [App Store](https://apps.apple.com/us/app/li
 - **Settings Configuration:** Easily configure and manage your settings through the app's settings panel.
 - **Translation Initiation:** Initiate the translation process with a single click without the need for terminal commands.
 
-### 2. Terminal App
+### 2. macOS Terminal App
 
 For those who prefer using the terminal or require scriptable solutions, Lingua offers a terminal app that allows you to manage and initiate translations directly from the command line.
 
@@ -107,7 +107,28 @@ $ brew tap poviolabs/lingua
 $ brew install lingua
 ```
 
-#### Configuration file
+### 3. Linux Terminal App
+
+Lingua runs on Linux as well.
+
+#### Installation
+
+1. Download the latest release `Lingua_Linux` from [GitHub Releases](https://github.com/poviolabs/Lingua/releases).
+
+2. Make the binary executable:
+   
+   ```shell
+   $ chmod +x /path/to/Lingua_Linux
+   $ mv Lingua_Linux lingua
+   $ sudo mv /path/to/lingua /usr/local/bin
+   ```
+
+
+### Terminal Usage
+
+Please follow below instructions to use Lingua in terminal.
+
+##### Configuration file
 
 Create a configuration file as a starting point to adapt as your needs, `lingua_config.json` or any other `.json` file.
 
@@ -125,7 +146,7 @@ Then in the configuration file created you need to provide your data, like below
 }
 ```
 
-#### Output directory
+##### Output directory
 
 The output directory property should be the path where you want the tool to create localization files. 
 
@@ -133,7 +154,7 @@ The output directory property should be the path where you want the tool to crea
 
 * For Android, since the translation are placed in a specific project directory, the output directory it should look something like this: **`path/YourProject/app/src/main/res `**
 
-#### iOS specific
+##### iOS specific
 
 Since iOS does not have a built in feature to access the localization safely, we have made this possible using Lingua tool. In the configuration file you have to provide the path where the default language strings are stored and where the Swift file you want to be created. With that the tool will create **Lingua.swift** with an enumeration to easily access localizations in your app.
 
