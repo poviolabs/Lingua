@@ -162,7 +162,7 @@ private extension ProjectFormView {
   func filterSectionsFormSection() -> some View {
     Section {
       Toggle(isOn: $viewModel.project.filterSectionsEnabled) {
-        Text("Enable sections filtering...")
+        Text(Lingua.ProjectForm.filteringSectionTitle)
           .bold()
         if viewModel.project.filterSectionsEnabled {
           SectionsInputView(sections: $viewModel.project.allowedSections)

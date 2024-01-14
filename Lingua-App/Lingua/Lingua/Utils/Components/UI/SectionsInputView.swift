@@ -14,12 +14,12 @@ struct SectionsInputView: View {
   var body: some View {
     VStack(alignment: .leading) {
       HStack {
-        TextField("Enter a section", text: $currentInput, onCommit: addSection)
+        TextField(Lingua.ProjectForm.filteringSectionTextfieldPlaceholder, text: $currentInput, onCommit: addSection)
           .textFieldStyle(RoundedBorderTextFieldStyle())
           .padding()
         
         Button(action: addSection) {
-          Text("Add section")
+          Text(Lingua.ProjectForm.filteringAddSectionButtonTitle)
         }
       }
       
