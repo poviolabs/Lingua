@@ -113,16 +113,15 @@ Lingua runs on Linux as well.
 
 #### Installation
 
-1. Download the latest release `Lingua_Linux` from [GitHub Releases](https://github.com/poviolabs/Lingua/releases).
+1. Download the latest release `Lingua_Linux` from [GitHub Releases](https://github.com/poviolabs/Lingua/releases) based on your machine, either `Lingua_Linux_x86_64` or `Lingua_Linux_arm64`
 
 2. Make the binary executable:
    
    ```shell
-   $ chmod +x /path/to/Lingua_Linux
+   $ chmod +x /path/to/Lingua_Linux_x86_64
    $ mv Lingua_Linux lingua
    $ sudo mv /path/to/lingua /usr/local/bin
    ```
-
 
 ### Terminal Usage
 
