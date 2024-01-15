@@ -16,7 +16,7 @@ struct SectionsInputView: View {
       HStack {
         TextField(Lingua.ProjectForm.filteringSectionTextfieldPlaceholder, text: $currentInput, onCommit: addSection)
           .textFieldStyle(RoundedBorderTextFieldStyle())
-          .padding()
+          .padding(.vertical)
         
         Button(action: addSection) {
           Text(Lingua.ProjectForm.filteringAddSectionButtonTitle)

@@ -164,9 +164,15 @@ private extension ProjectFormView {
       Toggle(isOn: $viewModel.project.filterSectionsEnabled) {
         Text(Lingua.ProjectForm.filteringSectionTitle)
           .bold()
-        if viewModel.project.filterSectionsEnabled {
+      }
+      if viewModel.project.filterSectionsEnabled {
+        VStack(alignment: .leading, spacing: 8) {
+          Text(Lingua.ProjectForm.filteringSectionDescription)
+            .font(.subheadline)
+          Divider()
           SectionsInputView(sections: $viewModel.project.allowedSections)
         }
+        .padding(8)
       }
     }
   }
