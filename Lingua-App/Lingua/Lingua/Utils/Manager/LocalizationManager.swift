@@ -32,7 +32,8 @@ struct LocalizationManager {
     let config = Config.Localization(apiKey: project.apiKey,
                                      sheetId: project.sheetId,
                                      outputDirectory: project.directoryPath,
-                                     localizedSwiftCode: localizedSwiftCode)
+                                     localizedSwiftCode: localizedSwiftCode,
+                                     allowedSections: project.filterSectionsEnabled ? project.allowedSections : .none)
     let module = LocalizationModuleFactory.make(config: config)
     
     try await module.localize(for: project.type)

@@ -42,6 +42,14 @@ enum Lingua {
 		static let apiKeyHelp = tr("ProjectForm", "api_key_help")
 		/// Configuration
 		static let configurationSection = tr("ProjectForm", "configuration_section")
+		/// Add section
+		static let filteringAddSectionButtonTitle = tr("ProjectForm", "filtering_add_section_button_title")
+		/// Add the sections that you want to include into the project, otherwise if it is disabled all the sections will be included
+		static let filteringSectionDescription = tr("ProjectForm", "filtering_section_description")
+		/// Enter a section
+		static let filteringSectionTextfieldPlaceholder = tr("ProjectForm", "filtering_section_textfield_placeholder")
+		/// Enable sections filtering
+		static let filteringSectionTitle = tr("ProjectForm", "filtering_section_title")
 		/// Info
 		static let infoHeader = tr("ProjectForm", "info_header")
 		/// API Key *

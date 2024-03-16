@@ -16,9 +16,11 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
   var directoryPath: String
   var title: String
   var swiftCode: SwiftCode
-  var swiftCodeEnabled: Bool = true
+  var swiftCodeEnabled: Bool
   var createdAt: Date
   var lastLocalizedAt: Date?
+  var filterSectionsEnabled: Bool
+  var allowedSections: [String]
   
   init(id: UUID,
        type: LocalizationPlatform,
@@ -27,8 +29,11 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
        directoryPath: String = "",
        title: String = "",
        swiftCode: SwiftCode = .init(stringsDirectory: "", outputSwiftCodeFileDirectory: ""),
+       swiftCodeEnabled: Bool = true,
        createdAt: Date = .init(),
-       lastLocalizedAt: Date? = nil) {
+       lastLocalizedAt: Date? = nil,
+       filterSectionsEnabled: Bool = false,
+       allowedSections: [String] = []) {
     self.id = id
     self.type = type
     self.apiKey = apiKey
@@ -36,8 +41,11 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
     self.directoryPath = directoryPath
     self.title = title
     self.swiftCode = swiftCode
+    self.swiftCodeEnabled = swiftCodeEnabled
     self.createdAt = createdAt
     self.lastLocalizedAt = lastLocalizedAt
+    self.filterSectionsEnabled = filterSectionsEnabled
+    self.allowedSections = allowedSections
   }
   
   /// Custom initializer for decoding [Project] from persisted storage.
@@ -57,6 +65,8 @@ struct Project: Identifiable, Hashable, Equatable, Codable {
     swiftCodeEnabled = try container.decode(Bool.self, forKey: .swiftCodeEnabled)
     createdAt = try container.decodeIfPresent(Date.self, forKey: .createdAt) ?? Date()
     lastLocalizedAt = try container.decodeIfPresent(Date.self, forKey: .lastLocalizedAt)
+    filterSectionsEnabled = try container.decodeIfPresent(Bool.self, forKey: .filterSectionsEnabled) ?? false
+    allowedSections = try container.decodeIfPresent([String].self, forKey: .allowedSections) ?? []
   }
 }
 
