@@ -27,6 +27,10 @@ extension LocalizedFilesGenerator: LocalizedFilesGenerating {
     let sections = Dictionary(grouping: sheet.entries, by: { $0.section })
     
     for (sectionName, sectionEntries) in sections {
+      if let allowedSections = config.allowedSections,
+          !allowedSections.contains(where: { $0.lowercased() == sectionName.lowercased() }) {
+        continue
+      }
       try filesGenerator.createPlatformFiles(for: sectionEntries,
                                              sectionName: sectionName.formatSheetSection(),
                                              outputFolder: outputFolder,

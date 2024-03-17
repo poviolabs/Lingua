@@ -5,3 +5,4 @@
 "description" = "A unified localization management tool for iOS & Android";
 "copyright" = "Copyright";
 "copyright_year" = "© 2023 Povio Inc.";
+"settings" = "Lingua Settings...";
