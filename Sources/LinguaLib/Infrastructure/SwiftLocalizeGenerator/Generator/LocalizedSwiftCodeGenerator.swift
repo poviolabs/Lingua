@@ -46,6 +46,10 @@ private extension LocalizedSwiftCodeGenerator {
 
 private extension String {
   func commented() -> String {
-    "/// " + replacingOccurrences(of: "\n", with: "\\n")
+    let escapedString = self
+      .replacingOccurrences(of: "\n", with: "\\n")
+      .replacingOccurrences(of: "\r", with: "\\r")
+    
+    return "/// \(escapedString)"
   }
 }

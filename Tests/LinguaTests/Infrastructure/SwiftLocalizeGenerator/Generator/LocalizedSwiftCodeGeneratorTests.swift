@@ -4,9 +4,9 @@ import XCTest
 final class LocalizedSwiftCodeGeneratorTests: XCTestCase {
   func test_generateCode_createsFunctionCode_whenUsingStringFormatSpecifiers() {
     let sut = makeSUT()
-    let code = sut.generateCode(section: "section", key: "key", translation: "translation %d %@")
+    let code = sut.generateCode(section: "section", key: "key", translation: "translation \n\r%d %@")
     let expectedCode = """
-         /// translation %d %@
+         /// translation \\n\\r%d %@
          \t\tstatic func key(_ param1: Int, _ param2: String) -> String {
          \t\t\treturn tr("section", "key", param1, param2)
          \t\t}
