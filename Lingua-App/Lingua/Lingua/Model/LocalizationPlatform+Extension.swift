@@ -12,7 +12,7 @@ extension LocalizationPlatform: Codable {
   var title: String {
     switch self {
     case .ios:
-      return "iOS"
+      return "iOS / macOS"
     case .android:
       return "Android"
     }
