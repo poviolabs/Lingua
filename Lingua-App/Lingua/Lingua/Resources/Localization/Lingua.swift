@@ -62,7 +62,7 @@ enum Lingua {
 		static let inputProjectName = tr("ProjectForm", "input_project_name")
 		/// Sheet ID *
 		static let inputSheetId = tr("ProjectForm", "input_sheet_id")
-		/// After you "Localize", you have to Add files to "%@"... in Xcode, if they are not added already
+		/// After you "Localize", you have to Add files to "%@"... in Xcode, if they are not added already.\n\nNOTE: If you are using Xcode 16 and have structured your project using 'Folders' instead of 'Groups', this step is not necessary.
 		static func iosLocalizationInfoMessage(_ param1: String) -> String {
 			return tr("ProjectForm", "ios_localization_info_message", param1)
 		}

@@ -149,7 +149,10 @@ Then in the configuration file created you need to provide your data, like below
 
 The output directory property should be the path where you want the tool to create localization files. 
 
-* For iOS it can be any directory on your project. After you run the command, for the first time, you have to **`Add files to 'YourProject'`** in Xcode.
+* For iOS it can be any directory on your project. 
+
+  After you run the command, for the first time, you have to **`Add files to 'YourProject'`** in Xcode.\
+  **NOTE:** If you are using Xcode 16 and have structured your project using **Folders** instead of **Groups**, this step is not necessary.
 
 * For Android, since the translation are placed in a specific project directory, the output directory it should look something like this: **`path/YourProject/app/src/main/res `**
 
