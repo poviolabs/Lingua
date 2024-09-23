@@ -3,47 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A432A8E588500789A04 /* LinguaApp.swift */; };
-		774A1A462A8E588500789A04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A452A8E588500789A04 /* ContentView.swift */; };
-		774A1A482A8E588800789A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774A1A472A8E588800789A04 /* Assets.xcassets */; };
-		774A1A562A8E588800789A04 /* LinguaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A1A552A8E588800789A04 /* LinguaTests.swift */; };
-		777814B02B13D5C700A1B678 /* SectionsInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777814AF2B13D5C700A1B678 /* SectionsInputView.swift */; };
-		777BC5E12A93617000C74D72 /* ValidatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5E02A93617000C74D72 /* ValidatingTextField.swift */; };
-		777BC5E42A9361E200C74D72 /* ValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5E32A9361E200C74D72 /* ValidationRule.swift */; };
-		777BC5E62A9361F000C74D72 /* RequiredRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5E52A9361F000C74D72 /* RequiredRule.swift */; };
-		777BC5E82A93639E00C74D72 /* DirectoryInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5E72A93639E00C74D72 /* DirectoryInputField.swift */; };
-		777BC5EC2A93707B00C74D72 /* DirectoryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5EB2A93707B00C74D72 /* DirectoryAccessor.swift */; };
-		777BC5EF2A938B8400C74D72 /* ProjectFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC5EE2A938B8400C74D72 /* ProjectFormView.swift */; };
-		777BC61F2A93A16600C74D72 /* Binding+Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC61E2A93A16600C74D72 /* Binding+Project.swift */; };
-		777BC6282A93E07500C74D72 /* General.strings in Resources */ = {isa = PBXBuildFile; fileRef = 777BC6212A93E07500C74D72 /* General.strings */; };
-		777BC6292A93E07500C74D72 /* Projects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 777BC6232A93E07500C74D72 /* Projects.strings */; };
-		777BC62A2A93E07500C74D72 /* ProjectForm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 777BC6252A93E07500C74D72 /* ProjectForm.strings */; };
-		777BC62B2A93E07500C74D72 /* Lingua.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6272A93E07500C74D72 /* Lingua.swift */; };
-		777BC62F2A94B2A000C74D72 /* ProgressOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */; };
-		777BC6322A94B53300C74D72 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6312A94B53300C74D72 /* LocalizationManager.swift */; };
-		777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6332A94E12F00C74D72 /* HUDOverlay.swift */; };
-		777BC6362A94E6A600C74D72 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777BC6352A94E6A600C74D72 /* UserDefaults+Extension.swift */; };
-		778E9F162B03B4E20063B50F /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778E9F152B03B4E20063B50F /* ProjectFormViewModel.swift */; };
-		779F91F72A977378009C77D5 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F91F62A977378009C77D5 /* URL+Extension.swift */; };
-		779F91F92A978AC8009C77D5 /* InformationHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F91F82A978AC8009C77D5 /* InformationHolderView.swift */; };
-		779F91FB2A97A7B0009C77D5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F91FA2A97A7B0009C77D5 /* Date+Extension.swift */; };
 		77CF0A3C2A8E5ABB00AB5A2D /* LinguaLib in Frameworks */ = {isa = PBXBuildFile; productRef = 77CF0A3B2A8E5ABB00AB5A2D /* LinguaLib */; };
-		77CF0A3F2A8E61EE00AB5A2D /* ProjectItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */; };
-		77CF0A422A8E621900AB5A2D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A412A8E621900AB5A2D /* Project.swift */; };
-		77CF0A442A8E624900AB5A2D /* LocalizationPlatform+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */; };
-		77CF0A462A8E62F300AB5A2D /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */; };
-		77CF0A4B2A8F54B400AB5A2D /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */; };
-		77F89A482A98DF3A009EE7B1 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */; };
-		77FB97662ADC3928004CED84 /* LinguaAppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */; };
-		77FB97692ADC3A8B004CED84 /* ProjectMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77FB97672ADC3A8B004CED84 /* ProjectMenu.strings */; };
-		970D1F7A2B10CB5D00F6CD8E /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D1F792B10CB5D00F6CD8E /* ProjectListView.swift */; };
-		970D1F7C2B10CBE900F6CD8E /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D1F7B2B10CBE900F6CD8E /* ConditionalModifier.swift */; };
-		970D1F802B10EC3F00F6CD8E /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D1F7F2B10EC3F00F6CD8E /* Window.swift */; };
-		9941DA812ABE33140098B49A /* App.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9941DA7F2ABE33140098B49A /* App.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,47 +22,24 @@
 
 /* Begin PBXFileReference section */
 		7701E03F2A96036D00D4311E /* Lingua */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Lingua; path = ../..; sourceTree = "<group>"; };
-		7701E0402A96070E00D4311E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774A1A402A8E588500789A04 /* Lingua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lingua.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		774A1A432A8E588500789A04 /* LinguaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaApp.swift; sourceTree = "<group>"; };
-		774A1A452A8E588500789A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		774A1A472A8E588800789A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		774A1A4C2A8E588800789A04 /* Lingua.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lingua.entitlements; sourceTree = "<group>"; };
 		774A1A512A8E588800789A04 /* LinguaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinguaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		774A1A552A8E588800789A04 /* LinguaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaTests.swift; sourceTree = "<group>"; };
-		777814AF2B13D5C700A1B678 /* SectionsInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsInputView.swift; sourceTree = "<group>"; };
-		777BC5E02A93617000C74D72 /* ValidatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingTextField.swift; sourceTree = "<group>"; };
-		777BC5E32A9361E200C74D72 /* ValidationRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRule.swift; sourceTree = "<group>"; };
-		777BC5E52A9361F000C74D72 /* RequiredRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredRule.swift; sourceTree = "<group>"; };
-		777BC5E72A93639E00C74D72 /* DirectoryInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryInputField.swift; sourceTree = "<group>"; };
-		777BC5EB2A93707B00C74D72 /* DirectoryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryAccessor.swift; sourceTree = "<group>"; };
-		777BC5EE2A938B8400C74D72 /* ProjectFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormView.swift; sourceTree = "<group>"; };
-		777BC61E2A93A16600C74D72 /* Binding+Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Project.swift"; sourceTree = "<group>"; };
-		777BC6222A93E07500C74D72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/General.strings; sourceTree = "<group>"; };
-		777BC6242A93E07500C74D72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Projects.strings; sourceTree = "<group>"; };
-		777BC6262A93E07500C74D72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProjectForm.strings; sourceTree = "<group>"; };
-		777BC6272A93E07500C74D72 /* Lingua.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lingua.swift; sourceTree = "<group>"; };
-		777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOverlay.swift; sourceTree = "<group>"; };
-		777BC6312A94B53300C74D72 /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
-		777BC6332A94E12F00C74D72 /* HUDOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDOverlay.swift; sourceTree = "<group>"; };
-		777BC6352A94E6A600C74D72 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
-		778E9F152B03B4E20063B50F /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
-		779F91F62A977378009C77D5 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
-		779F91F82A978AC8009C77D5 /* InformationHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationHolderView.swift; sourceTree = "<group>"; };
-		779F91FA2A97A7B0009C77D5 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectItemView.swift; sourceTree = "<group>"; };
-		77CF0A412A8E621900AB5A2D /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizationPlatform+Extension.swift"; sourceTree = "<group>"; };
-		77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
-		77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
-		77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
-		77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinguaAppCommands.swift; sourceTree = "<group>"; };
-		77FB97682ADC3A8B004CED84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProjectMenu.strings; sourceTree = "<group>"; };
-		970D1F792B10CB5D00F6CD8E /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
-		970D1F7B2B10CBE900F6CD8E /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
-		970D1F7F2B10EC3F00F6CD8E /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
-		9941DA802ABE33140098B49A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/App.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		77CF99E82CA07660009FD455 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = 774A1A3F2A8E588500789A04 /* Lingua */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		77CF99C32CA0765F009FD455 /* Lingua */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (77CF99E82CA07660009FD455 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Lingua; sourceTree = "<group>"; };
+		77CF99EA2CA07669009FD455 /* LinguaTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LinguaTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		774A1A3D2A8E588500789A04 /* Frameworks */ = {
@@ -131,8 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				7701E03E2A96036D00D4311E /* Packages */,
-				774A1A422A8E588500789A04 /* Lingua */,
-				774A1A542A8E588800789A04 /* LinguaTests */,
+				77CF99C32CA0765F009FD455 /* Lingua */,
+				77CF99EA2CA07669009FD455 /* LinguaTests */,
 				774A1A412A8E588500789A04 /* Products */,
 			);
 			indentWidth = 2;
@@ -146,170 +87,6 @@
 				774A1A512A8E588800789A04 /* LinguaTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		774A1A422A8E588500789A04 /* Lingua */ = {
-			isa = PBXGroup;
-			children = (
-				77FB97622ADBE681004CED84 /* App */,
-				777BC5F02A938E2B00C74D72 /* Resources */,
-				777BC5DD2A93615B00C74D72 /* Utils */,
-				77CF0A402A8E620900AB5A2D /* Model */,
-				774A1A6F2A8E593500789A04 /* Scenes */,
-			);
-			path = Lingua;
-			sourceTree = "<group>";
-		};
-		774A1A542A8E588800789A04 /* LinguaTests */ = {
-			isa = PBXGroup;
-			children = (
-				774A1A552A8E588800789A04 /* LinguaTests.swift */,
-			);
-			path = LinguaTests;
-			sourceTree = "<group>";
-		};
-		774A1A6F2A8E593500789A04 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				777BC5ED2A938B6A00C74D72 /* ProjectFormView */,
-				77CF0A3D2A8E61DE00AB5A2D /* Projects */,
-				774A1A452A8E588500789A04 /* ContentView.swift */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		777BC5DD2A93615B00C74D72 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				777BC6302A94B52A00C74D72 /* Manager */,
-				777BC61D2A93A15900C74D72 /* Extensions */,
-				777BC5EA2A93706700C74D72 /* Helpers */,
-				777BC5E22A9361D400C74D72 /* Validation */,
-				777BC5DE2A93615B00C74D72 /* Components */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		777BC5DE2A93615B00C74D72 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				777BC5DF2A93615B00C74D72 /* UI */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		777BC5DF2A93615B00C74D72 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				777BC6332A94E12F00C74D72 /* HUDOverlay.swift */,
-				777BC5E02A93617000C74D72 /* ValidatingTextField.swift */,
-				777BC5E72A93639E00C74D72 /* DirectoryInputField.swift */,
-				777BC62E2A94B2A000C74D72 /* ProgressOverlay.swift */,
-				779F91F82A978AC8009C77D5 /* InformationHolderView.swift */,
-				77F89A472A98DF3A009EE7B1 /* CustomSearchBar.swift */,
-				777814AF2B13D5C700A1B678 /* SectionsInputView.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		777BC5E22A9361D400C74D72 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				777BC5E32A9361E200C74D72 /* ValidationRule.swift */,
-				777BC5E52A9361F000C74D72 /* RequiredRule.swift */,
-			);
-			path = Validation;
-			sourceTree = "<group>";
-		};
-		777BC5EA2A93706700C74D72 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				777BC5EB2A93707B00C74D72 /* DirectoryAccessor.swift */,
-				970D1F7B2B10CBE900F6CD8E /* ConditionalModifier.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		777BC5ED2A938B6A00C74D72 /* ProjectFormView */ = {
-			isa = PBXGroup;
-			children = (
-				777BC5EE2A938B8400C74D72 /* ProjectFormView.swift */,
-				778E9F152B03B4E20063B50F /* ProjectFormViewModel.swift */,
-			);
-			path = ProjectFormView;
-			sourceTree = "<group>";
-		};
-		777BC5F02A938E2B00C74D72 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7701E0402A96070E00D4311E /* Info.plist */,
-				774A1A4C2A8E588800789A04 /* Lingua.entitlements */,
-				774A1A472A8E588800789A04 /* Assets.xcassets */,
-				777BC6202A93E07500C74D72 /* Localization */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		777BC61D2A93A15900C74D72 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				777BC61E2A93A16600C74D72 /* Binding+Project.swift */,
-				777BC6352A94E6A600C74D72 /* UserDefaults+Extension.swift */,
-				779F91F62A977378009C77D5 /* URL+Extension.swift */,
-				779F91FA2A97A7B0009C77D5 /* Date+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		777BC6202A93E07500C74D72 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				77FB97672ADC3A8B004CED84 /* ProjectMenu.strings */,
-				777BC6212A93E07500C74D72 /* General.strings */,
-				777BC6232A93E07500C74D72 /* Projects.strings */,
-				777BC6252A93E07500C74D72 /* ProjectForm.strings */,
-				9941DA7F2ABE33140098B49A /* App.strings */,
-				777BC6272A93E07500C74D72 /* Lingua.swift */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		777BC6302A94B52A00C74D72 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				777BC6312A94B53300C74D72 /* LocalizationManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		77CF0A3D2A8E61DE00AB5A2D /* Projects */ = {
-			isa = PBXGroup;
-			children = (
-				77CF0A3E2A8E61EE00AB5A2D /* ProjectItemView.swift */,
-				77CF0A452A8E62F300AB5A2D /* ProjectsView.swift */,
-				77CF0A4A2A8F54B400AB5A2D /* ProjectsViewModel.swift */,
-				970D1F792B10CB5D00F6CD8E /* ProjectListView.swift */,
-			);
-			path = Projects;
-			sourceTree = "<group>";
-		};
-		77CF0A402A8E620900AB5A2D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				77CF0A412A8E621900AB5A2D /* Project.swift */,
-				77CF0A432A8E624900AB5A2D /* LocalizationPlatform+Extension.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		77FB97622ADBE681004CED84 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				774A1A432A8E588500789A04 /* LinguaApp.swift */,
-				77FB97652ADC3928004CED84 /* LinguaAppCommands.swift */,
-				970D1F7F2B10EC3F00F6CD8E /* Window.swift */,
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +103,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				77CF99C32CA0765F009FD455 /* Lingua */,
 			);
 			name = Lingua;
 			packageProductDependencies = (
@@ -348,6 +128,9 @@
 			dependencies = (
 				774A1A532A8E588800789A04 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				77CF99EA2CA07669009FD455 /* LinguaTests */,
+			);
 			name = LinguaTests;
 			productName = LinguaTests;
 			productReference = 774A1A512A8E588800789A04 /* LinguaTests.xctest */;
@@ -361,7 +144,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					774A1A3F2A8E588500789A04 = {
 						CreatedOnToolsVersion = 15.0;
@@ -398,12 +181,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				777BC6282A93E07500C74D72 /* General.strings in Resources */,
-				77FB97692ADC3A8B004CED84 /* ProjectMenu.strings in Resources */,
-				777BC62A2A93E07500C74D72 /* ProjectForm.strings in Resources */,
-				9941DA812ABE33140098B49A /* App.strings in Resources */,
-				777BC6292A93E07500C74D72 /* Projects.strings in Resources */,
-				774A1A482A8E588800789A04 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,35 +198,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77F89A482A98DF3A009EE7B1 /* CustomSearchBar.swift in Sources */,
-				778E9F162B03B4E20063B50F /* ProjectFormViewModel.swift in Sources */,
-				777BC5EC2A93707B00C74D72 /* DirectoryAccessor.swift in Sources */,
-				779F91FB2A97A7B0009C77D5 /* Date+Extension.swift in Sources */,
-				970D1F7C2B10CBE900F6CD8E /* ConditionalModifier.swift in Sources */,
-				77CF0A462A8E62F300AB5A2D /* ProjectsView.swift in Sources */,
-				77CF0A3F2A8E61EE00AB5A2D /* ProjectItemView.swift in Sources */,
-				77CF0A4B2A8F54B400AB5A2D /* ProjectsViewModel.swift in Sources */,
-				779F91F72A977378009C77D5 /* URL+Extension.swift in Sources */,
-				970D1F7A2B10CB5D00F6CD8E /* ProjectListView.swift in Sources */,
-				774A1A462A8E588500789A04 /* ContentView.swift in Sources */,
-				777BC5E62A9361F000C74D72 /* RequiredRule.swift in Sources */,
-				779F91F92A978AC8009C77D5 /* InformationHolderView.swift in Sources */,
-				777BC61F2A93A16600C74D72 /* Binding+Project.swift in Sources */,
-				777BC62B2A93E07500C74D72 /* Lingua.swift in Sources */,
-				777BC6342A94E12F00C74D72 /* HUDOverlay.swift in Sources */,
-				77FB97662ADC3928004CED84 /* LinguaAppCommands.swift in Sources */,
-				77CF0A442A8E624900AB5A2D /* LocalizationPlatform+Extension.swift in Sources */,
-				777BC6322A94B53300C74D72 /* LocalizationManager.swift in Sources */,
-				777BC6362A94E6A600C74D72 /* UserDefaults+Extension.swift in Sources */,
-				777BC5EF2A938B8400C74D72 /* ProjectFormView.swift in Sources */,
-				774A1A442A8E588500789A04 /* LinguaApp.swift in Sources */,
-				777BC5E82A93639E00C74D72 /* DirectoryInputField.swift in Sources */,
-				777814B02B13D5C700A1B678 /* SectionsInputView.swift in Sources */,
-				970D1F802B10EC3F00F6CD8E /* Window.swift in Sources */,
-				777BC62F2A94B2A000C74D72 /* ProgressOverlay.swift in Sources */,
-				777BC5E42A9361E200C74D72 /* ValidationRule.swift in Sources */,
-				777BC5E12A93617000C74D72 /* ValidatingTextField.swift in Sources */,
-				77CF0A422A8E621900AB5A2D /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +205,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774A1A562A8E588800789A04 /* LinguaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,49 +217,6 @@
 			targetProxy = 774A1A522A8E588800789A04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		777BC6212A93E07500C74D72 /* General.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				777BC6222A93E07500C74D72 /* en */,
-			);
-			name = General.strings;
-			sourceTree = "<group>";
-		};
-		777BC6232A93E07500C74D72 /* Projects.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				777BC6242A93E07500C74D72 /* en */,
-			);
-			name = Projects.strings;
-			sourceTree = "<group>";
-		};
-		777BC6252A93E07500C74D72 /* ProjectForm.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				777BC6262A93E07500C74D72 /* en */,
-			);
-			name = ProjectForm.strings;
-			sourceTree = "<group>";
-		};
-		77FB97672ADC3A8B004CED84 /* ProjectMenu.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				77FB97682ADC3A8B004CED84 /* en */,
-			);
-			name = ProjectMenu.strings;
-			sourceTree = "<group>";
-		};
-		9941DA7F2ABE33140098B49A /* App.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9941DA802ABE33140098B49A /* en */,
-			);
-			name = App.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		774A1A632A8E588800789A04 /* Debug */ = {
@@ -708,7 +412,6 @@
 		774A1A692A8E588800789A04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -727,7 +430,6 @@
 		774A1A6A2A8E588800789A04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
