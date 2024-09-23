@@ -4,8 +4,8 @@ struct NSRegularExpressionPlaceholderExtractor: PlaceholderExtractorStrategy {
   func extractPlaceholders(from translation: String, pattern: String) -> [Placeholder] {
     guard let regex = try? NSRegularExpression(pattern: pattern) else { return [] }
     
-    let matches = regex.matches(in: translation,
-                                range: NSRange(location: 0, length: translation.count))
+    let range = NSRange(location: 0, length: translation.count)
+    let matches = regex.matches(in: translation, range: range)
     
     return matches
       .enumerated()
