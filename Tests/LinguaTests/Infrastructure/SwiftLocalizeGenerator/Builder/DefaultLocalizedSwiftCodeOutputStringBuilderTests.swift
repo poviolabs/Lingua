@@ -29,12 +29,12 @@ final class DefaultLocalizedSwiftCodeOutputStringBuilderTests: XCTestCase {
     
     import Foundation
     
-    enum Lingua {
-    \tenum section1 {
+    public enum Lingua {
+    \tpublic enum section1 {
     \t\tgeneratedCode(section1, key1, value1)
     \t\tgeneratedCode(section1, key2, value2)
     \t}\n
-    \tenum section2 {
+    \tpublic enum section2 {
     \t\tgeneratedCode(section2, key3, value3)
     \t}
         
