@@ -16,7 +16,7 @@ struct DefaultLocalizedSwiftCodeOutputStringBuilder: LocalizedSwiftCodeOutputStr
            
            import Foundation
            
-           enum \(String.packageName) {
+           public enum \(String.packageName) {
            \(sectionsOutput)
                
            \tprivate static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
@@ -50,7 +50,7 @@ private extension DefaultLocalizedSwiftCodeOutputStringBuilder {
       .map { section in
         guard let keys = sections[section] else { return "" }
         let keysOutput = buildKeysOutput(section: section, keys: keys, translations: translations)
-        return "\tenum \(section.formatSheetSection()) {\n\(keysOutput)\n\t}"
+        return "\tpublic enum \(section.formatSheetSection()) {\n\(keysOutput)\n\t}"
       }
       .joined(separator: "\n\n")
   }
