@@ -1,6 +1,6 @@
 import Foundation
 
-final class CustomJSONEncoder: JSONEncoder {
+final class CustomJSONEncoder: JSONEncoder, @unchecked Sendable {
   override func encode<T: Encodable>(_ value: T) throws -> Data {
     let encoder = JSONEncoder()
     encoder.outputFormatting = .prettyPrinted
