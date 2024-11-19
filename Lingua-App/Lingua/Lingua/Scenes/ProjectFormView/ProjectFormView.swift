@@ -79,7 +79,7 @@ private extension ProjectFormView {
           Text(type.title)
             .tag(type)
         }
-      }.padding(.leading, 8)
+      }
       
       ValidatingTextField(
         title: Lingua.ProjectForm.inputProjectName,
