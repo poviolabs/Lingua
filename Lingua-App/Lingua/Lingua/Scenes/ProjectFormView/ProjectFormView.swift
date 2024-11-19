@@ -18,7 +18,8 @@ struct ProjectFormView: View {
   @State private var outputPathValid = false
   @State private var stringsDirectoryValid = false
   @State private var outputSwiftCodeFileDirectoryValid = false
-  
+  @State private var copied = false
+
   var onSave: ((Project) -> Void)? = nil
   var onDelete: ((Project) -> Void)? = nil
   var onLocalize: ((Project) -> Void)? = nil
@@ -52,6 +53,19 @@ struct ProjectFormView: View {
       deleteButton(for: viewModel.project).padding()
     }
     .padding()
+    .overlay {
+      if copied {
+        Text("Copied to clipboard!")
+          .padding(8)
+          .background(
+            Color.black
+              .opacity(0.4)
+          )
+          .clipShape(RoundedRectangle(cornerRadius: 6))
+          .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+          .padding(.top, 6)
+      }
+    }
   }
 }
 
@@ -104,7 +118,8 @@ private extension ProjectFormView {
           bookmarkDataKey: viewModel.project.bookmarkDataForDirectoryPath,
           directoryPath: $viewModel.project.directoryPath,
           isValid: $outputPathValid,
-          onDirectorySelected: updateDirectoryPaths
+          onDirectorySelected: updateDirectoryPaths,
+          onDirectoryCopied: showCopiedMessage
         )
       }) {
         Text(.init(Lingua.ProjectForm.outputDirectoryHelp))
@@ -135,7 +150,8 @@ private extension ProjectFormView {
               title: Lingua.ProjectForm.stringsDirectory,
               bookmarkDataKey: viewModel.project.bookmarkDataForStringsDirectory,
               directoryPath: $viewModel.project.swiftCode.stringsDirectory,
-              isValid: $stringsDirectoryValid
+              isValid: $stringsDirectoryValid,
+              onDirectoryCopied: showCopiedMessage
             )
           }) {
             Text(.init(Lingua.ProjectForm.lprojDirectoryHelp))
@@ -147,7 +163,8 @@ private extension ProjectFormView {
               title: Lingua.ProjectForm.linguaSwiftOutputDirectory,
               bookmarkDataKey: viewModel.project.bookmarkDataForOutputSwiftCodeFileDirectory ,
               directoryPath: $viewModel.project.swiftCode.outputSwiftCodeFileDirectory,
-              isValid: $outputSwiftCodeFileDirectoryValid
+              isValid: $outputSwiftCodeFileDirectoryValid,
+              onDirectoryCopied: showCopiedMessage
             )
           }) {
             Text(.init(Lingua.ProjectForm.linguaSwiftOutputDirectoryHelp))
@@ -240,6 +257,17 @@ private extension ProjectFormView {
       let firstLprojFullURL = URL(fileURLWithPath: firstLprojFullPath)
       viewModel.project.swiftCode.stringsDirectory = firstLprojFullURL.absoluteString
       try? firstLprojFullURL.saveBookmarkData(forKey: viewModel.project.bookmarkDataForStringsDirectory)
+    }
+  }
+
+  func showCopiedMessage() {
+    withAnimation {
+      copied = true
+    }
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+      withAnimation {
+        self.copied = false
+      }
     }
   }
 }
