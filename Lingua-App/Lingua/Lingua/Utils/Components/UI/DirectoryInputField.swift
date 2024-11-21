@@ -13,17 +13,45 @@ struct DirectoryInputField: View {
   
   @Binding var directoryPath: String
   @Binding var isValid: Bool
-  
+  @State private var isHovered = false
+
   var onDirectorySelected: ((String) -> Void)? = nil
-  
+  var onDirectoryCopied: (() -> Void)? = nil
+
   var body: some View {
     HStack {
       ValidatingTextField(title: title, validation: RequiredRule(), isDisabled: true, text: $directoryPath, isValid: $isValid)
+        .overlay {
+          // Transparent overlay to capture tap gesture
+          Color.clear
+            .contentShape(Rectangle())
+            .onTapGesture {
+              copyPathToClipboard()
+              onDirectoryCopied?()
+            }
+        }
+        .onHover { hovering in
+          isHovered = hovering
+        }
       Button(Lingua.ProjectForm.inputDirectoryButton) {
         chooseDirectory()
       }
     }
     .padding(.vertical, 5)
+    .background(
+      GeometryReader { geometry in
+        Text(directoryPath)
+          .font(.caption)
+          .padding(8)
+          .background(Color.black.opacity(0.8))
+          .foregroundColor(.white)
+          .cornerRadius(8)
+          .frame(width: geometry.size.width, alignment: .center)
+          .offset(y: -geometry.size.height)
+          .transition(.opacity)
+          .shouldAddView(isHovered)
+      }
+    )
   }
 }
 
@@ -52,5 +80,10 @@ private extension DirectoryInputField {
       debugPrint(error.localizedDescription)
       directoryPath = ""
     }
+  }
+
+  private func copyPathToClipboard() {
+    NSPasteboard.general.clearContents()
+    NSPasteboard.general.setString(directoryPath, forType: .string)
   }
 }

@@ -53,3 +53,4 @@ It serves as base language directory from where the Lingua.swift file will be cr
 "filtering_section_description" = "Add the sections that you want to include into the project, otherwise if it is disabled all the sections will be included";
 "filtering_section_textfield_placeholder" = "Enter a section";
 "filtering_add_section_button_title" = "Add section";
+"copied_to_clipboard" = "Copied to clipboard!";
