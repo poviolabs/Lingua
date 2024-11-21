@@ -13,13 +13,25 @@ final class DirectoryOperatorTests: XCTestCase {
   
   func test_createDirectory_throwsError_onFailure() {
     let errorFileManager = MockFileManager()
-    errorFileManager.shouldThrowErrorOnCreateDirectory = true
+    errorFileManager.shouldThrowErrorOnCreateDirectory = "Create_failed"
     let sut = makeSUT(fileManager: errorFileManager)
     let outputDirectory = NSTemporaryDirectory()
     let directoryName = "TestDirectory"
     
     XCTAssertThrowsError(try sut.createDirectory(named: directoryName, in: outputDirectory)) { error in
-      XCTAssertEqual(error as? DirectoryOperationError, DirectoryOperationError.folderCreationFailed)
+      XCTAssertEqual((error as? DirectoryOperationError), DirectoryOperationError.folderCreationFailed("Create_failed"))
+    }
+  }
+  
+  func test_createDirectory_throwsError_onEmptyDirectory() {
+    let errorFileManager = MockFileManager()
+    errorFileManager.shouldThrowErrorOnCreateDirectory = "Directory name is empty."
+    let sut = makeSUT(fileManager: errorFileManager)
+    let outputDirectory = NSTemporaryDirectory()
+    let directoryName = ""
+    
+    XCTAssertThrowsError(try sut.createDirectory(named: directoryName, in: outputDirectory)) { error in
+      XCTAssertEqual((error as? DirectoryOperationError)?.errorDescription, DirectoryOperationError.folderCreationFailed("Directory name is empty.").errorDescription)
     }
   }
   
@@ -47,7 +59,7 @@ final class DirectoryOperatorTests: XCTestCase {
   
   func test_removeFiles_throwsError_onRemoveItem() throws {
     let errorFileManager = MockFileManager()
-    errorFileManager.shouldThrowErrorOnRemoveItem = true
+    errorFileManager.shouldThrowErrorOnRemoveItem = "Remove_failed"
     let sut = makeSUT(fileManager: errorFileManager)
     let outputDirectory = NSTemporaryDirectory()
     let directoryName = "TestDirectory"
@@ -64,7 +76,7 @@ final class DirectoryOperatorTests: XCTestCase {
     // Test the error case
     XCTAssertThrowsError(try sut.removeFiles(withPrefix: .packageName, in: createdDirectoryURL)) { error in
       XCTAssertEqual((error as? DirectoryOperationError)?.localizedDescription,
-                     DirectoryOperationError.removeItemFailed.localizedDescription)
+                     DirectoryOperationError.removeItemFailed("Remove_failed").localizedDescription)
     }
   }
 }

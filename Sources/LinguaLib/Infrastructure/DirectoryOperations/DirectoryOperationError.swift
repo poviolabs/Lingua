@@ -1,6 +1,6 @@
 import Foundation
 
-public enum DirectoryOperationError: LocalizedError {
+public enum DirectoryOperationError: LocalizedError, Equatable {
   case folderCreationFailed(String)
   case removeItemFailed(String)
   

@@ -27,6 +27,8 @@ public final class DirectoryOperator: DirectoryOperable {
     
     do {
       try fileManagerProvider.manager.createDirectory(at: outputFolder, withIntermediateDirectories: true, attributes: nil)
+    } catch let error as DirectoryOperationError {
+      throw error
     } catch {
       throw DirectoryOperationError.folderCreationFailed(error.localizedDescription)
     }
@@ -42,6 +44,8 @@ public final class DirectoryOperator: DirectoryOperable {
     for fileURL in fileURLs where fileURL.lastPathComponent.hasPrefix(prefix) {
       do {
         try fileManager.removeItem(at: fileURL)
+      } catch let error as DirectoryOperationError {
+        throw error
       } catch {
         throw DirectoryOperationError.removeItemFailed(error.localizedDescription)
       }

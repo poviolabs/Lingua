@@ -35,7 +35,7 @@ final class LocalizationProcessorTests: XCTestCase {
   }
   
   func test_process_throwsErrorWhenModuleLocalizationFails() async throws {
-    let localizationModule = MockLocalizationModule(shouldThrow: true)
+    let localizationModule = MockLocalizationModule(shouldThrow: "Error_message")
     let (sut, actors) = makeSUT(localizationModule: localizationModule)
     let tempDirectoryURL = try createTemporaryDirectoryURL()
     let configPath = try createTemporaryConfigFile(data: createConfigData(in: tempDirectoryURL), tempDirectoryURL: tempDirectoryURL)
@@ -47,7 +47,7 @@ final class LocalizationProcessorTests: XCTestCase {
       XCTAssertEqual(actors.logger.messages, [.message(message: "Loading configuration file...", level: .info),
                                               .message(message: "Initializing localization module...", level: .info),
                                               .message(message: "Starting localization...", level: .info),
-                                              .message(message: DirectoryOperationError.folderCreationFailed.localizedDescription, level: .error)])
+                                              .message(message: DirectoryOperationError.folderCreationFailed("Error_message").localizedDescription, level: .error)])
       XCTAssertEqual(actors.mockLocalizationModule.messages, [])
     }
   }
@@ -85,7 +85,7 @@ private extension LocalizationProcessorTests {
     let mockLocalizationModule: MockLocalizationModule
   }
   
-  func makeSUT(localizationModule: MockLocalizationModule = MockLocalizationModule(),
+  func makeSUT(localizationModule: MockLocalizationModule = MockLocalizationModule(shouldThrow: .none),
                configFileGenerator: ConfigInitialFileGenerating = ConfigInitialFileGenerator.make()) -> (sut: LocalizationProcessor, actors: Actors) {
     let argumentParser = CommandLineParser()
     let logger = MockLogger()
