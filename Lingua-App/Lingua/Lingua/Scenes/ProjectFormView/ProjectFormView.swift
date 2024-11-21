@@ -55,7 +55,7 @@ struct ProjectFormView: View {
     .padding()
     .overlay {
       if copied {
-        Text("Copied to clipboard!")
+        Text(Lingua.ProjectForm.copiedToClipboard)
           .padding(8)
           .background(
             Color.black
