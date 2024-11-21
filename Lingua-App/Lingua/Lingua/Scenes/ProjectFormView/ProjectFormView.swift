@@ -54,17 +54,16 @@ struct ProjectFormView: View {
     }
     .padding()
     .overlay {
-      if copied {
-        Text(Lingua.ProjectForm.copiedToClipboard)
-          .padding(8)
-          .background(
-            Color.black
-              .opacity(0.4)
-          )
-          .clipShape(RoundedRectangle(cornerRadius: 6))
-          .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-          .padding(.top, 6)
-      }
+      Text(Lingua.ProjectForm.copiedToClipboard)
+        .padding(8)
+        .background(
+          Color.black
+            .opacity(0.4)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 6))
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(.top, 6)
+        .shouldAddView(copied)
     }
   }
 }
