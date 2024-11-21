@@ -37,8 +37,9 @@ struct ValidatingTextField: View {
     VStack(alignment: .leading, spacing: 5) {
       TextField(title, text: $localText)
         .disabled(isDisabled)
-        .cornerRadius(8)
         .focused($isFocused)
+        .frame(minHeight: 20)
+        .padding(.trailing)
         .onChange(of: isFocused) { focused in
           if !focused {
             validate()
@@ -50,6 +51,10 @@ struct ValidatingTextField: View {
           .foregroundColor(.red)
           .font(.caption)
       }
+    }
+    .contentShape(Rectangle())
+    .onTapGesture {
+      isFocused = true
     }
     .onAppear {
       isValid = validation.validate(text)

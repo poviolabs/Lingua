@@ -6,15 +6,15 @@ final class MockLocalizationModule: ModuleLocalizing {
     case localize(LocalizationPlatform)
   }
   private(set) var messages = [Message]()
-  private let shouldThrow: Bool
+  private let shouldThrow: String?
   
-  init(shouldThrow: Bool = false) {
+  init(shouldThrow: String?) {
     self.shouldThrow = shouldThrow
   }
   
   func localize(for platform: LocalizationPlatform) async throws {
-    if shouldThrow {
-      throw DirectoryOperationError.folderCreationFailed
+    if let shouldThrow {
+      throw DirectoryOperationError.folderCreationFailed(shouldThrow)
     }
     messages.append(.localize(platform))
   }
