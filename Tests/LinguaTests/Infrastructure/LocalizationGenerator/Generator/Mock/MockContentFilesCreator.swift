@@ -3,15 +3,15 @@ import Foundation
 
 class MockContentFilesCreator: ContentFileCreatable {
   var writtenContent: [String: String] = [:]
-  var shouldThrowError: String?
+  var errorMessage: String?
   
   func createFiles(with content: String, fileName: String, outputFolder: URL) throws {
     try createFilesInCurrentDirectory(with: content, fileName: fileName)
   }
   
   func createFilesInCurrentDirectory(with content: String, fileName: String) throws {
-    if let shouldThrowError {
-      throw DirectoryOperationError.folderCreationFailed(shouldThrowError)
+    if let errorMessage {
+      throw DirectoryOperationError.folderCreationFailed(errorMessage)
     }
     writtenContent[fileName] = content
   }

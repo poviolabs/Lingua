@@ -18,7 +18,7 @@ final class SwiftLocalizedCodeFileGeneratorTests: XCTestCase {
   func test_generate_printsErrorOnCreateFilesFailure() {
     let mockLogger = MockLogger()
     let mockContentFilesCreator = MockContentFilesCreator()
-    mockContentFilesCreator.shouldThrowError = "Error_message"
+    mockContentFilesCreator.errorMessage = "Error_message"
     let sut = makeSUT(mockLogger: mockLogger,
                       mockContentFilesCreator: mockContentFilesCreator)
     

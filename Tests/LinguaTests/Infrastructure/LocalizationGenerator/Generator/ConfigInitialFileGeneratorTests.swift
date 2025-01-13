@@ -40,7 +40,7 @@ private extension ConfigInitialFileGeneratorTests {
   
   func makeSUT(shouldFail: String? = .none, encoder: JSONEncoding? = nil) -> (sut: ConfigInitialFileGenerator, actors: Actors) {
     let contentFilesCreator = MockContentFilesCreator()
-    contentFilesCreator.shouldThrowError = shouldFail
+    contentFilesCreator.errorMessage = shouldFail
     let config = Config.createTemplateConfig()
     let transformer = ConfigTransformer()
     let fileName = "config.json"
