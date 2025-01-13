@@ -13,7 +13,7 @@ final class DirectoryOperatorTests: XCTestCase {
   
   func test_createDirectory_throwsError_onFailure() {
     let errorFileManager = MockFileManager()
-    errorFileManager.shouldThrowErrorOnCreateDirectory = "Create_failed"
+    errorFileManager.onCreateDirectoryError = "Create_failed"
     let sut = makeSUT(fileManager: errorFileManager)
     let outputDirectory = NSTemporaryDirectory()
     let directoryName = "TestDirectory"
@@ -25,7 +25,7 @@ final class DirectoryOperatorTests: XCTestCase {
   
   func test_createDirectory_throwsError_onEmptyDirectory() {
     let errorFileManager = MockFileManager()
-    errorFileManager.shouldThrowErrorOnCreateDirectory = "Directory name is empty."
+    errorFileManager.onCreateDirectoryError = "Directory name is empty."
     let sut = makeSUT(fileManager: errorFileManager)
     let outputDirectory = NSTemporaryDirectory()
     let directoryName = ""
@@ -59,7 +59,7 @@ final class DirectoryOperatorTests: XCTestCase {
   
   func test_removeFiles_throwsError_onRemoveItem() throws {
     let errorFileManager = MockFileManager()
-    errorFileManager.shouldThrowErrorOnRemoveItem = "Remove_failed"
+    errorFileManager.onRemoveItemError = "Remove_failed"
     let sut = makeSUT(fileManager: errorFileManager)
     let outputDirectory = NSTemporaryDirectory()
     let directoryName = "TestDirectory"

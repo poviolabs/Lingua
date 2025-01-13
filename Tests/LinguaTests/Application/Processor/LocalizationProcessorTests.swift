@@ -35,7 +35,7 @@ final class LocalizationProcessorTests: XCTestCase {
   }
   
   func test_process_throwsErrorWhenModuleLocalizationFails() async throws {
-    let localizationModule = MockLocalizationModule(shouldThrow: "Error_message")
+    let localizationModule = MockLocalizationModule(errorMessage: "Error_message")
     let (sut, actors) = makeSUT(localizationModule: localizationModule)
     let tempDirectoryURL = try createTemporaryDirectoryURL()
     let configPath = try createTemporaryConfigFile(data: createConfigData(in: tempDirectoryURL), tempDirectoryURL: tempDirectoryURL)
@@ -85,7 +85,7 @@ private extension LocalizationProcessorTests {
     let mockLocalizationModule: MockLocalizationModule
   }
   
-  func makeSUT(localizationModule: MockLocalizationModule = MockLocalizationModule(shouldThrow: .none),
+  func makeSUT(localizationModule: MockLocalizationModule = MockLocalizationModule(errorMessage: .none),
                configFileGenerator: ConfigInitialFileGenerating = ConfigInitialFileGenerator.make()) -> (sut: LocalizationProcessor, actors: Actors) {
     let argumentParser = CommandLineParser()
     let logger = MockLogger()
