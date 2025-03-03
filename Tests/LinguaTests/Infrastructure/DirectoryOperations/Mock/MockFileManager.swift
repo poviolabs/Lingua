@@ -3,8 +3,8 @@ import Foundation
 
 final class MockFileManager: FileManager {
   let files: [String]
-  var shouldThrowErrorOnRemoveItem = false
-  var shouldThrowErrorOnCreateDirectory = false
+  var onRemoveItemError: String?
+  var onCreateDirectoryError: String?
   
   init(files: [String] = []) {
     self.files = files
@@ -17,16 +17,16 @@ final class MockFileManager: FileManager {
   override func createDirectory(at url: URL,
                                 withIntermediateDirectories createIntermediates: Bool,
                                 attributes: [FileAttributeKey : Any]? = nil) throws {
-    if shouldThrowErrorOnCreateDirectory {
-      throw DirectoryOperationError.folderCreationFailed
+    if let onCreateDirectoryError {
+      throw DirectoryOperationError.folderCreationFailed(onCreateDirectoryError)
     } else {
       try super.createDirectory(at: url, withIntermediateDirectories: createIntermediates, attributes: attributes)
     }
   }
   
   override func removeItem(at URL: URL) throws {
-    if shouldThrowErrorOnRemoveItem {
-      throw NSError(domain: NSCocoaErrorDomain, code: NSFileWriteUnknownError, userInfo: nil)
+    if let onRemoveItemError {
+      throw DirectoryOperationError.removeItemFailed(onRemoveItemError)
     } else {
       try super.removeItem(at: URL)
     }

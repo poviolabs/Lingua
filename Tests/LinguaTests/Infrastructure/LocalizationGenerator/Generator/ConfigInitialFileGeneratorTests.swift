@@ -16,7 +16,7 @@ final class ConfigInitialFileGeneratorTests: XCTestCase {
   }
   
   func test_generate_throwsErrorOnFailure() {
-    let (sut, _) = makeSUT(shouldFail: true)
+    let (sut, _) = makeSUT(shouldFail: "error")
     
     XCTAssertThrowsError(try sut.generate())
   }
@@ -38,9 +38,9 @@ private extension ConfigInitialFileGeneratorTests {
     let fileName: String
   }
   
-  func makeSUT(shouldFail: Bool = false, encoder: JSONEncoding? = nil) -> (sut: ConfigInitialFileGenerator, actors: Actors) {
+  func makeSUT(shouldFail: String? = .none, encoder: JSONEncoding? = nil) -> (sut: ConfigInitialFileGenerator, actors: Actors) {
     let contentFilesCreator = MockContentFilesCreator()
-    contentFilesCreator.shouldThrowError = shouldFail
+    contentFilesCreator.errorMessage = shouldFail
     let config = Config.createTemplateConfig()
     let transformer = ConfigTransformer()
     let fileName = "config.json"

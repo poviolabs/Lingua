@@ -18,14 +18,14 @@ final class SwiftLocalizedCodeFileGeneratorTests: XCTestCase {
   func test_generate_printsErrorOnCreateFilesFailure() {
     let mockLogger = MockLogger()
     let mockContentFilesCreator = MockContentFilesCreator()
-    mockContentFilesCreator.shouldThrowError = true
+    mockContentFilesCreator.errorMessage = "Error_message"
     let sut = makeSUT(mockLogger: mockLogger,
                       mockContentFilesCreator: mockContentFilesCreator)
     
     sut.generate(from: "inputPath", outputPath: "outputPath")
     
     XCTAssertEqual(mockLogger.messages,
-                   [.message(message: DirectoryOperationError.folderCreationFailed.errorDescription ?? "", level: .error)])
+                   [.message(message: DirectoryOperationError.folderCreationFailed("Error_message").localizedDescription, level: .error)])
   }
 }
 

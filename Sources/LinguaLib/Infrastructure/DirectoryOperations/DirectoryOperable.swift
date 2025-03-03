@@ -14,13 +14,25 @@ public final class DirectoryOperator: DirectoryOperable {
   }
   
   public func createDirectory(named directoryName: String, in outputDirectory: String) throws -> URL {
-    let mainFolder = URL(fileURLWithPath: outputDirectory)
+    guard !directoryName.isEmpty else {
+      throw DirectoryOperationError.folderCreationFailed("Directory name is empty.")
+    }
+    
+    guard let decodedPath = outputDirectory.removingPercentEncoding else {
+      throw DirectoryOperationError.folderCreationFailed("Invalid output directory path.")
+    }
+    
+    let mainFolder = URL(fileURLWithPath: decodedPath)
     let outputFolder = mainFolder.appendingPathComponent(directoryName)
+    
     do {
       try fileManagerProvider.manager.createDirectory(at: outputFolder, withIntermediateDirectories: true, attributes: nil)
+    } catch let error as DirectoryOperationError {
+      throw error
     } catch {
-      throw DirectoryOperationError.folderCreationFailed
+      throw DirectoryOperationError.folderCreationFailed(error.localizedDescription)
     }
+    
     return outputFolder
   }
   
@@ -32,8 +44,10 @@ public final class DirectoryOperator: DirectoryOperable {
     for fileURL in fileURLs where fileURL.lastPathComponent.hasPrefix(prefix) {
       do {
         try fileManager.removeItem(at: fileURL)
+      } catch let error as DirectoryOperationError {
+        throw error
       } catch {
-        throw DirectoryOperationError.removeItemFailed
+        throw DirectoryOperationError.removeItemFailed(error.localizedDescription)
       }
     }
   }
@@ -47,7 +61,7 @@ public final class DirectoryOperator: DirectoryOperable {
       do {
         try fileManager.removeItem(at: fileURL)
       } catch {
-        throw DirectoryOperationError.removeItemFailed
+        throw DirectoryOperationError.removeItemFailed(error.localizedDescription)
       }
     }
   }

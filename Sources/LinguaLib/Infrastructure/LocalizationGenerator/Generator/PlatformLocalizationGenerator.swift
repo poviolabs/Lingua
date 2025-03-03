@@ -11,8 +11,8 @@ final class PlatformLocalizationGenerator: PlatformLocalizationGenerating {
   }
   
   func generateLocalizationFiles(data: [LocalizationSheet], config: Config.Localization) throws {
-    data.forEach { data in
-      try? localizedFileGenerator.generate(for: data, config: config)
+    try data.forEach { data in
+      try localizedFileGenerator.generate(for: data, config: config)
     }
   }
 }
